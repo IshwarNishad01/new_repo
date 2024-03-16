@@ -1,0 +1,10 @@
+{
+  "myadmainscreen_on": "false",
+  "myadmainscreen_url": "https://honoanime.com",
+  "new_version": "1",
+  "newanime_fullscreen_banner_on": "false",
+  "newanime_fullscreen_banner_url": "https://honoanime.com",
+  "newanime_signin_layout_on": "true",
+  "noads_on": "false",
+  "noads_url": "https://honoanime.com"
+}
