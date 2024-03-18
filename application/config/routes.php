@@ -65,7 +65,7 @@ $route['notification_list'] = 'AdminController/notification_list';
 $route['delete_list'] = 'AdminController/delete_list';
 
 $route['our_branches'] = 'AdminController/our_branches';
-$route['add_student'] = 'AdminController/add_student'; 
+$route['add_student'] = 'AdminController/add_student';
 
 $route['enquiry_list'] = 'AdminController/enquiry_list';
 $route['enquiry_data'] = 'AdminController/enquiry_data';
@@ -113,6 +113,11 @@ $route['paper_view'] = 'HomeController/paper_view';
 
 // Typing Route Front End ...........
 
+// typing exam related routes
+$route['exam_paper'] = 'HomeController/show_question_paper';
+$route['submit-exam'] = 'HomeController/submit_exam';
+
+
 
 $route['Msg'] = 'HomeController/msg';
 $route['submit_exam'] = 'HomeController/paper_submit';
@@ -151,7 +156,7 @@ $route['event'] = 'HomeController/event';
 $route['allcourse'] = 'HomeController/allcourse';
 $route['all-course'] = 'HomeController/all_course';
 $route['viewdetails'] = 'HomeController/viewdetails';
-$route['exam_paper'] = 'HomeController/exam_paper';
+// $route['exam_paper'] = 'HomeController/exam_paper';
 $route['dashboard'] = 'HomeController/dashboard';
 
 $route['payment'] = 'HomeController/payment';

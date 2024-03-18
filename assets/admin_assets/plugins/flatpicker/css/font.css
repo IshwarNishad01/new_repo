@@ -1,0 +1,8 @@
+@font-face {
+	font-family: "Hindi";
+	src: url("Kruti_dev_010.ttf");
+}
+
+#typed_text {
+	font-family: "Hindi";
+}

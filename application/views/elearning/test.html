@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindi Typing Test</title>
+<style>
+  #text {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <div id="text">स्वागत है, कृपया हिंदी में लिखें।</div>
+  <input type="text" id="input" autofocus>
+
+<script>
+const hindiText = "स्वागत है, कृपया हिंदी में लिखें।";
+const inputField = document.getElementById("input");
+const textField = document.getElementById("text");
+
+let currentIndex = 0;
+
+inputField.addEventListener('input', function(event) {
+  const inputValue = event.target.value;
+  
+  // Check if the current character matches the expected character
+  if (inputValue.charAt(inputValue.length - 1) === hindiText.charAt(currentIndex)) {
+    textField.innerHTML = hindiText.substring(0, currentIndex + 1) + '<span style="color:green;">' + hindiText.substring(currentIndex + 1) + '</span>';
+    currentIndex++;
+	console.log(currentIndex);
+  } else {
+    textField.innerHTML = hindiText.substring(0, currentIndex) + '<span style="color:red;">' + hindiText.substring(currentIndex) + '</span>';
+	console.log(currentIndex);
+  }
+});
+</script>
+</body>
+</html>

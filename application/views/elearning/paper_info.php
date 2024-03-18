@@ -72,7 +72,7 @@
 							        <div class="card-box">
                                         <div class="card-body">
                                         <center><h3 class="card-title"><?= $row->p_name ?></h3>
-                                        <a href="paper_view?id=<?= $row->id ?>" class="btn btn-primary">Start Exam</a></center>
+                                        <a href="paper_view?id=<?= $row->id ?>" class="btn btn-primary">View Exam</a></center>
                                      </div>
                                      </div>
                                 </div>

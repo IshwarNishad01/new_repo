@@ -33,6 +33,8 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- favicon -->
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
+
 </head>
 <!-- END HEAD -->
 
@@ -58,25 +60,72 @@
 								<div class="card-head">
 									<!-- <header>Paper Details</header> -->
 								</div>
-
+								<h5 class="text-center p-3">For Typing Test - </h5>
 								<?php
-								foreach ($show as $row) { ?>
-									<div class="card-body" id="bar-parent">
-										<form action="paper_view" class="form-horizontal" enctype="multipart/form-data" method="post">
-											<h4>Paper Name :- <?= $row->p_name ?></h4>
-											<h4>Exam Duration :- <?= $row->duration ?></h4>
-											<h4>Exam Date :- <?= $row->e_date ?></h4>
-
-											<a href="exam_paper?id=<?= $row->id ?>" class="btn btn-info">Start Exam</a>
-										</form>
+								foreach ($paper as $row) { ?>
+									<div class="card-body " id="bar-parent">
+										<p class="text-center" id="text"><?= $row->message ?></p>
 									</div>
 								<?php } ?>
+
+
+								<form action="submit-exam" method="post" class="p-3">
+
+									<textarea class="form-control border" name="typed_text" id="typed_text" cols="30" rows="10"></textarea>
+
+									<input type="submit" value="submit" name="submit" class="mt-3 mx-auto d-block" id="">
+									<p id="demo" style="display: none;"></p>
+								</form>
+								<button id="check" onclick="check()">click here</button>
+								<p id="result"></p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<script>
+			const paper_text = document.getElementById('text').innerText;
+			console.log(paper_text);
+
+
+			let text = document.getElementById("typed_text");
+			let demo = document.getElementById("demo");
+
+			function myfunction() {
+				demo.innerText = text.textContent;
+				console.log(text.value)
+			}
+
+			function check() {
+				let typetext = demo.innerText;
+
+				// count paper paragraph total words
+				let typeword = typetext.split(" ");
+				let words = paper_text.split(" ");
+
+				let right = 0;
+				let wrongs = 0;
+				console.log(text.value)
+				// console.log(typeword);
+				// console.log(words);
+				// for (let index = 0; index < typetext.length; index++) {
+
+				// 	if (paper_text.charAt(index) === typetext.charAt(index)) {
+				// 		right++;
+				// 	} else {
+				// 		wrongs++;
+				// 	}
+
+				// }
+
+				document.getElementById('result').innerText = 'total given words is - ' + words.length + ' you typed words - ' + typeword.length + ' grammer mistake - ' + wrongs;
+
+
+
+			}
+		</script>
 		<!-- start js include path -->
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
