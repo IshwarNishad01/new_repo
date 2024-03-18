@@ -35,7 +35,6 @@
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 
-
 </head>
 <!-- END HEAD -->
 
@@ -54,97 +53,31 @@
 			<div class="page-content-wrapper">
 				<div class="page-content">
 					<div class="page-bar">
-						<?php if (isset($_REQUEST['add_s'])) { ?>
-							<p style="color:green;font-size:20px ;">Added Successfully ......</p><?php } ?>
-						<?php if (isset($_REQUEST['add_ns'])) { ?>
-							<p style="color:red;font-size:20px ;">Please check your file type and file size.</p><?php } ?>
-						<div class="page-title-breadcrumb">
-							<div class=" pull-left">
-								<div class="page-title">Add Paper Pattern</div>
-							</div>
-
-						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="card-box">
 								<div class="card-head">
-									<header>Paper Details</header>
+									<!-- <header>Paper Details</header> -->
 								</div>
-								<!-- <form action="" method="POST" enctype="multipart/form-data"> -->
+								<h5 class="text-center p-3">For Typing Test - </h5>
+								<?php
+								foreach ($paper as $row) { ?>
+									<div class="card-body " id="bar-parent">
+										<p class="text-center" id="text"><?= $row->message ?></p>
+									</div>
+								<?php } ?>
 
-								<div class="card-body" id="bar-parent">
-									<form action="paper_data" class="form-horizontal" enctype="multipart/form-data" method="post">
 
-										<div class="form-body">
-											<div class="form-group row">
-												<label class="control-label col-md-3">Paper Name
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="text" name="p_name" data-required="1" placeholder="Paper name" class="form-control input-height" required>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Exam Duration <br>(In Minutes)
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="text" multiple="" name="duration" required id="preview_take" placeholder="Exam Duration" class="form-control input-height" required>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Exam Date
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="date" multiple="" name="e_date" required id="preview_take" placeholder="Enter Your Date" class="form-control input-height" required>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Status
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<select name="status" id="" class="form-Control input-height" required style="width: 415px;">
-														<option value="select status">Select Status</option>
-														<option value="Active">Active</option>
-														<option value="Deactive">Deactive</option>
-													</select>
-												</div>
-											</div>
+								<form action="submit-exam" method="post" class="p-3">
 
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Language
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<select name="language" id="" class="form-Control input-height" required style="width: 415px;" onchange="myfunction(this.value)">
-														<option disabled selected>Select language</option>
-														<option value="kruti">Hindi - Kurti Dev</option>
-														<option value="mangal">Hindi - Mangal</option>
-														<option value="english">English</option>
-													</select>
-												</div>
-											</div>
+									<textarea class="form-control border" name="typed_text" id="typed_text" cols="30" rows="10" oninput="getValue(this.value)"></textarea>
 
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Message
-													<span class="required"> * </span>
-												</label>
-												<textarea name="message" id="paper_text" cols="3" rows="3"  required style="width: 415px; margin-left: 13px;"></textarea>
-											</div>
-											<div class="form-actions">
-												<div class="row">
-													<div class="offset-md-3 col-md-9">
-														<button type="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  btn-primary">Submit</button>
-													</div>
-												</div>
-											</div>
-										</div>
-
-									</form>
-								</div>
+									<input type="submit" value="submit" name="submit" class="mt-3 mx-auto d-block" id="">
+									<p id="demo" style="display: none;"></p>
+								</form>
+								<button id="check" onclick="check()">click vfhere</button>
+								<p id="result"></p>
 							</div>
 						</div>
 					</div>
@@ -152,23 +85,40 @@
 			</div>
 		</div>
 
-
 		<script>
-			const paper_text = document.getElementById('paper_text');
+			const paper_text = document.getElementById('text').innerText;
+			// console.log(paper_text);
 
-			function myfunction(value) {
 
-				if (value == 'kruti') {
-					paper_text.style.fontFamily = '"krutidev"';
-					paper_text.value = "";
+			let text = document.getElementById("typed_text");
+			let demo = document.getElementById("demo");
 
-				}else{
-					paper_text.style.fontFamily = '"English"';
-					paper_text.value = "";
-				}
+			function getValue(value) {
+				console.log(value);
+			}
+
+			function myfunction() {
+				demo.innerText = text.textContent;
+				// console.log(text.value)
+			}
+
+			function check() {
+				let typetext = demo.innerText;
+
+				// count paper paragraph total words
+				let typeword = typetext.split(" ");
+				let words = paper_text.split(" ");
+
+				let right = 0;
+				let wrongs = 0;
+
+
+				document.getElementById('result').innerText = 'total given words is - ' + words.length + ' you typed words - ' + typeword.length + ' grammer mistake - ' + wrongs;
+
+
+
 			}
 		</script>
-
 		<!-- start js include path -->
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
@@ -185,24 +135,12 @@
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/font.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
 		<!-- dropzone -->
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-  
-  $(document).ready(function(){
-    $('#preview_take').change(function(event){
-      var x=URL.createObjectURL(event.target.files[0]);
-      $('#preview').attr("src",x);
-     $('#preview').css("width", "100px");
-$('#preview').css("height", "100px");
 
-    });
-  });
-</script> -->
-		<!-- end js include path -->
 </body>
 
 </html>

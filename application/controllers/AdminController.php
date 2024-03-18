@@ -3,19 +3,19 @@
 class AdminController extends CI_Controller
 {
 
-	function __construct()
-	{
-		parent::__construct();
-		if (!isset($_SESSION['sess_name'])) {
-			$this->load->view('admin/login');
-		}
-	}
+	// function __construct()
+	// {
+	// 	parent::__construct();
+	// 	if (!isset($_SESSION['sess_name'])) {
+	// 		$this->load->view('admin/login');
+	// 	}
+	// }
 
 	public function index()
 	{
-		if (!isset($_SESSION['sess_name'])) {
-			redirect("admin");
-		}
+		// if (!isset($_SESSION['sess_name'])) {
+		// 	redirect("admin");
+		// }
 		$this->load->view('admin/index');
 	}
 
@@ -25,16 +25,16 @@ class AdminController extends CI_Controller
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$caption = $this->input->post('cap');
 			$video = $this->input->post('video');
-				$data = array('caption' => $caption, 'video' => $video);
-					$this->db->insert('videos', $data);
-					$last_id = $this->db->insert_id();
-					if ($last_id > 0) {
-						$this->session->set_flashdata("deleted","Successfull added");
-						// redirect("admin/add_videos");
-					// echo "successfully added";
-					
-			} else{
-				$this->session->set_flashdata("No deleted","Unsuccessfull added");
+			$data = array('caption' => $caption, 'video' => $video);
+			$this->db->insert('videos', $data);
+			$last_id = $this->db->insert_id();
+			if ($last_id > 0) {
+				$this->session->set_flashdata("deleted", "Successfull added");
+				// redirect("admin/add_videos");
+				// echo "successfully added";
+
+			} else {
+				$this->session->set_flashdata("No deleted", "Unsuccessfull added");
 				// echo "Failed";
 			}
 		}
@@ -57,25 +57,24 @@ class AdminController extends CI_Controller
 		//redirect("AdminController/event_delete");
 		redirect("All_P");
 	}
-	
+
 
 	public function student_registration()
 	{
 		$data['show'] = $this->db->get("register")->result();
 		$this->load->view('admin/student_registration', $data);
 	}
-	
+
 	public function delete_regist($id)
-    {
-		$this->db->where("id",$id);
+	{
+		$this->db->where("id", $id);
 		$check = $this->db->delete('register');
-		if($check){
+		if ($check) {
 			return redirect("student_registration?success&id=$check");
-		}
-		else{
+		} else {
 			return redirect("student_registration?error");
-		}    
-    }
+		}
+	}
 
 	public function delete_frenchies()
 	{
@@ -90,19 +89,19 @@ class AdminController extends CI_Controller
 		$data['show'] = $this->db->get("videos")->result();
 		$this->load->view('admin/all_video', $data);
 	}
-	public function delete_video($id=0)
-    {
-        $id=$this->input->get('id');
-        $check=$this->ExamModel->video_delete($id);
-        if ($check>0) {
+	public function delete_video($id = 0)
+	{
+		$id = $this->input->get('id');
+		$check = $this->ExamModel->video_delete($id);
+		if ($check > 0) {
 			return redirect("all_video?success&id=$check");
 			// $this->session->set_flashdata("Successfull Deleted");
-		}else{
+		} else {
 			return redirect("all_video?error");
 			// $this->session->set_flashdata("Unsuccessfull to deleted");
 		}
-        // print_r($check);exit();
-    }
+		// print_r($check);exit();
+	}
 
 	public function frenchies_form_list()
 	{
@@ -187,23 +186,24 @@ class AdminController extends CI_Controller
 	public function add_paper()
 	{
 		$data['show'] = $this->ExamModel->insert_paper();
-		$this->load->view('admin/add_paper',$data);
+		$this->load->view('admin/add_paper', $data);
 	}
 	public function paper_data()
 	{
-		$data=array(
-			"p_name"=>$this->input->post("p_name"),
-			"duration"=>$this->input->post("duration"),
-			"e_date"=>$this->input->post("e_date"),
-			"status"=>$this->input->post("status"),
-			"message"=>$this->input->post("message")
+		$data = array(
+			"p_name" => $this->input->post("p_name"),
+			"duration" => $this->input->post("duration"),
+			"e_date" => $this->input->post("e_date"),
+			"status" => $this->input->post("status"),
+			"language" => $this->input->post("language"),
+			"message" => $this->input->post("message")
 		);
-		$check=$this->ExamModel->paperdata($data);
-			if ($check > 0) {
-				return redirect("add_paper?success&id=$check");
-			} else {
-				return redirect("add_paper?error");
-			}
+		$check = $this->ExamModel->paperdata($data);
+		if ($check > 0) {
+			return redirect("add_paper?success&id=$check");
+		} else {
+			return redirect("add_paper?error");
+		}
 	}
 
 	public function paper_list()
@@ -211,40 +211,39 @@ class AdminController extends CI_Controller
 		$data['show'] = $this->db->get("paper")->result();
 		$this->load->view('admin/all_paper', $data);
 	}
-	public function delete_paper($id=0)
-    {
-        $id=$this->input->get('id');
-        $check=$this->ExamModel->paper_delete($id);
-        if($check){
+	public function delete_paper($id = 0)
+	{
+		$id = $this->input->get('id');
+		$check = $this->ExamModel->paper_delete($id);
+		if ($check) {
 			return redirect("paper_list?success&id=$check");
-		}
-		else{
+		} else {
 			return redirect("paper_list?error");
 		}
-    }
+	}
 	public function paper_update()
 	{
-		$id=$this->input->get('id');
-		$con['show']=$this->ExamModel->update_paper($id);
-		$this->load->view('admin/paper_update',$con);
+		$id = $this->input->get('id');
+		$con['show'] = $this->ExamModel->update_paper($id);
+		$this->load->view('admin/paper_update', $con);
 	}
-	
+
 	public function finalupdate()
 	{
-		$id=$this->input->post('id');
-		$data=array(
-			"p_name"=>$this->input->post("p_name"),
-			"duration"=>$this->input->post("duration"),
-			"e_date"=>$this->input->post("e_date"),
-			"status"=>$this->input->post("status"),
-			"message"=>$this->input->post("message")
+		$id = $this->input->post('id');
+		$data = array(
+			"p_name" => $this->input->post("p_name"),
+			"duration" => $this->input->post("duration"),
+			"e_date" => $this->input->post("e_date"),
+			"status" => $this->input->post("status"),
+			"message" => $this->input->post("message")
 		);
-		$check=$this->ExamModel->finalupdate_paper($id,$data);
-			if ($check > 0) {
-				return redirect("paper_update?success&id=$check");
-			} else {
-				return redirect("paper_update?error");
-			}
+		$check = $this->ExamModel->finalupdate_paper($id, $data);
+		if ($check > 0) {
+			return redirect("paper_update?success&id=$check");
+		} else {
+			return redirect("paper_update?error");
+		}
 	}
 
 	public function show_news()
@@ -656,28 +655,27 @@ class AdminController extends CI_Controller
 
 	public function add_notification()
 	{
-        $data['show'] = $this->ExamModel->notification_db();
-		$this->load->view('admin/add_notification',$data);
+		$data['show'] = $this->ExamModel->notification_db();
+		$this->load->view('admin/add_notification', $data);
 	}
 
-    public function notification_data()
-    {
-        $data=array(
-            'title'=>$this->input->post('title')
-        );
-        $check=$this->ExamModel->notification_store($data);//model function
-        if ($check>0) {
+	public function notification_data()
+	{
+		$data = array(
+			'title' => $this->input->post('title')
+		);
+		$check = $this->ExamModel->notification_store($data); //model function
+		if ($check > 0) {
 			// return redirect("admin/add_notification");
 			// $this->session->set_flashdata("successful added");
 			return redirect("add_notification?success&id=$check");
-		}else{
+		} else {
 			// return redirect("admin/add_notification");
 			// $this->session->set_flashdata("Unsuccessful added");
 			return redirect("add_notification?error");
-			
 		}
 		$this->load->view('admin/add_notification');
-    }
+	}
 
 	public function all_notification()
 	{
@@ -805,19 +803,18 @@ class AdminController extends CI_Controller
 		$this->load->view('admin/notification_list', $data);
 	}
 
-	public function delete_list($id=0)
-    {
-        $id=$this->input->get('id');
-        $check=$this->ExamModel->delete_data($id);
-        if($check){
+	public function delete_list($id = 0)
+	{
+		$id = $this->input->get('id');
+		$check = $this->ExamModel->delete_data($id);
+		if ($check) {
 			// $this->session->set_flashdata("deleted","successful deleted");
 			return redirect("notification_list?success&id=$check");
-		}
-		else{
+		} else {
 			// $this->session->set_flashdata("No deleted","Unsuccessful deleted");
 			return redirect("notification_list?error");
-			}
-    }
+		}
+	}
 
 	public function our_branches()
 	{
@@ -863,31 +860,31 @@ class AdminController extends CI_Controller
 	}
 	public function enquiry_data()
 	{
-		$data=array(
+		$data = array(
 			"name" => $this->input->post("name"),
 			"email" => $this->input->post("email"),
 			"number" => $this->input->post("number"),
 			"subject" => $this->input->post("subject"),
 			"message" => $this->input->post("message")
 		);
-		$check=$this->ExamModel->enquiry_store($data);
-		if($check > 0) {
+		$check = $this->ExamModel->enquiry_store($data);
+		if ($check > 0) {
 			return redirect("enquiry?success&id=$check");
-		}else{
+		} else {
 			return redirect("enquiry?error");
 		}
 	}
 
-	public function delete_enquiry($id=0)
-    {
-        $id=$this->input->get('id');
-		$check=$this->ExamModel->enquiry($id);
-		if($check > 0) {
+	public function delete_enquiry($id = 0)
+	{
+		$id = $this->input->get('id');
+		$check = $this->ExamModel->enquiry($id);
+		if ($check > 0) {
 			return redirect("enquiry_list?success&id=$check");
-		}else{
+		} else {
 			return redirect("enquiry_list?error");
 		}
-    }
+	}
 
 	public function delete_data($id = 0)
 	{

@@ -1,8 +1,16 @@
 @font-face {
-	font-family: "Hindi";
+	font-family: "krutidev";
 	src: url("Kruti_dev_010.ttf");
 }
 
-#typed_text {
-	font-family: "Hindi";
+#text {
+	font-family: "krutidev";
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#user_type_text {
+	font-family: "krutidev";
+	font-size: 20px;
+	font-weight: 600;
 }

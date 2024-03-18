@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
 
@@ -35,8 +34,14 @@
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 
+	<!-- for fonts -->
+	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/style.css" rel="stylesheet" type="text/css">
+	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
 </head>
-<!-- END HEAD -->
+
 
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
 	<div class="page-wrapper">
@@ -70,13 +75,15 @@
 
 
 								<form action="submit-exam" method="post" class="p-3">
+								<!-- id="typed_text" -->
+									<!-- <textarea class="form-control border" name="typed_text" id="k2uu" cols="30" rows="10" oninput="getValue(this.value)"></textarea> -->
+									<textarea id="user_type_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
 
-									<textarea class="form-control border" name="typed_text" id="typed_text" cols="30" rows="10"></textarea>
 
-									<input type="submit" value="submit" name="submit" class="mt-3 mx-auto d-block" id="">
-									<p id="demo" style="display: none;"></p>
+									<!-- <input type="submit" value="submit" name="submit" class="mt-3 mx-auto d-block" id="">
+									<p id="demo" style="display: none;"></p> -->
 								</form>
-								<button id="check" onclick="check()">click here</button>
+								<button href="javascript:void(0);" id="k2uu" name="converter" class="btn btn-default">Kruti Dev to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
 								<p id="result"></p>
 							</div>
 						</div>
@@ -85,17 +92,63 @@
 			</div>
 		</div>
 
-		<script>
+	
+
+
+		<div class="container">
+			<div class="header clearfix">
+
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					<!-- <span class="text-bold">4C&nbsp;गाँधी&nbsp;/&nbsp;चाणक्य&nbsp;/&nbsp;कृतिदेव&nbsp;&#8211;&nbsp;शब्द&nbsp;क्षेत्र (4CGandhi / Chanakya / Kruti Dev &#8211; Text Area)</span class="text-bold"> -->
+					<div class="form-group margin-top10">
+						<textarea id="legacy_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
+					</div>
+					<div class="pull-left">
+						<div class="text-center">
+							<!-- <button href="javascript:void(0);" id="g2u" name="converter" class="btn btn-default">4c Gandhi to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button> -->
+							<!-- <button href="javascript:void(0);" id="c2u" name="converter" class="btn btn-default">Chanakya to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button> -->
+							<button href="javascript:void(0);" id="k2u" name="converter" class="btn btn-default">Kruti Dev to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<!-- <b>यूनीकोड&nbsp;शब्द&nbsp;क्षेत्र (Unicode Text Area)</b> -->
+
+					<div class="form-group margin-top10">
+						<textarea id="unicode_text" class="form-control" cols="90" name="ConvertedText" rows="8"></textarea>
+					</div>
+					<div class="pull-left">
+						<div class="text-center">
+							<button href="javascript:void(0);" id="u2k" name="converter" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Unicode to Kruti Dev</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+</html>
+
+
+
+<script>
 			const paper_text = document.getElementById('text').innerText;
-			console.log(paper_text);
+			// console.log(paper_text);
 
 
 			let text = document.getElementById("typed_text");
 			let demo = document.getElementById("demo");
 
+			function getValue(value) {
+				console.log(value);
+			}
+
 			function myfunction() {
 				demo.innerText = text.textContent;
-				console.log(text.value)
+				// console.log(text.value)
 			}
 
 			function check() {
@@ -107,18 +160,7 @@
 
 				let right = 0;
 				let wrongs = 0;
-				console.log(text.value)
-				// console.log(typeword);
-				// console.log(words);
-				// for (let index = 0; index < typetext.length; index++) {
 
-				// 	if (paper_text.charAt(index) === typetext.charAt(index)) {
-				// 		right++;
-				// 	} else {
-				// 		wrongs++;
-				// 	}
-
-				// }
 
 				document.getElementById('result').innerText = 'total given words is - ' + words.length + ' you typed words - ' + typeword.length + ' grammer mistake - ' + wrongs;
 
@@ -142,25 +184,41 @@
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/font.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
 		<!-- dropzone -->
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
 		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+
+
+
+<!-- for fonts -->
+<script type="text/javascript" src="assets/admin_assets/fonts/js/kd.js"></script>
+<script type="text/javascript" src="assets/admin_assets/fonts/js/ch.js"></script>
+<script type="text/javascript" src="assets/admin_assets/fonts/js/gndhi.js"></script>
+<script type="text/javascript" src="assets/admin_assets/fonts/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/admin_assets/fonts/js/bootstrap/bootstrap.min.js"></script>
+
 <script type="text/javascript">
-  
-  $(document).ready(function(){
-    $('#preview_take').change(function(event){
-      var x=URL.createObjectURL(event.target.files[0]);
-      $('#preview').attr("src",x);
-     $('#preview').css("width", "100px");
-$('#preview').css("height", "100px");
+	$(document).ready(function() {
 
-    });
-  });
-</script> -->
-		<!-- end js include path -->
-</body>
 
-</html>
-+
+		$('#k2u').click(function() {
+			convert_kruti_to_unicode();
+			return;
+		})
+
+
+		
+		$('#k2uu').click(function() {
+			convert_kruti_to_unicode();
+			return;
+		})
+
+		$('#u2k').click(function() {
+			Convert_to_Kritidev_010();
+			return;
+		})
+	});
+</script>
