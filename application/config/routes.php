@@ -86,7 +86,7 @@ $route['payment'] = 'HomeController/payment';
 $route['testimonial'] = 'HomeController/testimonial';
 $route['contact'] = 'HomeController/contactus';
 $route['contactdata'] = 'HomeController/contactdata';
-$route['regist'] = 'HomeController/regist';
+$route['registration'] = 'HomeController/regist';
 $route['regist_store'] = 'HomeController/regist_store';
 $route['login'] = 'HomeController/login';
 $route['login-check'] = 'HomeController/login_check';
@@ -99,6 +99,12 @@ $route['list_result'] = 'HomeController/result_list';
 
 $route['paper_info'] = 'HomeController/paper_info';
 $route['paper_view'] = 'HomeController/paper_view';
+
+
+// user registration for both users
+$route['registration_user'] = 'HomeController/registration_user';
+$route['registration_user2'] = 'HomeController/registration_user2';
+
 
 // Typing Route Front End ...........
 
@@ -115,7 +121,7 @@ $route['all-answers'] = 'HomeController/show_questions';
 $route['timeup'] = 'HomeController/exam_over';
 $route['exam_paper_final'] = 'HomeController/exam_paper_final';
 $route['show_result'] = 'HomeController/show_result';
-$route['registration'] = 'HomeController/registration';
+// $route['registration'] = 'HomeController/registration';
 $route['stu_login'] = 'HomeController/stu_login';
 $route['resultslist'] = 'HomeController/resultslist';
 $route['about'] = 'HomeController/about';

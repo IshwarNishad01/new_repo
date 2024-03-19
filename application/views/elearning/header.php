@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +68,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Join Now</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="regist" class="dropdown-item">Registration</a>
+                        <a href="registration" class="dropdown-item">Registration</a>
                         <a href="login" class="dropdown-item">Login</a>
                         <a href="enquiry" class="dropdown-item">Enquiry</a>
                     </div>

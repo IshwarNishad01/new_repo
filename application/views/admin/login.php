@@ -10,8 +10,9 @@
 	<title>Gayatri Typing</title>
 	<!-- google font -->
 	<link href="../../../../../css-1?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
-	<!-- icons -->
-	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/plugins/iconic/css/material-design-iconic-font.min.css">
+
+	   <!-- Favicon -->
+	   <link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 	<!-- bootstrap -->
 	<link href="<?=base_url();?>assets/admin_assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<!-- Theme Styles -->
