@@ -69,13 +69,13 @@
 								<?php
 								foreach ($paper as $row) { ?>
 									<div class="card-body " id="bar-parent">
-										<p class="text-center" id="text"><?= $row->message ?></p>
+										<p class="text-center" id="given_text"><?= $row->message ?></p>
 									</div>
 								<?php } ?>
 
 
 								<form action="submit-exam" method="post" class="p-3">
-								<!-- id="typed_text" -->
+									<!-- id="typed_text" -->
 									<!-- <textarea class="form-control border" name="typed_text" id="k2uu" cols="30" rows="10" oninput="getValue(this.value)"></textarea> -->
 									<textarea id="user_type_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
 
@@ -83,45 +83,11 @@
 									<!-- <input type="submit" value="submit" name="submit" class="mt-3 mx-auto d-block" id="">
 									<p id="demo" style="display: none;"></p> -->
 								</form>
-								<button href="javascript:void(0);" id="k2uu" name="converter" class="btn btn-default">Kruti Dev to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+
+
+								<button class="btn btn-info" onclick="check()">Check Paper</button>
 								<p id="result"></p>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	
-
-
-		<div class="container">
-			<div class="header clearfix">
-
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-md-6">
-					<!-- <span class="text-bold">4C&nbsp;गाँधी&nbsp;/&nbsp;चाणक्य&nbsp;/&nbsp;कृतिदेव&nbsp;&#8211;&nbsp;शब्द&nbsp;क्षेत्र (4CGandhi / Chanakya / Kruti Dev &#8211; Text Area)</span class="text-bold"> -->
-					<div class="form-group margin-top10">
-						<textarea id="legacy_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
-					</div>
-					<div class="pull-left">
-						<div class="text-center">
-							<!-- <button href="javascript:void(0);" id="g2u" name="converter" class="btn btn-default">4c Gandhi to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button> -->
-							<!-- <button href="javascript:void(0);" id="c2u" name="converter" class="btn btn-default">Chanakya to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button> -->
-							<button href="javascript:void(0);" id="k2u" name="converter" class="btn btn-default">Kruti Dev to Unicode <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-md-6">
-					<!-- <b>यूनीकोड&nbsp;शब्द&nbsp;क्षेत्र (Unicode Text Area)</b> -->
-
-					<div class="form-group margin-top10">
-						<textarea id="unicode_text" class="form-control" cols="90" name="ConvertedText" rows="8"></textarea>
-					</div>
-					<div class="pull-left">
-						<div class="text-center">
-							<button href="javascript:void(0);" id="u2k" name="converter" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Unicode to Kruti Dev</button>
 						</div>
 					</div>
 				</div>
@@ -135,60 +101,67 @@
 
 
 <script>
-			const paper_text = document.getElementById('text').innerText;
-			// console.log(paper_text);
+	// given paragraph by admin
+	const given_text = document.getElementById('given_text').innerText;
+	const show_result = document.getElementById('result');
+	console.log(given_text);
 
 
-			let text = document.getElementById("typed_text");
-			let demo = document.getElementById("demo");
+	// user type paragraph
+	let user_type_text = document.getElementById("user_type_text");
+	console.log(user_type_text.value);
 
-			function getValue(value) {
-				console.log(value);
+
+	function check() {
+
+		// // count paper paragraph total words
+		let givenWordArray = given_text.split(" ");
+		let userTypeWordArray = user_type_text.value.split(" ");
+
+		console.log(givenWordArray);
+		console.log(userTypeWordArray);
+
+		let errors = 0;
+		for (let i = 0; i < userTypeWordArray.length; i++) {
+			if (givenWordArray[i] != userTypeWordArray[i]) {
+				// console.log('wrong hai');
+				for (let index = 0; index < userTypeWordArray[i].length; index++) {
+					if (givenWordArray[i].charAt(index) != userTypeWordArray[i].charAt(index)) {
+						errors++;
+					}
+				}
 			}
+		}
 
-			function myfunction() {
-				demo.innerText = text.textContent;
-				// console.log(text.value)
-			}
+		// console.log(errors);
 
-			function check() {
-				let typetext = demo.innerText;
-
-				// count paper paragraph total words
-				let typeword = typetext.split(" ");
-				let words = paper_text.split(" ");
-
-				let right = 0;
-				let wrongs = 0;
-
-
-				document.getElementById('result').innerText = 'total given words is - ' + words.length + ' you typed words - ' + typeword.length + ' grammer mistake - ' + wrongs;
+		document.getElementById('result').innerText = 'total given words are - ' + givenWordArray.length + ' you typed words - ' + userTypeWordArray.length + ' grammer mistake - ' + errors;
 
 
 
-			}
-		</script>
-		<!-- start js include path -->
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
-		<!-- bootstrap -->
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-		<!-- Common js-->
-		<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
-		<!-- Material -->
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/font.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
-		<!-- dropzone -->
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
-		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
+	}
+</script>
+<!-- start js include path -->
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
+<!-- bootstrap -->
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Common js-->
+<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
+<!-- Material -->
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/font.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
+<!-- dropzone -->
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
+<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
 
 
 
@@ -210,7 +183,7 @@
 		})
 
 
-		
+
 		$('#k2uu').click(function() {
 			convert_kruti_to_unicode();
 			return;

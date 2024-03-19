@@ -4,6 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class HomeController extends CI_Controller
 {
 
+
+
+	// fronted functions
 	public function index()
 	{
 		$data['addnotification'] = $this->db->get("notification")->result();
@@ -30,11 +33,50 @@ class HomeController extends CI_Controller
 	{
 		$this->load->view('elearning/gallery');
 	}
+
+
+	// submit contact page form data
 	public function contactus()
 	{
-		$show['show'] = $this->ExamModel->contact_db();
-		$this->load->view('elearning/contact', $show);
+
+		$this->load->view('elearning/contact');
+
+		if (isset($_POST['submit'])) {
+			$data = array(
+				"name" => $this->input->post("name"),
+				"email" => $this->input->post("email"),
+				"subject" => $this->input->post("subject"),
+				"message" => $this->input->post("message")
+			);
+			$check = $this->ExamModel->contact_info($data);
+			if ($check > 0) {
+				$this->session->set_flashdata('success', 'Successfully Form Submitted');
+			} else {
+				$this->session->set_flashdata('error', 'Error in Form Submitting');
+			}
+			$this->load->view('elearning/contact');
+		}
 	}
+
+	public function team()
+	{
+		$this->load->view('elearning/team');
+	}
+	public function service()
+	{
+		$this->load->view('elearning/service');
+	}
+	public function payment()
+	{
+		$this->load->view('elearning/payment');
+	}
+	public function testimonial()
+	{
+		$this->load->view('elearning/testimonial');
+	}
+
+
+	// submit home page contact form
 	public function contactdata()
 	{
 		$data = array(
@@ -45,27 +87,16 @@ class HomeController extends CI_Controller
 		);
 		$check = $this->ExamModel->contact_info($data);
 		if ($check > 0) {
-			$this->session->set_flashdata("Successfull added");
+			$this->session->set_flashdata('success', 'Successfully Form Submitted');
+			return $this->index();
 		} else {
-			$this->session->set_flashdata("Unsuccessfull added");
+			$this->session->set_flashdata('error', 'Error in Form Submitting');
+			return $this->index();
 		}
 	}
-	public function team()
-	{
-		$this->load->view('elearning/team');
-	}
-	public function service()
-	{
-		$this->load->view('elearning/service');
-	}
-	public function payment_pro()
-	{
-		$this->load->view('elearning/payment');
-	}
-	public function testimonial()
-	{
-		$this->load->view('elearning/testimonial');
-	}
+
+
+
 
 	public function add_result()
 	{
@@ -143,6 +174,12 @@ class HomeController extends CI_Controller
 	public function login()
 	{
 		$this->load->view('elearning/login');
+	}
+
+	// check user login 
+
+	public function login_check(){
+	
 	}
 
 	public function dash_login()
@@ -275,10 +312,7 @@ class HomeController extends CI_Controller
 	{
 		$this->load->view('frontend/viewdetails');
 	}
-	public function payment()
-	{
-		$this->load->view('frontend/payment');
-	}
+
 	public function career()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {

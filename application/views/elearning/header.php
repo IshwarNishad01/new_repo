@@ -69,12 +69,12 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Join Now</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="regist" class="dropdown-item">Registration</a>
-                        <a href="log_in" class="dropdown-item">Login</a>
+                        <a href="login" class="dropdown-item">Login</a>
                         <a href="enquiry" class="dropdown-item">Enquiry</a>
                     </div>
                 </div>
-                <a href="payment_pro" class="nav-item nav-link">Payment</a>
-                <a href="contactus" class="nav-item nav-link">Contact</a>
+                <a href="payment" class="nav-item nav-link">Payment</a>
+                <a href="contact" class="nav-item nav-link">Contact</a>
             </div>
         </div>
     </nav>

@@ -3,26 +3,30 @@
         <div class="container py-5">
         <h4 class="text-white mb-3">GAYATRI TYPING CENTER & STENO</h4>
             <div class="row g-5">
-                 <div class="col-lg-4 col-md-6">
+                 <div class="col-lg-6 col-md-6">
                     <p class="text-white mb-3">Get In Touch:-</p>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Street No. 1, Near Over Gali .-1, Lodhi Para Kapa, Raipur, Chhattisgarh</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Street No. 1, Near Over Gali .-1, Lodhi Para <br> Kapa, Raipur, Chhattisgarh</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 98271 15944 , 77728 44544</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>gayatristenotyping2021@gmail.com</p>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <p class="text-white mb-3">Quick Link:-</p>
-                    <a class="btn btn-link" href="about">About Us</a>
-                    <a class="btn btn-link" href="contactus">Contact Us</a>
+                <div class="col-lg-2  col-md-6">
+					<div class="">
+						<p class="text-white mb-3">Quick Link:-</p>
+						<a class="btn btn-link " href="about">About Us</a>
+						<a class="btn btn-link " href="contactus">Courses</a>
+						<a class="btn btn-link " href="contactus">Login</a>
+						<a class="btn btn-link " href="contactus">Contact Us</a>
+					</div>
                 </div>
                
                 <div class="col-lg-4 col-md-6">
                     <p class="text-white mb-3">Social Connection:-</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-2" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -31,11 +35,11 @@
         <div class="container py-5">
             <div class="copyright">
                 <div class="row">
-                <center>
+                
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">  RAYS IT & DESIGN WORLD PVT. LTD.</a>  - All Right Reserved.
                       </div>
-                    </center>
+                    
                 </div>
             </div>
         </div>

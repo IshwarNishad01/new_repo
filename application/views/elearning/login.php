@@ -1,6 +1,6 @@
 <?php include('header.php');?>
 
-    <div class="container-xxl">
+    <div class="container-xxl mt-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h4 class="section-title bg-white text-center text-primary px-3">Login Form</h4>
@@ -10,7 +10,7 @@
                 <div class="container mt-5">
                     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                      </div>
-                    <form action="dash" method="post">
+                    <form action="login-check" method="post">
                         <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="email" class="form-control" name="email" placeholder="Your Email">
