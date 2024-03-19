@@ -44,9 +44,12 @@
 				<?php
 				if ($this->session->flashdata('success')) {
 					echo $this->session->flashdata('success');
+				
 				} else {
 					echo $this->session->flashdata('error');
 				}
+
+				$this->session->unset_userdata('success');
 				?>
 
 				<form action="" method="post">

@@ -39,7 +39,12 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-
+<style>
+	#result{
+		font-size: 18px;
+		text-align: center;
+	}
+</style>
 </head>
 
 
@@ -65,7 +70,7 @@
 								<div class="card-head">
 									<!-- <header>Paper Details</header> -->
 								</div>
-								<h5 class="text-center p-3">For Typing Test - </h5>
+								<!-- <h5 class="text-center p-3">For Typing Test - </h5> -->
 								<?php
 								foreach ($paper as $row) { ?>
 									<div class="card-body " id="bar-parent">
@@ -85,7 +90,7 @@
 								</form>
 
 
-								<button class="btn btn-info" onclick="check()">Check Paper</button>
+								<button class="btn btn-info ms-5" onclick="check()">Check Paper</button>
 								<p id="result"></p>
 							</div>
 						</div>
@@ -133,7 +138,6 @@
 			}
 		}
 
-		// console.log(errors);
 
 		document.getElementById('result').innerText = 'total given words are - ' + givenWordArray.length + ' you typed words - ' + userTypeWordArray.length + ' grammer mistake - ' + errors;
 

@@ -29,10 +29,13 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
+
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/favicon.ico">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 	<style type="text/css">
-		@media screen(max-width: 400px) {
-			width:100%;
+		.hindi_text {
+			font-family: "krutidev";
+		
 		}
 
 		@media only screen and (max-width: 600px) {
@@ -89,7 +92,7 @@
 											here</li>
 									</ul> -->
 								</div>
-								<div class="card-body ">
+								<div class="card-body table-responsive">
 									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responsive">
 										<thead>
 											<tr>
@@ -114,10 +117,11 @@
 													<td><?= $row->duration ?></td>
 													<td><?= $row->e_date ?></td>
 													<td><?= $row->status ?></td>
-													<td><?= $row->message ?></td>
+													<td class="<?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>"><?= $row->message ?></td>
 													<td><?= $row->date ?></td>
-													<td><a href="delete_paper?id=<?=$row->id;?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
-														<a href="paper_update?id=<?=$row->id;?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+													<td><a href="delete_paper?id=<?= $row->id; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+														<a href="paper_update?id=<?= $row->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+													</td>
 												</tr>
 											<?php $sn++;
 											}

@@ -24,8 +24,8 @@
 					<?= $this->session->flashdata('error')?>
 						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					</div>
-			
-			<?php }		?>
+				
+			<?php }	?>
 
 						<div class="form-floating">
 							<input type="email" class="form-control" name="email" placeholder="Your Email">

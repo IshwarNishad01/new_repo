@@ -70,7 +70,7 @@ class HomeController extends CI_Controller
 			);
 			$check = $this->ExamModel->contact_info($data);
 			if ($check > 0) {
-				$this->session->set_flashdata('success', 'Successfully Form Submitted');
+				$this->session->set_flashdata('success', 'Successfully Form Submitted ');
 			} else {
 				$this->session->set_flashdata('error', 'Error in Form Submitting');
 			}
@@ -153,29 +153,31 @@ class HomeController extends CI_Controller
 
 	public function login_check()
 	{
-		$this->load->library('session');
 
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
+		if (isset($_POST['submit'])) {
 
-		// check user email is register or not
-		$isEmailRegistered = $this->db->query("select * from register where email = '$email'")->result();
-		if (count($isEmailRegistered) > 0) {
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
 
-			// check password is correct or not
-			$checkPassword = $this->db->query("select * from register where email = '$email' and password = '$password'")->result();
+			// check user email is register or not
+			$isEmailRegistered = $this->db->query("select * from register where email = '$email'")->result();
+			if (count($isEmailRegistered) > 0) {
 
-			if (count($checkPassword) > 0) {
-				$this->load->view('elearning/dashboard');
+				// check password is correct or not
+				$checkPassword = $this->db->query("select * from register where email = '$email' and password = '$password'")->result();
+
+				if (count($checkPassword) > 0) {
+					$this->load->view('elearning/dashboard');
+				} else {
+					// echo 'please enter correct password';
+					$this->session->set_flashdata('error', 'Please Enter Correct Password');
+					$this->load->view('elearning/login');
+				}
 			} else {
-				// echo 'please enter correct password';
-				$this->session->set_flashdata('error', 'Please Enter Correct Password');
+				// echo 'please register yourself then login';
+				$this->session->set_flashdata('error', 'Please Register Yourself First');
 				$this->load->view('elearning/login');
 			}
-		} else {
-			// echo 'please register yourself then login';
-			$this->session->set_flashdata('error', 'Please Register Yourself First');
-			$this->load->view('elearning/login');
 		}
 	}
 
@@ -193,9 +195,11 @@ class HomeController extends CI_Controller
 		if ($check > 0) {
 			$this->session->set_flashdata('success', 'Successfull added');
 			$this->load->view("elearning/registration");
+			// $this->session->unset_userdata('success');
 		} else {
 			$this->session->set_flashdata("error", "Unsuccessfull added");
 			$this->load->view("elearning/registration");
+			// $this->session->unset_userdata('success');
 		}
 	}
 
