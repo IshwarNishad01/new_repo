@@ -469,13 +469,15 @@
 
 				<form action="contactdata" method="post">
 					<?php
-					if ($this->session->flashdata('success')) {
-						echo $this->session->flashdata('success');
-					}else{
-						echo $this->session->flashdata('error');
-					}
-
+					if (!empty($this->session->tempdata('show_success'))) {
 					?>
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<?= $this->session->tempdata('show_success') ?>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					<?php }
+					?>
+
 					<div class="row g-3">
 						<div class="col-md-6">
 							<div class="form-floating">

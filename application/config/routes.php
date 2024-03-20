@@ -68,6 +68,7 @@ $route['question_list'] = 'AdminController/question_list';
 $route['all-exam'] = 'AdminController/show_all_exam';
 $route['exam_edit'] = 'AdminController/exam_edit';
 $route['change_status'] = 'AdminController/change_status';
+$route['logout_admin'] = 'AdminController/logout';
 
 
 

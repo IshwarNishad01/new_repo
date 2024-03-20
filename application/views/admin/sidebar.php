@@ -1,6 +1,3 @@
-
-
-
 <div class="sidebar-container">
 	<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 		<div id="remove-scroll" class="left-sidemenu">
@@ -10,7 +7,7 @@
 						<span></span>
 					</div>
 				</li>
-				
+
 				<li class="nav-item start ">
 					<a href="<?= base_url('index'); ?>" class="nav-link ">
 						<i data-feather="airplay"></i>
@@ -114,18 +111,25 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('frenchies_form_list'); ?>" class="nav-link "> <span class="title">Frenchies Form List</span>
+							<a href="<?= base_url('frenchies_form_list'); ?>" class="nav-link "> <span class="title">All User List</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('add_frenchies_form'); ?>" class="nav-link "> <span class="title">Add
-									Frenchies Form</span>
+							<a href="<?= base_url('add_frenchies_form'); ?>" class="nav-link "> <span class="title">Manage Users</span>
 							</a>
 						</li>
 
 					</ul>
 				</li>
-				
+
+
+				<li class="nav-item  open">
+					<a href="logout_admin" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
+						<span class="title"> User Management </span> <span class="selected"></span>
+						<!-- <span class="arrow open"></span> -->
+					</a>
+				</li>
+
 			</ul>
 			<div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 5px; position: absolute; top: 3px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 236.337px;"></div>
 			<div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>

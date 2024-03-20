@@ -41,16 +41,15 @@
 			</div>
 			<div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
 
-				<?php
-				if ($this->session->flashdata('success')) {
-					echo $this->session->flashdata('success');
-				
-				} else {
-					echo $this->session->flashdata('error');
-				}
-
-				$this->session->unset_userdata('success');
-				?>
+			<?php
+					if (!empty($this->session->tempdata('show_success'))) {
+					?>
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<?= $this->session->tempdata('show_success') ?>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					<?php }
+					?>
 
 				<form action="" method="post">
 					<div class="row g-3">

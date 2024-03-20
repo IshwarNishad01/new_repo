@@ -69,10 +69,13 @@ class HomeController extends CI_Controller
 				"message" => $this->input->post("message")
 			);
 			$check = $this->ExamModel->contact_info($data);
-			if ($check > 0) {
-				$this->session->set_flashdata('success', 'Successfully Form Submitted ');
+		
+			if ($check ==  true) {
+				$this->session->set_tempdata('show_success', 'Successfully Form Submitted new',3);
+				redirect(base_url('contact'), 'refrsh');
 			} else {
-				$this->session->set_flashdata('error', 'Error in Form Submitting');
+				$this->session->set_tempdata('show_error', 'Error in Form Submitting',3);
+				redirect(base_url('contact'),'refresh');
 			}
 			$this->load->view('elearning/contact');
 		}
@@ -88,13 +91,14 @@ class HomeController extends CI_Controller
 			"subject" => $this->input->post("subject"),
 			"message" => $this->input->post("message")
 		);
-		$check = $this->ExamModel->contact_info($data);
-		if ($check > 0) {
-			$this->session->set_flashdata('success', 'Successfully Form Submitted');
-			return $this->index();
+		$response = $this->ExamModel->contact_info($data);
+
+		if ($response ==  true) {
+			$this->session->set_tempdata('show_success', 'Successfully Form Submitted new',3);
+			redirect(base_url('/'), 'refrsh');
 		} else {
-			$this->session->set_flashdata('error', 'Error in Form Submitting');
-			return $this->index();
+			$this->session->set_tempdata('show_error', 'Error in Form Submitting',3);
+			redirect(base_url('/'),'refresh');
 		}
 	}
 
@@ -125,11 +129,11 @@ class HomeController extends CI_Controller
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
 
-			$this->session->set_flashdata('Success', 'Successfull added');
+			// $this->session->set_flashdata('Success', 'Successfull added');
 			$this->load->view("elearning/registration");
 		} else {
 			// return redirect("regist?error");
-			$this->session->set_flashdata("Error", "Unsuccessfull added");
+			// $this->session->set_flashdata("Error", "Unsuccessfull added");
 			$this->load->view("elearning/registration");
 		}
 	}
@@ -170,12 +174,12 @@ class HomeController extends CI_Controller
 					$this->load->view('elearning/dashboard');
 				} else {
 					// echo 'please enter correct password';
-					$this->session->set_flashdata('error', 'Please Enter Correct Password');
+					// $this->session->set_flashdata('error', 'Please Enter Correct Password');
 					$this->load->view('elearning/login');
 				}
 			} else {
 				// echo 'please register yourself then login';
-				$this->session->set_flashdata('error', 'Please Register Yourself First');
+				// $this->session->set_flashdata('error', 'Please Register Yourself First');
 				$this->load->view('elearning/login');
 			}
 		}
@@ -193,11 +197,11 @@ class HomeController extends CI_Controller
 		);
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
-			$this->session->set_flashdata('success', 'Successfull added');
+			// $this->session->set_flashdata('success', 'Successfull added');
 			$this->load->view("elearning/registration");
 			// $this->session->unset_userdata('success');
 		} else {
-			$this->session->set_flashdata("error", "Unsuccessfull added");
+			// $this->session->set_flashdata("error", "Unsuccessfull added");
 			$this->load->view("elearning/registration");
 			// $this->session->unset_userdata('success');
 		}
@@ -221,10 +225,10 @@ class HomeController extends CI_Controller
 		);
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
-			$this->session->set_flashdata('Success', 'Successfull added');
+			// $this->session->set_flashdata('Success', 'Successfull added');
 			$this->load->view("elearning/registration");
 		} else {
-			$this->session->set_flashdata("Error", "Unsuccessfull added");
+			// $this->session->set_flashdata("Error", "Unsuccessfull added");
 			$this->load->view("elearning/registration");
 		}
 	}

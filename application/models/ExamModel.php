@@ -61,8 +61,7 @@ class ExamModel extends CI_Model
 	public function contact_info($data)
 	{
 		$this->db->insert("contact", $data);
-		$id = $this->db->insert_id();
-		return $id;
+		return true;
 	}
 	public function contact_db()
 	{
