@@ -9,7 +9,7 @@
 				</li>
 
 				<li class="nav-item start ">
-					<a href="#" class="nav-link ">
+					<a href="dashboard" class="nav-link ">
 						<i data-feather="airplay"></i>
 						<span class="title">Dashboard</span>
 					</a>
@@ -28,7 +28,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class="nav-item  open">
+				<!-- <li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-square-poll-vertical"></i>
 						<span class="title">Result</span> <span class="selected"></span>
 						<span class="arrow open"></span>
@@ -39,13 +39,13 @@
 							</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
 						<span class="title">User Profile</span> <span class="selected"></span>
 						<span class="arrow open"></span>
 					</a>
-					<ul class="sub-menu">
+					<!-- <ul class="sub-menu">
 						<li class="nav-item">
 							<a href="<?= base_url('add_video'); ?>" class="nav-link "> <span class="title">Add
 									videos</span>
@@ -56,12 +56,12 @@
 									videos</span>
 							</a>
 						</li>
-					</ul>
+					</ul> -->
 				</li>
 
 				<li class="nav-item start ">
-					<a href="#" class="nav-link "><i class="fa-solid fa-right-from-bracket"></i>
-						<span class="title">LogOut</span>
+					<a href="user-logout" class="nav-link "><i class="fa-solid fa-right-from-bracket"></i>
+						<span class="title">Log Out</span>
 					</a>
 
 				</li>

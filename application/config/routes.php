@@ -91,20 +91,27 @@ $route['registration'] = 'HomeController/regist';
 $route['regist_store'] = 'HomeController/regist_store';
 $route['login'] = 'HomeController/login';
 $route['login-check'] = 'HomeController/login_check';
-$route['dash'] = 'HomeController/dash_login';
-$route['enquiry'] = 'HomeController/enquiry';
-$route['add_result'] = 'HomeController/add_result';
-$route['list_result'] = 'HomeController/result_list';
-
-
-
-$route['paper_info'] = 'HomeController/paper_info';
-$route['paper_view'] = 'HomeController/paper_view';
 
 
 // user registration for both users
 $route['registration_user'] = 'HomeController/registration_user';
 $route['registration_user2'] = 'HomeController/registration_user2';
+
+
+
+// for user dashboard
+
+
+$route['dashboard'] = 'HomeController/dash_login';
+$route['enquiry'] = 'HomeController/enquiry';
+$route['add_result'] = 'HomeController/add_result';
+$route['list_result'] = 'HomeController/result_list';
+
+$route['paper_info'] = 'HomeController/paper_info';
+$route['paper_view'] = 'HomeController/paper_view';
+$route['user-logout'] = 'HomeController/user_logout';
+
+
 
 
 // Typing Route Front End ...........
@@ -146,7 +153,7 @@ $route['allcourse'] = 'HomeController/allcourse';
 $route['all-course'] = 'HomeController/all_course';
 $route['viewdetails'] = 'HomeController/viewdetails';
 // $route['exam_paper'] = 'HomeController/exam_paper';
-$route['dashboard'] = 'HomeController/dashboard';
+// $route['dashboard'] = 'HomeController/dashboard';
 // $route['payment'] = 'HomeController/payment';
 
 $route['frenchies_application'] = 'HomeController/frenchies_application';

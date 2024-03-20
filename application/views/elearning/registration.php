@@ -36,6 +36,15 @@
 					<h3>User Test Form</h3>
 				</center>
 				<hr>
+				<?php
+				if (!empty($this->session->tempdata('success'))) {
+				?>
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<?= $this->session->tempdata('success') ?>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+				<?php }	?>
 				<form action="registration_user" method="post">
 					<div class="row">
 						<div class="col-md-6">
@@ -78,6 +87,15 @@
 			</center>
 			<hr>
 
+			<?php
+			if (!empty($this->session->tempdata('success2'))) {
+			?>
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<?= $this->session->tempdata('success2') ?>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+
+			<?php }	?>
 			<form action="registration_user2" method="post">
 				<div class="row g-3">
 					<div class="col-md-6">
@@ -175,10 +193,10 @@
 
 <?php include('footer.php'); ?>
 <script>
-
 	const otherUserFormBody = document.getElementById('other-user-body');
 	const userFormBody = document.getElementById('user-body');
 	otherUserFormBody.style.display = 'none';
+
 	function showForm(id) {
 
 		if (id == 2) {

@@ -69,13 +69,13 @@ class HomeController extends CI_Controller
 				"message" => $this->input->post("message")
 			);
 			$check = $this->ExamModel->contact_info($data);
-		
+
 			if ($check ==  true) {
-				$this->session->set_tempdata('show_success', 'Successfully Form Submitted new',3);
+				$this->session->set_tempdata('show_success', 'Successfully Form Submitted new', 3);
 				redirect(base_url('contact'), 'refrsh');
 			} else {
-				$this->session->set_tempdata('show_error', 'Error in Form Submitting',3);
-				redirect(base_url('contact'),'refresh');
+				$this->session->set_tempdata('show_error', 'Error in Form Submitting', 3);
+				redirect(base_url('contact'), 'refresh');
 			}
 			$this->load->view('elearning/contact');
 		}
@@ -94,11 +94,11 @@ class HomeController extends CI_Controller
 		$response = $this->ExamModel->contact_info($data);
 
 		if ($response ==  true) {
-			$this->session->set_tempdata('show_success', 'Successfully Form Submitted new',3);
+			$this->session->set_tempdata('show_success', 'Successfully Form Submitted new', 3);
 			redirect(base_url('/'), 'refrsh');
 		} else {
-			$this->session->set_tempdata('show_error', 'Error in Form Submitting',3);
-			redirect(base_url('/'),'refresh');
+			$this->session->set_tempdata('show_error', 'Error in Form Submitting', 3);
+			redirect(base_url('/'), 'refresh');
 		}
 	}
 
@@ -171,16 +171,20 @@ class HomeController extends CI_Controller
 				$checkPassword = $this->db->query("select * from register where email = '$email' and password = '$password'")->result();
 
 				if (count($checkPassword) > 0) {
-					$this->load->view('elearning/dashboard');
+					$this->session->set_userdata('first_name', $checkPassword[0]->first_name);
+					$this->session->set_userdata('last_name', $checkPassword[0]->last_name);
+					$this->session->set_userdata('userid', $checkPassword[0]->id);
+					$this->session->set_userdata('password', $checkPassword[0]->password);
+					redirect(base_url('dashboard'), 'refresh');
 				} else {
 					// echo 'please enter correct password';
-					// $this->session->set_flashdata('error', 'Please Enter Correct Password');
-					$this->load->view('elearning/login');
+					$this->session->set_tempdata('error', 'Please Enter Correct Password', 3);
+					redirect(base_url('login'), 'refresh');
 				}
 			} else {
 				// echo 'please register yourself then login';
-				// $this->session->set_flashdata('error', 'Please Register Yourself First');
-				$this->load->view('elearning/login');
+				$this->session->set_tempdata('error', 'Please Register Yourself First', 3);
+				redirect(base_url('login'), 'refresh');
 			}
 		}
 	}
@@ -197,13 +201,11 @@ class HomeController extends CI_Controller
 		);
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
-			// $this->session->set_flashdata('success', 'Successfull added');
-			$this->load->view("elearning/registration");
-			// $this->session->unset_userdata('success');
+			$this->session->set_tempdata('success', 'Successfully Registration... You can login now', 5);
+			redirect(base_url('registration'), 'refresh');
 		} else {
-			// $this->session->set_flashdata("error", "Unsuccessfull added");
-			$this->load->view("elearning/registration");
-			// $this->session->unset_userdata('success');
+			$this->session->set_tempdata("error", "Successfully Registration", 5);
+			redirect(base_url('registration'), 'refresh');
 		}
 	}
 
@@ -225,25 +227,62 @@ class HomeController extends CI_Controller
 		);
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
-			// $this->session->set_flashdata('Success', 'Successfull added');
-			$this->load->view("elearning/registration");
+			$this->session->set_tempdata('success', 'Successfully Registration... Now You can login now', 5);
+			redirect(base_url('registration'), 'refresh');
 		} else {
-			// $this->session->set_flashdata("Error", "Unsuccessfull added");
-			$this->load->view("elearning/registration");
+			$this->session->set_tempdata("error", "Successfully Registration", 5);
+			redirect(base_url('registration'), 'refresh');
 		}
 	}
 
 
-
-	public function dash_login()
-	{
-		$this->load->view('elearning/dashboard');
-	}
-
 	public function enquiry()
 	{
 		$this->load->view('elearning/enquiry');
+
+
+		if (isset($_POST['submit'])) {
+			$data = array(
+				"name" => $this->input->post("name"),
+				"email" => $this->input->post("email"),
+				"number" => $this->input->post("number"),
+				"subject" => $this->input->post("subject"),
+				"message" => $this->input->post("message")
+			);
+			$check = $this->ExamModel->insert_enqiry($data);
+
+			if ($check ==  true) {
+				$this->session->set_tempdata('show_success', 'Successfully Form Submitted', 3);
+				redirect(base_url('enquiry'), 'refrsh');
+			} else {
+				$this->session->set_tempdata('show_error', 'Error in Form Submitting', 3);
+				redirect(base_url('enquiry'), 'refresh');
+			}
+		}
 	}
+
+
+	// user dashboard and typing test 
+
+
+	public function dash_login()
+	{
+
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again',5);
+			redirect(base_url('login'));
+		}
+
+		$this->load->view('elearning/dashboard');
+	}
+
+
+	public function user_logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
+	}
+
 
 	public function paper_info()
 	{

@@ -11,21 +11,33 @@
 				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 				</div>
 
-	
+
 
 				<form action="login-check" method="post">
-		
+
 					<div class="col-md-6">
 
-					<?php
-				if ($this->session->flashdata('error') != "") {
-				?>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<?= $this->session->flashdata('error')?>
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-				
-			<?php }	?>
+						<?php
+						if ($this->session->tempdata('error') != "") {
+						?>
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<?= $this->session->tempdata('error') ?>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+
+						<?php }	?>
+
+						<?php
+						if ($this->session->tempdata('show_login_error') != "") {
+						?>
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								<?= $this->session->tempdata('show_login_error') ?>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+
+						<?php }	?>
+
+					
 
 						<div class="form-floating">
 							<input type="email" class="form-control" name="email" placeholder="Your Email">

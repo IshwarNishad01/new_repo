@@ -63,6 +63,15 @@ class ExamModel extends CI_Model
 		$this->db->insert("contact", $data);
 		return true;
 	}
+
+
+	public function insert_enqiry($data)
+	{
+		$this->db->insert("enquiry_tb", $data);
+		return true;
+	}
+
+
 	public function contact_db()
 	{
 		$data = $this->db->query('select * from contact')->result();
