@@ -3,18 +3,12 @@
 class AdminController extends CI_Controller
 {
 
-	// function __construct()
-	// {
-	// 	parent::__construct();
-	// 	if (!isset($_SESSION['sess_name'])) {
-	// 		$this->load->view('admin/login');
-	// 	}
-	// }
 
 	public function index()
 	{
-		// if (!isset($_SESSION['sess_name'])) {
-		// 	redirect("admin");
+
+		// if (empty($this->session->userdata('admin_email'))) {
+		// 	redirect(base_url('admin'));
 		// }
 		$this->load->view('admin/index');
 	}
@@ -29,13 +23,9 @@ class AdminController extends CI_Controller
 			$this->db->insert('videos', $data);
 			$last_id = $this->db->insert_id();
 			if ($last_id > 0) {
-				$this->session->set_flashdata("deleted", "Successfull added");
-				// redirect("admin/add_videos");
-				// echo "successfully added";
-
+				$this->session->set_tempdata("success", "Successfully Video Added...",5);
 			} else {
-				$this->session->set_flashdata("No deleted", "Unsuccessfull added");
-				// echo "Failed";
+				$this->session->set_tempdata("error", "Error in Video Uploading...",5);
 			}
 		}
 		$this->load->view('admin/add_videos');
@@ -329,26 +319,39 @@ class AdminController extends CI_Controller
 		}
 		$this->load->view('admin/sign_up1');
 	}
-	public function alogin()
-	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$useremail = $this->input->post('uname');
-			$userpwd = $this->input->post('pwd');
-			$this->db->where('aname=', $useremail);
-			$this->db->where('apwd=', $userpwd);
-			$r['data'] = $this->db->get('admin')->row_array();
-			foreach ($r as $key) {
-				if ($useremail == $key['aname'] && $userpwd == $key['apwd']) {
 
-					$_SESSION['sess_name'] = $key['aname'];
-					$_SESSION['sess_id'] = $key['aemail'];
-					redirect("../index");
+	public function admin_login()
+	{
+		if (isset($_POST['signin'])) {
+
+			$email = $this->input->post('email');
+			$password = $this->input->post('pwd');
+
+			// check user email is register or not
+			$isEmailRegistered = $this->db->query("select * from admin where aemail = '$email'")->result();
+			if (count($isEmailRegistered) > 0) {
+
+				// check password is correct or not
+				$checkPassword = $this->db->query("select * from admin where aemail = '$email' and apwd = '$password'")->result();
+
+				if (count($checkPassword) > 0) {
+					// echo 'you can login';
+					// $this->session->set_userdata('first_name', $checkPassword[0]->first_name);
+					// $this->session->set_userdata('last_name', $checkPassword[0]->last_name);
+					// $this->session->set_userdata('userid', $checkPassword[0]->id);
+					// $this->session->set_userdata('password', $checkPassword[0]->password);
+					redirect(base_url('admin/dashboard'), 'refresh');
 				} else {
-					redirect("../admin?error");
+					echo 'please enter correct password';
+					// $this->session->set_tempdata('error', 'Please Enter Correct Password', 3);
+					// redirect(base_url('login'), 'refresh');
 				}
+			} else {
+				echo 'please register yourself then login';
+				$this->session->set_tempdata('error', 'Please Register Yourself First', 3);
+				redirect(base_url('admin'), 'refresh');
 			}
 		}
-		$this->load->view('admin/login');
 	}
 
 	public function add_notice()
@@ -952,8 +955,6 @@ class AdminController extends CI_Controller
 		}
 		$this->load->view('admin/edit_exam', $data);
 	}
-
-
 
 
 	public function declare_result()

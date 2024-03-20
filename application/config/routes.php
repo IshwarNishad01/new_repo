@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$route['index'] = 'AdminController/index';
+$route['admin'] = 'HomeController/admin_login';
+$route['admin/dashboard'] = 'AdminController/index';
+// $route['Admin_Logout'] = 'AdminController/logout';
 $route['ED'] = 'AdminController/event_delete';
 $route['ND'] = 'AdminController/news_delete';
 $route['EA'] = 'AdminController/add_newss';
@@ -12,18 +14,30 @@ $route['SDelete'] = 'AdminController/stu_delete';
 $route['all_video'] = 'AdminController/all_videos';
 $route['delete_video'] = 'AdminController/delete_video';
 $route['All_Student'] = 'AdminController/all_student';
-$route['add_video'] = 'AdminController/add_videos';
+$route['admin/add_video'] = 'AdminController/add_videos';
 $route['GD'] = 'AdminController/gallery_delete';
-$route['admin'] = 'AdminController/alogin';
-// $route['Admin_Logout'] = 'AdminController/logout';
+
+
+
+// $route['admin'] = 'AdminController/admin_login';
+
+
+$route['admin/add_paper'] = 'AdminController/add_paper';
+$route['admin/paper_list'] = 'AdminController/paper_list';
+
+
+
+
+
+
 $route['up'] = 'AdminController/up_n';
 $route['Admin_Add'] = 'AdminController/sign_up';
 $route['veiwstu'] = 'AdminController/veiwstu';
 $route['set_exam'] = 'AdminController/set_exam';
 $route['add_question'] = 'AdminController/add_question';
-$route['add_paper'] = 'AdminController/add_paper';
+
 $route['paper_data'] = 'AdminController/paper_data';
-$route['paper_list'] = 'AdminController/paper_list';
+
 $route['delete_paper'] = 'AdminController/delete_paper';
 $route['paper_update'] = 'AdminController/paper_update';
 $route['finalupdate'] = 'AdminController/finalupdate';

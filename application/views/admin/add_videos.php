@@ -72,10 +72,15 @@
 									
 								</div>
 								<div class="card-body" id="bar-parent">
+<?php
+if(!empty($this->session->tempdata('success'))){
+	echo $this->session->tempdata('success');
+}
+?>
+
 									<form action="" id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="post">
-										<?php if(isset($_REQUEST['add_s'])){?>
-									<center style="color: green;font-size: ;">Successfully Videos Uploaded</center>
-										<?php } ?>
+
+
 										<div class="form-body">
 											<div class="form-group row">
 												<label class="control-label col-md-3">Caption

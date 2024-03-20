@@ -9,7 +9,7 @@
 				</li>
 
 				<li class="nav-item start ">
-					<a href="<?= base_url('index'); ?>" class="nav-link ">
+					<a href="<?= base_url('admin/dashboard') ?>" class="nav-link ">
 						<i data-feather="airplay"></i>
 						<span class="title">Dashboard</span>
 					</a>
@@ -23,7 +23,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('#'); ?>" class="nav-link "> <span class="title">All Paper</span>
+							<a href="#" class="nav-link "> <span class="title">All Paper</span>
 							</a>
 						</li>
 					</ul>
@@ -35,11 +35,11 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('add_paper'); ?>" class="nav-link "> <span class="title">Add Paper</span>
+							<a href="<?= base_url('admin/add_paper'); ?>" class="nav-link "> <span class="title">Add Paper</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('paper_list'); ?>" class="nav-link "> <span class="title">All Paper</span>
+							<a href="<?= base_url('admin/paper_list'); ?>" class="nav-link "> <span class="title">All Paper</span>
 							</a>
 						</li>
 
@@ -52,8 +52,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('add_video'); ?>" class="nav-link "> <span class="title">Add
-									videos</span>
+							<a href="<?= base_url('admin/add_video'); ?>" class="nav-link "> <span class="title">Add videos</span>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -125,7 +124,7 @@
 
 				<li class="nav-item  open">
 					<a href="logout_admin" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
-						<span class="title"> User Management </span> <span class="selected"></span>
+						<span class="title"> Logout </span> <span class="selected"></span>
 						<!-- <span class="arrow open"></span> -->
 					</a>
 				</li>

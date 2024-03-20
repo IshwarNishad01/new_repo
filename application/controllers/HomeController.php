@@ -311,4 +311,8 @@ class HomeController extends CI_Controller
 	{
 		echo 'successfully submitted';
 	}
+
+	public function admin_login(){
+		$this->load->view('admin/login');
+	}
 }

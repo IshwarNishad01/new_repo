@@ -46,23 +46,18 @@
 						<form class="register-form" id="login-form" method="post" action="">
 							<div class="form-group">
 								<div class="">
-									<input name="uname" type="text" placeholder="User Name" class="form-control input-height"> </div>
+									<input name="email" type="email" placeholder="Enter Email" class="form-control input-height"> </div>
 							</div>
 							<div class="form-group">
 								<div class="">
-									<input name="pwd" type="password" placeholder="Password" class="form-control input-height"> </div>
+									<input name="pwd" type="password" placeholder="Enter Password" class="form-control input-height"> </div>
 							</div>
-							<!-- <div class="form-group">
-								<input type="checkbox" name="remember-me" id="remember-me" class="agree-term">
-								<label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
-									me</label>
-							</div> -->
+						
 							<div class="form-group form-button">
 								<button class="btn btn-round btn-primary" name="signin" id="signin">Login</button>
 							</div>
 						</form>
-						<!-- <a href="<?=base_url('Admin_Add');?>" class="signup-image-link">Click here to Create an account</a>
-						 -->
+				
 					</div>
 				</div>
 			</div>
