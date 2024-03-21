@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$route['admin'] = 'HomeController/admin_login';
+$route['admin'] = 'AdminController/admin_login';
 $route['admin/dashboard'] = 'AdminController/index';
-// $route['Admin_Logout'] = 'AdminController/logout';
+$route['admin/logout'] = 'AdminController/logout';
 $route['ED'] = 'AdminController/event_delete';
 $route['ND'] = 'AdminController/news_delete';
 $route['EA'] = 'AdminController/add_newss';
@@ -11,8 +11,8 @@ $route['SE'] = 'AdminController/show_events';
 $route['Show_News'] = 'AdminController/show_news';
 $route['Update_News'] = 'AdminController/show_up_news';
 $route['SDelete'] = 'AdminController/stu_delete';
-$route['all_video'] = 'AdminController/all_videos';
-$route['delete_video'] = 'AdminController/delete_video';
+$route['admin/all_video'] = 'AdminController/all_videos';
+$route['admin/delete_video'] = 'AdminController/delete_video';
 $route['All_Student'] = 'AdminController/all_student';
 $route['admin/add_video'] = 'AdminController/add_videos';
 $route['GD'] = 'AdminController/gallery_delete';
@@ -26,7 +26,9 @@ $route['admin/add_paper'] = 'AdminController/add_paper';
 $route['admin/paper_list'] = 'AdminController/paper_list';
 
 
-
+$route['admin/student-list'] = 'AdminController/show_all_student';
+$route['admin/manage-student'] = 'AdminController/manage_student';
+$route['admin/delete_student'] = 'AdminController/delete_student';
 
 
 
@@ -46,7 +48,7 @@ $route['Add_Notice'] = 'AdminController/add_notice';
 $route['add_course'] = 'AdminController/add_course';
 $route['declare_result'] = 'AdminController/declare_result';
 $route['view_exam_result'] = 'AdminController/view_exam_result';
-$route['student_registration'] = 'AdminController/student_registration';
+$route['admin/student_registration'] = 'AdminController/student_registration';
 $route['registype'] = 'AdminController/registype';
 $route['delete_regist/(:any)'] = 'AdminController/delete_regist/$1';
 $route['view_exams'] = 'AdminController/view_exams';
@@ -63,15 +65,16 @@ $route['delete_frenchies'] = 'AdminController/delete_frenchies';
 $route['add_staff'] = 'AdminController/add_staff';
 $route['staff_list'] = 'AdminController/staff_list';
 $route['delete_staff'] = 'AdminController/delete_staff';
-$route['add_notification'] = 'AdminController/add_notification';
-$route['notification_data'] = 'AdminController/notification_data';
-$route['notification_list'] = 'AdminController/notification_list';
+$route['admin/add-notification'] = 'AdminController/add_notification';
+$route['admin/notification_data'] = 'AdminController/notification_data';
+$route['admin/notification_list'] = 'AdminController/notification_list';
+$route['admin/delete-notifi'] = 'AdminController/delete_notifi';
 $route['delete_list'] = 'AdminController/delete_list';
 $route['our_branches'] = 'AdminController/our_branches';
 $route['add_student'] = 'AdminController/add_student';
-$route['enquiry_list'] = 'AdminController/enquiry_list';
+$route['admin/enquiry_list'] = 'AdminController/enquiry_list';
 $route['enquiry_data'] = 'AdminController/enquiry_data';
-$route['delete_enquiry'] = 'AdminController/delete_enquiry';
+$route['admin/delete_enquiry'] = 'AdminController/delete_enquiry';
 $route['delete_data'] = 'AdminController/delete_data';
 $route['delete_question'] = 'AdminController/delete_question';
 $route['delete_exam'] = 'AdminController/delete_exam';

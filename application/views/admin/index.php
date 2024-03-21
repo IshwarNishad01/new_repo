@@ -64,10 +64,9 @@
 												</h4>
 											</div>
 											<?php 
-												$data['r']=$this->db->query("select count(sid) as det from student_regi")->row_array();
-
+												$totalStudents=$this->db->query("select * from register")->result();
 											?>
-											<h3 class="mt-1 mb-3 info-box-title col-green"><?php foreach($data as $key){ echo $key['det'];}?></h3>
+											<h3 class="mt-1 mb-3 info-box-title col-green"><?=  count($totalStudents); ?></h3>
 											<div class="progress">
 												<div class="progress-bar l-bg-purple" style="width: 45%"></div>
 											</div>
@@ -89,11 +88,10 @@
 											<div class="col mt-0">
 												<h4 class="info-box-title">Total Paper</h4>
 											</div>
-											<?php 
-												$data1['r1']=$this->db->query("select count(career_id) as det1 from career")->row_array();
-
+											<?php  
+											$totalpapers=$this->db->query("select * from paper")->result();
 											?>
-											<h3 class="mt-1 mb-3 info-box-title col-green"><?php foreach($data1 as $key1){ echo $key1['det1'];}?></h3>
+											<h3 class="mt-1 mb-3 info-box-title col-green"><?=  count($totalpapers); ?></h3>
 											<div class="progress">
 												<div class="progress-bar l-bg-red" style="width: 45%"></div>
 											</div>
@@ -116,8 +114,10 @@
 
 												<h4 class="info-box-title">Total Enquiry Form</h4>
 											</div>
-											<h3 class="mt-1 mb-3 info-box-title col-green">4</h3>
-											<div class="progress">
+											<?php
+												$enquirydata=$this->db->query("select * from enquiry_tb")->result();
+											?>
+											<h3 class="mt-1 mb-3 info-box-title col-green"><?= count($enquirydata) ?></h3>
 												<div class="progress-bar l-bg-green" style="width: 45%"></div>
 											</div>
 										</div>

@@ -94,6 +94,12 @@ class ExamModel extends CI_Model
 		return $q;
 	}
 
+	public function delete_student($id)
+	{
+		$response = $this->db->where("id", $id)->delete("register");
+		return $response;
+	}
+
 	public function logincheck($email, $password)
 	{
 		$data = $this->db->query("select * from register where email ='$email' and password='$password'")->result();

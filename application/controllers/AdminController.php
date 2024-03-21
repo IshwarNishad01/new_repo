@@ -7,9 +7,10 @@ class AdminController extends CI_Controller
 	public function index()
 	{
 
-		// if (empty($this->session->userdata('admin_email'))) {
-		// 	redirect(base_url('admin'));
-		// }
+		if (empty($this->session->userdata('admin_id'))) {
+			$this->session->set_tempdata('admin_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('admin'));
+		}
 		$this->load->view('admin/index');
 	}
 
@@ -23,9 +24,9 @@ class AdminController extends CI_Controller
 			$this->db->insert('videos', $data);
 			$last_id = $this->db->insert_id();
 			if ($last_id > 0) {
-				$this->session->set_tempdata("success", "Successfully Video Added...",5);
+				$this->session->set_tempdata("success_video", "Successfully Video Added...", 5);
 			} else {
-				$this->session->set_tempdata("error", "Error in Video Uploading...",5);
+				$this->session->set_tempdata("error_video", "Error in Video Uploading...", 5);
 			}
 		}
 		$this->load->view('admin/add_videos');
@@ -79,18 +80,17 @@ class AdminController extends CI_Controller
 		$data['show'] = $this->db->get("videos")->result();
 		$this->load->view('admin/all_video', $data);
 	}
-	public function delete_video($id = 0)
+	public function delete_video()
 	{
 		$id = $this->input->get('id');
 		$check = $this->ExamModel->video_delete($id);
 		if ($check > 0) {
-			return redirect("all_video?success&id=$check");
-			// $this->session->set_flashdata("Successfull Deleted");
+			$this->session->set_tempdata("delete_video", "Successfully Video Deleted...", 5);
+			return redirect(base_url('admin/all_video'));
 		} else {
-			return redirect("all_video?error");
-			// $this->session->set_flashdata("Unsuccessfull to deleted");
+			$this->session->set_tempdata("del_error_video", "Error in Video Deleted...", 5);
+			return redirect(base_url('admin/all_video'));
 		}
-		// print_r($check);exit();
 	}
 
 	public function frenchies_form_list()
@@ -196,11 +196,35 @@ class AdminController extends CI_Controller
 		}
 	}
 
-	public function paper_list()
+	public function show_all_student()
 	{
-		$data['show'] = $this->db->get("paper")->result();
-		$this->load->view('admin/all_paper', $data);
+		$data['show'] = $this->db->get("register")->result();
+		$this->load->view('admin/all_students', $data);
 	}
+
+
+	public function manage_student()
+	{
+		$data['show'] = $this->db->get("register")->result();
+		$this->load->view('admin/manage_student', $data);
+	}
+
+
+	public function delete_student()
+	{
+		$id = $this->input->get('id');
+		$this->db->where("id", $id);
+		$check = $this->db->delete('register');
+		if ($check) {
+			$this->session->set_tempdata('student_delete_success', 'Successfully Deleted Record', 3);
+			return redirect(base_url('admin/student_registration'));
+		} else {
+			$this->session->set_tempdata('student_delete_error', 'Unsuccessfully Deleted Record', 3);
+			return redirect(base_url('admin/student_registration'));
+		}
+	}
+
+
 	public function delete_paper($id = 0)
 	{
 		$id = $this->input->get('id');
@@ -335,23 +359,21 @@ class AdminController extends CI_Controller
 				$checkPassword = $this->db->query("select * from admin where aemail = '$email' and apwd = '$password'")->result();
 
 				if (count($checkPassword) > 0) {
-					// echo 'you can login';
-					// $this->session->set_userdata('first_name', $checkPassword[0]->first_name);
-					// $this->session->set_userdata('last_name', $checkPassword[0]->last_name);
-					// $this->session->set_userdata('userid', $checkPassword[0]->id);
-					// $this->session->set_userdata('password', $checkPassword[0]->password);
+					$this->session->set_userdata('admin_name', $checkPassword[0]->aname);
+					$this->session->set_userdata('admin_id', $checkPassword[0]->aid);
+					$this->session->set_userdata('password', $checkPassword[0]->apwd);
 					redirect(base_url('admin/dashboard'), 'refresh');
 				} else {
-					echo 'please enter correct password';
-					// $this->session->set_tempdata('error', 'Please Enter Correct Password', 3);
-					// redirect(base_url('login'), 'refresh');
+					$this->session->set_tempdata('admin_error', 'Please Enter Correct Password', 3);
+					redirect(base_url('admin'), 'refresh');
 				}
 			} else {
-				echo 'please register yourself then login';
-				$this->session->set_tempdata('error', 'Please Register Yourself First', 3);
+				$this->session->set_tempdata('admin_error', 'Please Enter Correct Email', 3);
 				redirect(base_url('admin'), 'refresh');
 			}
 		}
+
+		$this->load->view('admin/login');
 	}
 
 	public function add_notice()
@@ -446,157 +468,18 @@ class AdminController extends CI_Controller
 		}
 		$this->load->view('admin/add_result');
 	}
-	public function delete_staff()
-	{
-		$id = $this->input->get('q');
-		$this->db->where("id=", $id);
-		$this->db->delete("staff");
-		redirect('../staff_list');
-	}
-	public function staff_list()
-	{
-		$data['show'] = $this->db->get("staff")->result();
-		$this->load->view('admin/staff_list', $data);
-	}
-	public function add_staff()
-	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$name = $this->input->post('name');
-			$desgination = $this->input->post('desgination');
-
-			$myTemp = $_FILES['file_notice']['tmp_name'];
-			$myfile = $_FILES['file_notice']['name'];
-			$sizefile = $_FILES['file_notice']['size'];
-			$errorfile = $_FILES['file_notice']['error'];
-			$typefile = $_FILES['file_notice']['type'];
-			//echo $typefile;
-			if (($typefile == "image/jpg") || ($typefile == "image/jpeg") || ($typefile == "image/png")) {
-				if ($errorfile > 0) {
-					echo 'error exsist on your file';
-				} else {
-					$location = "assets/upload_img/staff_file/" . $myfile;
-					move_uploaded_file($myTemp, "assets/upload_img/staff_file/" . $myfile);
-					$data = array('name' => $name, 'designation' => $desgination, 'file_location' => $location);
-					$this->db->insert('staff', $data);
-					$last_id = $this->db->insert_id();
-					if ($last_id > 0) {
-						redirect("../add_staff?add_s");
-					}
-				}
-			} else {
-				redirect("../add_staff?add_ns");
-			}
-		}
-		$this->load->view('admin/add_staff');
-	}
-
-	public function add_newss()
-	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			//$event_title=$this->input->post('event_title');
-			$notice_highlight = $this->input->post('event_hlt');
-			//$event_date=$this->input->post('event_date');
-			//$event_file=$this->input->post('ef');
-			$notice_details = $this->input->post('dtls');
-			$myTemp = $_FILES['file_notice']['tmp_name'];
-			$myfile = $_FILES['file_notice']['name'];
-			$sizefile = $_FILES['file_notice']['size'];
-			$errorfile = $_FILES['file_notice']['error'];
-			$typefile = $_FILES['file_notice']['type'];
-			//echo $typefile;
-			if (($typefile == "image/jpg") || ($typefile == "image/jpeg") || ($typefile == "image/png")) {
-				if ($errorfile > 0) {
-					echo 'error exsist on your file';
-				} else {
-					move_uploaded_file($myTemp, "assets/upload_img/news_file/" . $myfile);
-					$data = array('news_hlt' => $notice_highlight, 'news_file' => $myfile, 'news_dtls' => $notice_details);
-					$this->db->insert('news', $data);
-					$last_id = $this->db->insert_id();
-					if ($last_id > 0) {
-						redirect("../EA?add_s");
-					}
-				}
-			}
-		}
-		$this->load->view('admin/add_event');
-	}
-	public function add_frenchies_form()
-	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$notice_highlight = $this->input->post('notice_hlt');
-
-			$myTemp = $_FILES['file_notice']['tmp_name'];
-			$myfile = $_FILES['file_notice']['name'];
-			$sizefile = $_FILES['file_notice']['size'];
-			$errorfile = $_FILES['file_notice']['error'];
-			$typefile = $_FILES['file_notice']['type'];
-			//echo $typefile;
-			if (($typefile == 'application/pdf') && ($sizefile < 2000000)) {
-				if ($errorfile > 0) {
-					echo 'error exsist on your file';
-				} else {
-					$location = "assets/upload_img/frenchies_file/" . $myfile;
-					move_uploaded_file($myTemp, "assets/upload_img/frenchies_file/" . $myfile);
-					$data = array('title' => $notice_highlight, 'file_location' => $location);
-					$this->db->insert('frenchies_form', $data);
-					$last_id = $this->db->insert_id();
-					if ($last_id > 0) {
-						redirect("../add_frenchies_form?add_s");
-					}
-				}
-			} else {
-				redirect("../add_frenchies_form?add_ns");
-			}
-		}
-		$this->load->view('admin/add_frenchies');
-	}
-	public function update_newss()
-	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			//$event_title=$this->input->post('event_title');
-			$notice_highlight = $this->input->post('event_hlt');
-			//$event_date=$this->input->post('event_date');
-			//$event_file=$this->input->post('ef');
-			$notice_details = $this->input->post('dtls');
-			$myTemp = $_FILES['file_notice']['tmp_name'];
-			$myfile = $_FILES['file_notice']['name'];
-			$sizefile = $_FILES['file_notice']['size'];
-			$errorfile = $_FILES['file_notice']['error'];
-			$typefile = $_FILES['file_notice']['type'];
-			//echo $typefile;
-			if (($typefile == "image/jpg") || ($typefile == "image/jpeg") || ($typefile == "image/png")) {
-				if ($errorfile > 0) {
-					echo 'error exsist on your file';
-				} else {
-					move_uploaded_file($myTemp, "assets/upload_img/news_file/" . $myfile);
-					$data = array('news_hlt' => $notice_highlight, 'news_file' => $myfile, 'news_dtls' => $notice_details);
-					$this->db->insert('news', $data);
-					$last_id = $this->db->insert_id();
-					if ($last_id > 0) {
-						redirect("../EA?add_s");
-					}
-				}
-			}
-		}
-		$this->load->view('admin/update_news');
-	}
 
 	public function logout()
 	{
 		session_destroy();
-		// $this->load->view('admin/login');
-		redirect('admin', 'refresh');
+		redirect(base_url('admin'), 'refresh');
 	}
 	public function all_student()
 	{
 		$data['show'] = $this->db->get("student_regi")->result();
 		$this->load->view('admin/all_students', $data);
 	}
-	public function all_career()
-	{
-		$data['show'] = $this->db->get("career")->result();
-		$this->load->view('admin/all_career', $data);
-	}
+
 	public function stu_delete()
 	{
 		$id = $this->input->get('q');
@@ -670,13 +553,11 @@ class AdminController extends CI_Controller
 		);
 		$check = $this->ExamModel->notification_store($data); //model function
 		if ($check > 0) {
-			// return redirect("admin/add_notification");
-			// $this->session->set_flashdata("successful added");
-			return redirect("add_notification?success&id=$check");
+			$this->session->set_tempdata("success_notifi", "Successfully Notification Added...", 5);
+			return redirect(base_url('admin/add-notification'));
 		} else {
-			// return redirect("admin/add_notification");
-			// $this->session->set_flashdata("Unsuccessful added");
-			return redirect("add_notification?error");
+			$this->session->set_tempdata("error_notif", "Error in Added Notification ...", 5);
+			return redirect(base_url('admin/add-notification'));
 		}
 		$this->load->view('admin/add_notification');
 	}
@@ -807,6 +688,16 @@ class AdminController extends CI_Controller
 		$this->load->view('admin/notification_list', $data);
 	}
 
+
+	public function delete_notifi()
+	{
+		$id = $this->input->get('q');
+		$this->db->where('id=', $id);
+		$this->db->delete('notification');
+		$this->session->set_tempdata('delete_notifi', 'Notification Deleted Successfully', 5);
+		return redirect(base_url('admin/notification_list'));
+	}
+
 	public function delete_list($id = 0)
 	{
 		$id = $this->input->get('id');
@@ -879,14 +770,16 @@ class AdminController extends CI_Controller
 		}
 	}
 
-	public function delete_enquiry($id = 0)
+	public function delete_enquiry()
 	{
 		$id = $this->input->get('id');
 		$check = $this->ExamModel->enquiry($id);
 		if ($check > 0) {
-			return redirect("enquiry_list?success&id=$check");
+			$this->session->set_tempdata('enquiry_success', 'Enquiry Deleted Successfully', 5);
+			return redirect(base_url('admin/enquiry_list'));
 		} else {
-			return redirect("enquiry_list?error");
+			$this->session->set_tempdata('enquiry_error', 'Error in Enquiry Deleted', 5);
+			return redirect(base_url('admin/enquiry_list'));
 		}
 	}
 

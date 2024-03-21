@@ -51,10 +51,7 @@
 			<div class="page-content-wrapper">
 				<div class="page-content">
 					<div class="page-bar">
-						<?php if(isset($_REQUEST['add_s'])){?>
-							<p style="color:green;font-size:20px ;">Added Successfully ......</p><?php } ?>
-						<?php if(isset($_REQUEST['add_ns'])){?>
-							<p style="color:red;font-size:20px ;">Please check your file type and file size.</p><?php } ?>
+				
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
 								<div class="page-title">Add Notification</div>
@@ -63,12 +60,22 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-12">
+					<div class="col-sm-12">
+					<?php
+					if ($this->session->tempdata('success_notifi') != "") {
+					?>
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<?= $this->session->tempdata('success_notifi') ?>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+
+					<?php }	?>
+			
 							<div class="card-box">
 								<div class="card-head">
 									<header>Notification Details</header>	
 								</div>
-								<form action="notification_data" method="POST" enctype="multipart/form-data">
+								<form action="<?= base_url('admin/notification_data') ?>" method="POST" enctype="multipart/form-data">
 								<div class="card-body row">
 									<div class="col-lg-12 p-t-20">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">

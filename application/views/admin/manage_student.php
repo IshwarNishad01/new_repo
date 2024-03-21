@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
 
@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>GD Professional College</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -28,7 +28,17 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/plugins.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
+	<!-- favicon -->
 
+	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/favicon.ico">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
+	<style type="text/css">
+		@media only screen and (max-width: 600px) {
+			#example4 {
+				width: 100%;
+			}
+		}
+	</style>
 </head>
 <!-- END HEAD -->
 
@@ -49,53 +59,52 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<div class="page-title">Video List</div>
+								<div class="page-title">All Students</div>
 							</div>
-
+							<ol class="breadcrumb page-breadcrumb pull-right">
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li class="active">Manage Exam</li>
+							</ol>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<?php
-							if ($this->session->tempdata('delete_video') != "") {
-							?>
-								<div class="alert alert-warning alert-dismissible fade show" role="alert">
-									<?= $this->session->tempdata('delete_video') ?>
-									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-								</div>
-
-							<?php }	?>
-							<div class="card-box">
+							<div class="card-box card-responcive">
 								<div class="card-head">
-									<header>Video List</header>
-								</div>
-								<div class="card-body ">
-									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4">
-										<thead>
+									<header>Register Students List</header>
 
+								</div>
+								<div class="card-body table-responsive">
+									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responsive">
+										<thead>
 											<tr>
-												<th>S.no. </th>
-												<th> Caption </th>
-												<th> Uploaded Videos </th>
-												<th> Upload Date </th>
-												<th> Action </th>
+												<th>S.No.</th>
+												<th>Student Name</th>
+												<th>Email</th>
+												<th>Status</th>
+												<th>Details</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-
 											$sn = 1;
-											foreach ($show as $key) {
-
+											foreach ($show as $row) {
 											?>
-												<tr class="odd gradeX">
-													<td><?php echo $sn++; ?></td>
-													<td><?= $key->caption ?></td>
-													<td class="video"><?= $key->video ?></td>
-													<td><?= $key->date ?></td>
-													<td><a href="<?= base_url('admin/delete_video?id=' . $key->id) ?> "><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+												<tr>
+													<td><?= $sn ?></td>
+													<td><?= $row->first_name . ' ' . $row->last_name ?></td>
+													<td>active</td>
+													<td><?= $row->email ?></td>
+													<td>View Details</td>
+													<td>Delete</td>
+
 												</tr>
-											<?php } ?>
+											<?php $sn++;
+											}
+											?>
+
 										</tbody>
 									</table>
 								</div>
@@ -106,6 +115,11 @@
 			</div>
 
 		</div>
+	</div>
+	</div>
+
+	</div>
+
 	</div>
 	<!-- start js include path -->
 	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
@@ -126,22 +140,8 @@
 	<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
 	<!-- Material -->
 	<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
-	<!-- <script type="text/javascript">
-  
-  $(document).ready(function(){
-    $('#dlt').click(function(){
-    	confirm("Are you sure to delete event");
-     // if(confirm("Are you sure to delete event")){
-     // 	return true;
-     // }else{
-     // 	return false;
-     // }
 
 
-    });
-  });
-</script> -->
 </body>
 
 </html>

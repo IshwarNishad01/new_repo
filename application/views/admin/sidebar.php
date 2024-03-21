@@ -23,7 +23,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="#" class="nav-link "> <span class="title">All Paper</span>
+							<a href="#" class="nav-link "> <span class="title">Typing Test Result</span>
 							</a>
 						</li>
 					</ul>
@@ -56,7 +56,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('all_video'); ?>" class="nav-link "> <span class="title">All
+							<a href="<?= base_url('admin/all_video'); ?>" class="nav-link "> <span class="title">All
 									videos</span>
 							</a>
 						</li>
@@ -69,7 +69,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('enquiry_list'); ?>" class="nav-link "> <span class="title">Enquiry List</span>
+							<a href="<?= base_url('admin/enquiry_list'); ?>" class="nav-link "> <span class="title">Enquiry List</span>
 							</a>
 						</li>
 					</ul>
@@ -82,7 +82,7 @@
 					<ul class="sub-menu">
 
 						<li class="nav-item">
-							<a href="<?= base_url('student_registration'); ?>" class="nav-link "> <span class="title">Registration List</span>
+							<a href="<?= base_url('admin/student_registration'); ?>" class="nav-link "> <span class="title">Registration List</span>
 							</a>
 						</li>
 					</ul>
@@ -94,11 +94,11 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('notification_data'); ?>" class="nav-link "> <span class="title">Add Notification</span>
+							<a href="<?= base_url('admin/add-notification'); ?>" class="nav-link "> <span class="title">Add Notification</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('notification_list'); ?>" class="nav-link "> <span class="title">Notification List</span>
+							<a href="<?= base_url('admin/notification_list'); ?>" class="nav-link "> <span class="title">Notification List</span>
 							</a>
 						</li>
 					</ul>
@@ -110,11 +110,11 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('frenchies_form_list'); ?>" class="nav-link "> <span class="title">All User List</span>
+							<a href="<?= base_url('admin/student-list'); ?>" class="nav-link "> <span class="title">Student List</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('add_frenchies_form'); ?>" class="nav-link "> <span class="title">Manage Users</span>
+							<a href="<?= base_url('admin/manage-student'); ?>" class="nav-link "> <span class="title">Manage Students</span>
 							</a>
 						</li>
 
@@ -123,9 +123,8 @@
 
 
 				<li class="nav-item  open">
-					<a href="logout_admin" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
+					<a href="<?= base_url('admin/logout') ?>" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
 						<span class="title"> Logout </span> <span class="selected"></span>
-						<!-- <span class="arrow open"></span> -->
 					</a>
 				</li>
 

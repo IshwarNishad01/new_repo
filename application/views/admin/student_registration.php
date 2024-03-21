@@ -31,10 +31,6 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/favicon.ico">
 	<style type="text/css">
-		@media screen(max-width: 400px) {
-			width:100%;
-		}
-
 		@media only screen and (max-width: 600px) {
 			#example4 {
 				width: 100%;
@@ -70,16 +66,18 @@
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Registration List</header>
-				              <?php
-							   if(isset($_REQUEST['deleted'])){
-								echo $this->session->flashdata();
-							   }
-							   if(isset($_REQUEST['nodeleted'])){
-								echo $this->session->flashdata();
-							   }
-							  ?>
+
 								</div>
-								<div class="card-body ">
+								<?php
+							if ($this->session->tempdata('student_delete_success') != "") {
+							?>
+								<div class="alert alert-warning alert-dismissible fade show" role="alert">
+									<?= $this->session->tempdata('student_delete_success') ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+
+							<?php }	?>
+								<div class="card-body table-responsive">
 									<table class="table table-striped  table-hover table-checkable order-column valign-middle" id="example4 table-responsive">
 										<thead>
 											<tr>
@@ -120,7 +118,7 @@
 													<td><?= $row->temp_address ?></td>
 													<td><?= $row->par_address ?></td>
 													<td><?= $row->date ?></td>
-													<td><a href="delete_regist/<?=$row->id?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+													<td><a href=" <?= base_url('admin/delete_student?id=' . $row->id) ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 												</tr>
 											<?php $sn++;
 											}

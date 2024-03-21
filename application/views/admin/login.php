@@ -29,28 +29,29 @@
 		<section class="sign-in">
 			<div class="container">
 				<div class="signin-content">
-					<!-- <div class="signin-image">
-						<figure><img src="<?=base_url();?>admin_assets/img/pages/signin.jpg" alt="sing up image"></figure>
-						
-					</div> -->
+				
 					<div class="signin-form">
 						<h2 class="form-title">GAYTRI TYPING
 							<small style="color: #6777ef;">Admin Login</small>
 						</h2>
-						<?php if(isset($_REQUEST['error'])){?>
-						<p style="color: red;">Invalid Id & Password......</p>
-						<?php } ?>
-						<?php if(isset($_REQUEST['logout'])){?>
-						<p style="color: red;">logout successful......</p>
-						<?php } ?>
+
+						<?php
+						if ($this->session->tempdata('admin_error') != "") {
+						?>
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								<?= $this->session->tempdata('admin_error') ?>
+							</div>
+
+						<?php }	?>
+					
 						<form class="register-form" id="login-form" method="post" action="">
 							<div class="form-group">
 								<div class="">
-									<input name="email" type="email" placeholder="Enter Email" class="form-control input-height"> </div>
+									<input name="email" required type="email" placeholder="Enter Email" class="form-control input-height"> </div>
 							</div>
 							<div class="form-group">
 								<div class="">
-									<input name="pwd" type="password" placeholder="Enter Password" class="form-control input-height"> </div>
+									<input name="pwd" required type="password" placeholder="Enter Password" class="form-control input-height"> </div>
 							</div>
 						
 							<div class="form-group form-button">

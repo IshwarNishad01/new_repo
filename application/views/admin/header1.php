@@ -73,41 +73,28 @@
 				<div class="top-menu">
 					<ul class="nav navbar-nav pull-right">
 						<li><a class="fullscreen-btn"></a></li>
-						
-						<!-- start notification dropdown -->
-						<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-								<i data-feather="bell"></i>
-								
-							</a>
-							
-						</li>
-						<!-- end notification dropdown -->
-						<!-- start message dropdown -->
-						<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true" href="<?=base_url('Admin_Msg');?>">
-								<i data-feather="mail"></i>
-								<!-- <span class="badge headerBadgeColor2"> 2 </span> -->
-							</a>
-						
-						</li>
+				
 						<!-- end message dropdown -->
 						<!-- start manage user dropdown -->
-						<!-- <li class="dropdown dropdown-user">
+						 <li class="dropdown dropdown-user">
 							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-								<i class="icon-user"></i>
+							<i class="fa-solid fa-user"></i>
 								<span class="username username-hide-on-mobile"> </?php if(isset($_SESSION['sess_id'])){
 									echo $_SESSION['sess_name'];
 								}?>
 							</span></a>
 							<ul class="dropdown-menu dropdown-menu-default">
-								
 								<li>
-									<a href="</?=base_url('Admin_Logout');?>">
-										<i class="icon-logout"></i> Log Out </a>
+									<a href="#">
+									<i class="fa-solid fa-user"></i> User Profile </a>
 								</li>
+								<li>
+									<a href="<?= base_url('admin/logout') ?>">
+									<i class="icon-logout"></i> Log Out </a>
+								</li>
+								
 							</ul>
-						</li> -->
+						</li> 
 						<!-- end manage user dropdown -->
 						
 					</ul>
