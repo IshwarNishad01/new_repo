@@ -32,6 +32,8 @@
 	<link href="<?=base_url();?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
 	<!-- <link rel="shortcut icon" href="</?=base_url();?>assets/admin_assets/img/logo_gd_c.png"> -->
+	   <!-- Favicon -->
+	   <link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 </head>
 <!-- END HEAD -->
 

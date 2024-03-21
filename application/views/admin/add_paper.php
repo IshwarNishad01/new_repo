@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>GD Professional College</title>
+	<title>Gayatri Typing</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -34,7 +34,12 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
-
+<style>
+	.hindi_font{
+		font-size: 20px !important;
+		font-weight: 600 !important;
+	}
+</style>
 
 </head>
 <!-- END HEAD -->
@@ -54,10 +59,7 @@
 			<div class="page-content-wrapper">
 				<div class="page-content">
 					<div class="page-bar">
-						<?php if (isset($_REQUEST['add_s'])) { ?>
-							<p style="color:green;font-size:20px ;">Added Successfully ......</p><?php } ?>
-						<?php if (isset($_REQUEST['add_ns'])) { ?>
-							<p style="color:red;font-size:20px ;">Please check your file type and file size.</p><?php } ?>
+					
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
 								<div class="page-title">Add Paper Pattern</div>
@@ -67,14 +69,23 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
+<?php
+						if ($this->session->tempdata('add_paper') != "") {
+								?>
+									<div class="alert alert-success alert-dismissible fade show" role="alert">
+										<?= $this->session->tempdata('add_paper') ?>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+
+								<?php }	?>
+
 							<div class="card-box">
 								<div class="card-head">
 									<header>Paper Details</header>
 								</div>
-								<!-- <form action="" method="POST" enctype="multipart/form-data"> -->
 
 								<div class="card-body" id="bar-parent">
-									<form action="paper_data" class="form-horizontal" enctype="multipart/form-data" method="post">
+									<form action="<?= base_url('admin/paper_data') ?>" class="form-horizontal" enctype="multipart/form-data" method="post">
 
 										<div class="form-body">
 											<div class="form-group row">
@@ -107,7 +118,7 @@
 												</label>
 												<div class="col-md-5">
 													<select name="status" id="" class="form-Control input-height" required style="width: 415px;">
-														<option value="select status">Select Status</option>
+														<option selected disabled>Select Status</option>
 														<option value="Active">Active</option>
 														<option value="Deactive">Deactive</option>
 													</select>
@@ -122,7 +133,7 @@
 													<select name="language" id="" class="form-Control input-height" required style="width: 415px;" onchange="myfunction(this.value)">
 														<option disabled selected>Select language</option>
 														<option value="kruti">Hindi - Kurti Dev</option>
-														<option value="mangal">Hindi - Mangal</option>
+														<!-- <option value="mangal">Hindi - Mangal</option> -->
 														<option value="english">English</option>
 													</select>
 												</div>
@@ -132,7 +143,7 @@
 												<label class="control-label col-md-3"> Message
 													<span class="required"> * </span>
 												</label>
-												<textarea name="message" id="paper_text" cols="3" rows="3"  required style="width: 415px; margin-left: 13px;"></textarea>
+												<textarea class="form-control" name="message" id="paper_text" cols="10" rows="10" required style="width: 415px; margin-left: 13px;"></textarea>
 											</div>
 											<div class="form-actions">
 												<div class="row">
@@ -161,8 +172,9 @@
 				if (value == 'kruti') {
 					paper_text.style.fontFamily = '"krutidev"';
 					paper_text.value = "";
+					paper_text.classList.add("hindi_font");
 
-				}else{
+				} else {
 					paper_text.style.fontFamily = '"English"';
 					paper_text.value = "";
 				}

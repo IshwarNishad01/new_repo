@@ -430,7 +430,7 @@
 	<div class="container">
 		<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 			<h4 class="section-title bg-white text-center text-primary px-3">Contact Us</h4>
-			<h1 class="mb-5">Contact For Any Query</h1>
+			<h1 class="mb-5">Contact For Any Query </h1>
 		</div>
 		<div class="row g-4">
 

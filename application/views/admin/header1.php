@@ -36,9 +36,7 @@
 	<link rel="shortcut icon" href="<?=base_url();?>assets/admin_assets/img/favicon.ico">
 
 	<style type="text/css">
-		@media screen(max-width: 400px){
-			width:100%;
-		}
+
 		@media only screen and (max-width: 600px) {
  #example4{
    width:100%;
@@ -84,10 +82,7 @@
 								}?>
 							</span></a>
 							<ul class="dropdown-menu dropdown-menu-default">
-								<li>
-									<a href="#">
-									<i class="fa-solid fa-user"></i> User Profile </a>
-								</li>
+								
 								<li>
 									<a href="<?= base_url('admin/logout') ?>">
 									<i class="icon-logout"></i> Log Out </a>

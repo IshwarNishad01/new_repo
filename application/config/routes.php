@@ -38,9 +38,9 @@ $route['veiwstu'] = 'AdminController/veiwstu';
 $route['set_exam'] = 'AdminController/set_exam';
 $route['add_question'] = 'AdminController/add_question';
 
-$route['paper_data'] = 'AdminController/paper_data';
+$route['admin/paper_data'] = 'AdminController/paper_data';
 
-$route['delete_paper'] = 'AdminController/delete_paper';
+$route['admin/delete_paper'] = 'AdminController/delete_paper';
 $route['paper_update'] = 'AdminController/paper_update';
 $route['finalupdate'] = 'AdminController/finalupdate';
 $route['all_paper'] = 'AdminController/all_paper';

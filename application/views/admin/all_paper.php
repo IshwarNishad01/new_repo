@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>GD Professional College</title>
+	<title>Gayatri Typing</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -33,9 +33,14 @@
 	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/favicon.ico">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 	<style type="text/css">
+		.message {
+			font-weight: 600;
+		}
+
 		.hindi_text {
 			font-family: "krutidev";
-		
+			font-size: 17px;
+			font-weight: 600;
 		}
 
 		@media only screen and (max-width: 600px) {
@@ -80,7 +85,7 @@
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Exam List</header>
-							
+
 								</div>
 								<div class="card-body table-responsive">
 									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responsive">
@@ -99,7 +104,7 @@
 										<tbody>
 											<?php
 											$sn = 1;
-											foreach ($show as $row) {
+											foreach ($papers as $row) {
 											?>
 												<tr>
 													<td><?= $sn ?></td>
@@ -107,7 +112,7 @@
 													<td><?= $row->duration ?></td>
 													<td><?= $row->e_date ?></td>
 													<td><?= $row->status ?></td>
-													<td class="<?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>"><?= $row->message ?></td>
+													<td class="message <?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>"><?= $row->message ?></td>
 													<td><?= $row->date ?></td>
 													<td><a href="delete_paper?id=<?= $row->id; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
 														<a href="paper_update?id=<?= $row->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a>

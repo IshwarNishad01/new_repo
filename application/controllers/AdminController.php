@@ -190,10 +190,20 @@ class AdminController extends CI_Controller
 		);
 		$check = $this->ExamModel->paperdata($data);
 		if ($check > 0) {
-			return redirect("add_paper?success&id=$check");
+			$this->session->set_tempdata("add_paper", "Successfully Paper Added...", 5);
+			return redirect(base_url('admin/add_paper'));
 		} else {
-			return redirect("add_paper?error");
+			$this->session->set_tempdata("notadd_paper", "Error in Added Paper...", 5);
+			return redirect(base_url('admin/add_paper'));
 		}
+	}
+
+
+
+	public function paper_list()
+	{
+		$data['papers'] = $this->db->get("paper")->result();
+		$this->load->view('admin/all_paper', $data);
 	}
 
 	public function show_all_student()
@@ -225,14 +235,15 @@ class AdminController extends CI_Controller
 	}
 
 
-	public function delete_paper($id = 0)
+	public function delete_paper($id)
 	{
 		$id = $this->input->get('id');
 		$check = $this->ExamModel->paper_delete($id);
 		if ($check) {
-			return redirect("paper_list?success&id=$check");
+			$this->session->set_tempdata('delete_paper', 'Successfully Deleted Record', 3);
 		} else {
-			return redirect("paper_list?error");
+			$this->session->set_tempdata('error_delete_paper', 'Successfully Deleted Record', 3);
+			return redirect(base_url('admin/paper_list'));
 		}
 	}
 	public function paper_update()
