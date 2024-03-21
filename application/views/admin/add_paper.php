@@ -39,6 +39,9 @@
 		font-size: 20px !important;
 		font-weight: 600 !important;
 	}
+	.message{
+		font-size: 20px !important;
+	}
 </style>
 
 </head>
@@ -143,7 +146,7 @@
 												<label class="control-label col-md-3"> Message
 													<span class="required"> * </span>
 												</label>
-												<textarea class="form-control" name="message" id="paper_text" cols="10" rows="10" required style="width: 415px; margin-left: 13px;"></textarea>
+												<textarea class="form-control message" name="message" id="paper_text" cols="10" rows="10" required style="width: 415px; margin-left: 13px;"></textarea>
 											</div>
 											<div class="form-actions">
 												<div class="row">

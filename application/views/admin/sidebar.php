@@ -74,6 +74,20 @@
 						</li>
 					</ul>
 				</li>
+
+				<li class="nav-item  open">
+					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-list"></i>
+						<span class="title">Contact List </span> <span class="selected"></span>
+						<span class="arrow open"></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="nav-item">
+							<a href="<?= base_url('admin/contact_list'); ?>" class="nav-link "> <span class="title">Contact </span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-registered"></i>
 						<span class="title">Registration </span> <span class="selected"></span>

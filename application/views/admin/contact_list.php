@@ -13,14 +13,14 @@
 			<div class="page-bar">
 				<div class="page-title-breadcrumb">
 					<div class=" pull-left">
-						<div class="page-title">Enquiry List</div>
+						<div class="page-title">Contact List</div>
 					</div>
 					<ol class="breadcrumb page-breadcrumb pull-right">
-						<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+						<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?= base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 						</li>
 						<!-- <li><a class="parent-item" href="">Student</a>&nbsp;<i class="fa fa-angle-right"></i>
 						</li> -->
-						<li class="active">Enquiry List</li>
+						<li class="active">Contact List</li>
 					</ol>
 				</div>
 			</div>
@@ -28,10 +28,10 @@
 				<div class="col-md-12 col-sm-12">
 
 					<?php
-					if ($this->session->tempdata('enquiry_success') != "") {
+					if ($this->session->tempdata('contact_success') != "") {
 					?>
 						<div class="alert alert-warning alert-dismissible fade show" role="alert">
-							<?= $this->session->tempdata('enquiry_success') ?>
+							<?= $this->session->tempdata('contact_success') ?>
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 
@@ -39,14 +39,13 @@
 
 					<div class="card-box card-responcive">
 
-						<div class="card-body ">
+						<div class="card-body table-responsive">
 							<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responcive">
 								<thead>
 									<tr>
 										<th> S.No. </th>
 										<th> Name </th>
 										<th> Email </th>
-										<th> Number </th>
 										<th> Subject </th>
 										<th> Message </th>
 										<th> Date </th>
@@ -57,18 +56,17 @@
 									<?php
 
 									$sn = 1;
-									foreach ($show as $key) {
+									foreach ($contact as $key) {
 										// print_r($key);
 									?>
 										<tr class="odd gradeX">
 											<td><?php echo $sn++; ?></td>
 											<td><?= $key->name; ?></td>
 											<td><?= $key->email ?></td>
-											<td><?= $key->number ?></td>
 											<td><?= $key->subject ?></td>
 											<td><?= $key->message ?></td>
 											<td class="left"><?= $key->date ?></td>
-											<td><a href="<?= base_url('admin/delete_enquiry?id=' . $key->id) ?> "><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+											<td><a href="<?= base_url('admin/delete_contact?id=' . $key->id) ?> "><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 										</tr>
 
 									<?php } ?>

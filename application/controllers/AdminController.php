@@ -764,6 +764,15 @@ class AdminController extends CI_Controller
 		$stu_data['show'] = $this->ExamModel->enquiry_db();
 		$this->load->view('admin/enquiry_list', $stu_data);
 	}
+
+
+
+	public function contact_list()
+	{
+		$data['contact'] = $this->db->get("contact")->result();
+		$this->load->view('admin/contact_list', $data);
+	}
+
 	public function enquiry_data()
 	{
 		$data = array(
@@ -791,6 +800,20 @@ class AdminController extends CI_Controller
 		} else {
 			$this->session->set_tempdata('enquiry_error', 'Error in Enquiry Deleted', 5);
 			return redirect(base_url('admin/enquiry_list'));
+		}
+	}
+
+
+	public function delete_contact()
+	{
+		$id = $this->input->get('id');
+		$check = $this->ExamModel->delete_contact($id);
+		if ($check > 0) {
+			$this->session->set_tempdata('contact_success', 'Contact Deleted Successfully', 5);
+			return redirect(base_url('admin/contact_list'));
+		} else {
+			$this->session->set_tempdata('contact_error', 'Error in Contact Deleted', 5);
+			return redirect(base_url('admin/contact_list'));
 		}
 	}
 
