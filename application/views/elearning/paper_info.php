@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-
+<!-- <p>dfkjbvjdf  kj</p> -->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>GD Professional College</title>
+	<title>GD Professional College </title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
