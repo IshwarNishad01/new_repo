@@ -31,8 +31,7 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.css" rel="stylesheet" media="screen">
 	<!-- Date Time item CSS -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
-	<!-- favicon -->
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
+
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 
 	<!-- for fonts -->
@@ -40,6 +39,7 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style>
 		#result {
 			font-size: 18px;
@@ -125,6 +125,7 @@
 								<input type="hidden" name="inputTotalWord" value="" id="inputTotalWord">
 								<input type="hidden" name="inputTotalTypeWord" value="" id="inputTotalTypeWord">
 								<input type="hidden" name="inputTotalError" value="" id="inputTotalError">
+								<input type="hidden" name="exam_id" value="" id="inputexam_id">
 							</form>
 
 							<?php
@@ -132,15 +133,18 @@
 
 								<?php if ($row->language == 'english') {
 								?>
+									<p class="d-none" id="exam_id"><?= $row->id ?></p>
 
 									<textarea id="user_type_text" class="form-control type_text" cols="90" name="TextToConvert" rows="8"></textarea>
 
 								<?php } else {
 								?>
+									<p class="d-none" id="exam_id"><?= $row->id ?></p>
 									<textarea id="user_type_text" class="form-control type_text user_type_text_hindi" cols="90" name="TextToConvert" rows="8"></textarea>
 							<?php
 								}
 							} ?>
+
 
 							<div class="text-center mt-3">
 								<button class="btn btn-info ms-5" onclick="check()">Submit </button>
@@ -197,8 +201,7 @@
 				document.getElementById('inputTotalWord').value = givenWordArray.length;
 				document.getElementById('inputTotalTypeWord').value = userTypeWordArray.length;
 				document.getElementById('inputTotalError').value = errors;
-
-
+				document.getElementById('inputexam_id').value = document.getElementById('exam_id').textContent;
 
 
 				// submit form onclick 

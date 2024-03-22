@@ -327,7 +327,7 @@ class HomeController extends CI_Controller
 			'total_words' => $this->input->post('inputTotalWord'),
 			'type_word' => $this->input->post('inputTotalTypeWord'),
 			'errors' => $this->input->post('inputTotalError'),
-			// 'field2' => $this->input->post('field2'),
+			'exam_id' => $this->input->post('exam_id'),
 		);
 
 		$response = $this->ExamModel->insert_result($data);
