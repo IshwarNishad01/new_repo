@@ -39,12 +39,12 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-<style>
-	#result{
-		font-size: 18px;
-		text-align: center;
-	}
-</style>
+	<style>
+		#result {
+			font-size: 18px;
+			text-align: center;
+		}
+	</style>
 </head>
 
 
@@ -74,24 +74,39 @@
 								<?php
 								foreach ($paper as $row) { ?>
 									<div class="card-body " id="bar-parent">
-										<p class="text-center" id="given_text"><?= $row->message ?></p>
+
+										<p>Time Left - <span> <?= $row->duration ?> </span> Minutes</p>
+
+										<?php if ($row->language == 'english') {
+										?>
+											<p id="given_text"  class="text-center given_text"><?= $row->message ?></p>
+										<?php
+										} else {
+										?>
+											<p id="given_text" class="hindi_text given_text"><?= $row->message ?></p>
 									</div>
-								<?php } ?>
+								<?php
+										} ?>
+
+							<?php } ?>
 
 
-								<form action="submit-exam" method="post" class="p-3">
-									<!-- id="typed_text" -->
-									<!-- <textarea class="form-control border" name="typed_text" id="k2uu" cols="30" rows="10" oninput="getValue(this.value)"></textarea> -->
-									<textarea id="user_type_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
+							<!-- submit student result -->
+
+							<form action="" id="insertForm" method="post" class="p-3">
+								<input type="hidden" name="inputTotalWord" value="" id="inputTotalWord">
+								<input type="hidden" name="inputTotalTypeWord" value="" id="inputTotalTypeWord">
+								<input type="hidden" name="inputTotalError" value="" id="inputTotalError">
+							</form>
 
 
-									<!-- <input type="submit" value="submit" name="submit" class="mt-3 mx-auto d-block" id="">
-									<p id="demo" style="display: none;"></p> -->
-								</form>
+							<textarea id="user_type_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
 
 
-								<button class="btn btn-info ms-5" onclick="check()">Check Paper</button>
-								<p id="result"></p>
+							<div class="text-center">
+								<button class="btn btn-info ms-5" onclick="check()">Submit </button>
+							</div>
+							<p id="result"></p>
 							</div>
 						</div>
 					</div>
@@ -109,12 +124,12 @@
 	// given paragraph by admin
 	const given_text = document.getElementById('given_text').innerText;
 	const show_result = document.getElementById('result');
-	console.log(given_text);
+	// console.log(given_text);
 
 
 	// user type paragraph
 	let user_type_text = document.getElementById("user_type_text");
-	console.log(user_type_text.value);
+	// console.log(user_type_text.value);
 
 
 	function check() {
@@ -139,12 +154,56 @@
 		}
 
 
-		document.getElementById('result').innerText = 'total given words are - ' + givenWordArray.length + ' you typed words - ' + userTypeWordArray.length + ' grammer mistake - ' + errors;
+		// stores input data values in form
+
+		document.getElementById('inputTotalWord').value = givenWordArray.length;
+		document.getElementById('inputTotalTypeWord').value = userTypeWordArray.length;
+		document.getElementById('inputTotalError').value = errors;
+
+
+
+
+		// submit form onclick 
+		var formData = $('#insertForm').serialize();
+
+		// Send AJAX request
+		$.ajax({
+			type: 'POST',
+			url: '<?php echo base_url("HomeController/insertRecord"); ?>',
+			data: formData,
+			dataType: 'json',
+			success: function(response) {
+				if (response.success) {
+
+					document.getElementById('result').innerText = 'total given words are - ' + givenWordArray.length + ' you typed words - ' + userTypeWordArray.length + ' grammer mistake - ' + errors;
+
+					// alert('Record inserted successfully.');
+					// Additional actions if needed
+				} else {
+					alert('Failed to insert record.');
+				}
+			}
+		});
+
+
 
 
 
 	}
 </script>
+
+<!-- start js include path -->
+
+
+<script>
+	// $(document).ready(function() {
+	// 	$('#submitBtn').click(function() { // Use click event on the button
+	//         // Get form data
+
+	// });
+</script>
+
+
 <!-- start js include path -->
 <script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>

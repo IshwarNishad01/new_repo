@@ -3,10 +3,12 @@
 	src: url("Kruti_dev_010.ttf");
 }
 
-#given_text {
-	font-family: "krutidev";
+.given_text{
 	font-size: 20px;
 	font-weight: 600;
+}
+.hindi_text {
+	font-family: "krutidev";
 }
 
 #user_type_text {

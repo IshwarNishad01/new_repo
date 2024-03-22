@@ -17,6 +17,14 @@ class AdminController extends CI_Controller
 
 	public function add_videos()
 	{
+
+		
+		if (empty($this->session->userdata('admin_id'))) {
+			$this->session->set_tempdata('admin_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('admin'));
+		}
+
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$caption = $this->input->post('cap');
 			$video = $this->input->post('video');
@@ -222,25 +230,26 @@ class AdminController extends CI_Controller
 
 	public function delete_student()
 	{
-		$id = $this->input->get('id');
+		$id = $this->input->get('q');
 		$this->db->where("id", $id);
 		$check = $this->db->delete('register');
 		if ($check) {
 			$this->session->set_tempdata('student_delete_success', 'Successfully Deleted Record', 3);
-			return redirect(base_url('admin/student_registration'));
+			return redirect(base_url('admin/student-list'));
 		} else {
 			$this->session->set_tempdata('student_delete_error', 'Unsuccessfully Deleted Record', 3);
-			return redirect(base_url('admin/student_registration'));
+			return redirect(base_url('admin/student-list'));
 		}
 	}
 
 
-	public function delete_paper($id)
+	public function delete_paper()
 	{
 		$id = $this->input->get('id');
 		$check = $this->ExamModel->paper_delete($id);
 		if ($check) {
 			$this->session->set_tempdata('delete_paper', 'Successfully Deleted Record', 3);
+			return redirect(base_url('admin/paper_list'));
 		} else {
 			$this->session->set_tempdata('error_delete_paper', 'Successfully Deleted Record', 3);
 			return redirect(base_url('admin/paper_list'));

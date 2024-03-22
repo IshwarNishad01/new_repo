@@ -306,10 +306,24 @@ class HomeController extends CI_Controller
 	}
 
 
-	// submit student typing result data
-	public function submit_exam()
-	{
-		echo 'successfully submitted';
+	// submit student test result
+
+	public function insertRecord(){
+
+		$data = array(
+
+            'student_id' => $this->session->userdata('userid'),
+            'total_words' => $this->input->post('inputTotalWord'),
+            'type_word' => $this->input->post('inputTotalTypeWord'),
+            'errors' => $this->input->post('inputTotalError'),
+            // 'field2' => $this->input->post('field2'),
+        );
+
+		$response = $this->ExamModel->insert_result($data);
+
+		echo json_encode(array('success' => true));
+
+
 	}
 
 	

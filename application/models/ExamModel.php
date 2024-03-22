@@ -118,6 +118,16 @@ class ExamModel extends CI_Model
 		$id = $this->db->insert_id();
 		return $id;
 	}
+
+
+	public function insert_result($data)
+	{
+		$response = $this->db->insert("results", $data);
+		// $id = $this->db->insert_id();
+		return $response;
+	}
+
+
 	public function enquiry_db()
 	{
 		$data = $this->db->query("select * from enquiry_tb")->result();

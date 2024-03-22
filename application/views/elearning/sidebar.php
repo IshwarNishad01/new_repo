@@ -28,7 +28,7 @@
 						</li>
 					</ul>
 				</li>
-				<!-- <li class="nav-item  open">
+				 <li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-square-poll-vertical"></i>
 						<span class="title">Result</span> <span class="selected"></span>
 						<span class="arrow open"></span>
@@ -39,7 +39,7 @@
 							</a>
 						</li>
 					</ul>
-				</li> -->
+				</li> 
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
 						<span class="title">User Profile</span> <span class="selected"></span>

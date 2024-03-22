@@ -87,7 +87,7 @@
 						</li>
 					</ul>
 				</li>
-
+<!-- 
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-registered"></i>
 						<span class="title">Registration </span> <span class="selected"></span>
@@ -100,7 +100,7 @@
 							</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-house"></i>
 						<span class="title">Notification Update </span> <span class="selected"></span>
@@ -124,7 +124,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('admin/student-list'); ?>" class="nav-link "> <span class="title">Student List</span>
+							<a href="<?= base_url('admin/student-list'); ?>" class="nav-link "> <span class="title">Register Student </span>
 							</a>
 						</li>
 						<li class="nav-item">

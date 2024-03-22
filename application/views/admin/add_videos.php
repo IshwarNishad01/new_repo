@@ -55,32 +55,33 @@
 								<div class="page-title">Add Videos</div>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?=
+																									base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
-								<li><a class="parent-item" href="">Videos</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
+								<!-- <li><a class="parent-item" href="">Videos</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li> -->
 								<li class="active">Add Videos</li>
 							</ol>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-						<?php
-									if ($this->session->tempdata('success_video') != "") {
-									?>
-										<div class="alert alert-warning alert-dismissible fade show" role="alert">
-											<?= $this->session->tempdata('success_video') ?>
-											<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-										</div>
+							<?php
+							if ($this->session->tempdata('success_video') != "") {
+							?>
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									<?= $this->session->tempdata('success_video') ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
 
-									<?php }	?>
+							<?php }	?>
 							<div class="card card-box">
 								<div class="card-head">
 									<header>Basic Information</header>
 
 								</div>
 								<div class="card-body" id="bar-parent">
-								
+
 
 									<form action="" id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="post">
 
@@ -126,26 +127,9 @@
 
 	<!-- end footer -->
 	</div>
-	<!-- start js include path -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-validation/js/additional-methods.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
-	<!-- bootstrap -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
-	<!-- Common js-->
-	<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/pages/validation/form-validation.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
-	<!-- Material -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
+
+	<?php include('footer.php')  ?>
+
 	<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
   

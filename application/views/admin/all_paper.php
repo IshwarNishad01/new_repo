@@ -72,10 +72,10 @@
 								<div class="page-title">All Exams</div>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?= base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
-								<li><a class="parent-item" href="">Exam</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
+								<!-- <li><a class="parent-item" href="">Exam</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li> -->
 								<li class="active">Exam List</li>
 							</ol>
 						</div>
@@ -113,8 +113,8 @@
 													<td><?= $row->e_date ?></td>
 													<td><?= $row->status ?></td>
 													<td class="message <?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>"><?= $row->message ?></td>
-													<td><?= $row->date ?></td>
-													<td><a href="delete_paper?id=<?= $row->id; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+													<td><?= date('d/m/y',strtotime($row->date)) ?></td>
+													<td><a href="<?= base_url('admin/delete_paper?id=').$row->id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
 														<a href="paper_update?id=<?= $row->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
 													</td>
 												</tr>

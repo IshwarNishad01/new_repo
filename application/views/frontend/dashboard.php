@@ -98,18 +98,6 @@
 						<div class="row">
 
 
-
-							<?php if (isset($_REQUEST['success'])) { ?>
-								<center>
-									<p style="color:green;font-size:20px ;"> Successfully submit your answers ......</p>
-
-								</center>
-							<?php } ?>
-							<?php if (isset($_REQUEST['error'])) { ?>
-								<p style="color:red;font-size:20px ;"> Unsuccessful!!Please try again......</p>
-								<hr>
-							<?php } ?>
-
 							<?php
 							foreach ($allExams as $exam) {
 							?>
