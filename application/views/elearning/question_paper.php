@@ -7,7 +7,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>GD Professional College</title>
+	<title>Gayatri Typing</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -48,7 +48,7 @@
 </head>
 
 
-<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo" onload="clock()">
 	<div class="page-wrapper">
 		<!-- start header -->
 		<?php include 'header1.php'; ?>
@@ -75,7 +75,12 @@
 								foreach ($paper as $row) { ?>
 									<div class="card-body " id="bar-parent">
 
-										<p>Time Left - <span> <?= $row->duration ?> </span> Minutes</p>
+										<p>Time Left - <span id="duration"> <?= $row->duration ?> </span> </p>
+
+										<div id="countdown"></div>
+										<div id="notifier"></div>
+										<p id="demo"></p>
+										<p id="showTime"></p>
 
 										<?php if ($row->language == 'english') {
 										?>
@@ -114,7 +119,7 @@
 								}
 							} ?>
 
-							<div class="text-center">
+							<div class="text-center mt-3">
 								<button class="btn btn-info ms-5" onclick="check()">Submit </button>
 							</div>
 							<p id="result"></p>
@@ -127,145 +132,184 @@
 
 
 
-</html>
 
 
 
-<script>
-	// given paragraph by admin
-	const given_text = document.getElementById('given_text').innerText;
-	const show_result = document.getElementById('result');
-	// console.log(given_text);
+		<script>
+			// given paragraph by admin
+			const given_text = document.getElementById('given_text').innerText;
+			const show_result = document.getElementById('result');
+			// console.log(given_text);
 
 
-	// user type paragraph
-	let user_type_text = document.getElementById("user_type_text");
-	// console.log(user_type_text.value);
+			// user type paragraph
+			let user_type_text = document.getElementById("user_type_text");
+			// console.log(user_type_text.value);
 
 
-	function check() {
+			function check() {
 
-		// // count paper paragraph total words
-		let givenWordArray = given_text.split(" ");
-		let userTypeWordArray = user_type_text.value.split(" ");
+				// // count paper paragraph total words
+				let givenWordArray = given_text.split(" ");
+				let userTypeWordArray = user_type_text.value.split(" ");
 
-		console.log(givenWordArray);
-		console.log(userTypeWordArray);
+				// console.log(givenWordArray);
+				// console.log(userTypeWordArray);
 
-		let errors = 0;
-		for (let i = 0; i < userTypeWordArray.length; i++) {
-			if (givenWordArray[i] != userTypeWordArray[i]) {
-				// console.log('wrong hai');
-				for (let index = 0; index < userTypeWordArray[i].length; index++) {
-					if (givenWordArray[i].charAt(index) != userTypeWordArray[i].charAt(index)) {
-						errors++;
+				let errors = 0;
+				for (let i = 0; i < userTypeWordArray.length; i++) {
+					if (givenWordArray[i] != userTypeWordArray[i]) {
+						// console.log('wrong hai');
+						for (let index = 0; index < userTypeWordArray[i].length; index++) {
+							if (givenWordArray[i].charAt(index) != userTypeWordArray[i].charAt(index)) {
+								errors++;
+							}
+						}
+					}
+				}
+
+
+				// stores input data values in form
+
+				document.getElementById('inputTotalWord').value = givenWordArray.length;
+				document.getElementById('inputTotalTypeWord').value = userTypeWordArray.length;
+				document.getElementById('inputTotalError').value = errors;
+
+
+
+
+				// submit form onclick 
+				var formData = $('#insertForm').serialize();
+
+				// Send AJAX request
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('HomeController/insertRecord'); ?>',
+					data: formData,
+					dataType: 'json',
+					success: function(response) {
+						if (response.success) {
+
+							document.getElementById('result').innerText = 'total given words are - ' + givenWordArray.length + ' you typed words - ' + userTypeWordArray.length + ' grammer mistake - ' + errors;
+
+							// alert('Record inserted successfully.');
+							// Additional actions if needed
+						} else {
+							alert('Failed to insert record.');
+						}
+					}
+				});
+
+
+			}
+		</script>
+
+
+
+		<!-- make dynamic countdown -->
+		<script>
+			function clock() {
+
+
+				var totalsecond = document.getElementById('duration').textContent;
+
+				var totalSeconds = totalsecond * 60; // Change 5 to the desired number of hours
+
+				myTimer = setInterval(myClock, 1000);
+
+
+
+				function myClock() {
+					var hours = Math.floor(totalSeconds / 3600);
+					var minutes = Math.floor((totalSeconds % 3600) / 60);
+					var seconds = totalSeconds % 60;
+
+					document.getElementById("duration").innerHTML =
+						minutes + " minutes " + seconds + " seconds ";
+
+					totalSeconds--;
+					// if (totalSeconds < 30) {
+					// 	document.getElementById("showTime").innerHTML =
+					// 		"your time is running!";
+					// }
+					if (totalSeconds == 0) {
+						// document.getElementById("showTime").innerHTML =
+						// 	"Countdown Complete!";
+						clearInterval(myTimer);
+
+						// document.getElementById('myForm').submit();
+						check();
 					}
 				}
 			}
-		}
+		</script>
 
 
-		// stores input data values in form
-
-		document.getElementById('inputTotalWord').value = givenWordArray.length;
-		document.getElementById('inputTotalTypeWord').value = userTypeWordArray.length;
-		document.getElementById('inputTotalError').value = errors;
+		<!-- start js include path -->
 
 
+		<script>
+			// $(document).ready(function() {
+			// 	$('#submitBtn').click(function() { // Use click event on the button
+			//         // Get form data
+
+			// });
+		</script>
 
 
-		// submit form onclick 
-		var formData = $('#insertForm').serialize();
-
-		// Send AJAX request
-		$.ajax({
-			type: 'POST',
-			url: '<?php echo base_url("HomeController/insertRecord"); ?>',
-			data: formData,
-			dataType: 'json',
-			success: function(response) {
-				if (response.success) {
-
-					document.getElementById('result').innerText = 'total given words are - ' + givenWordArray.length + ' you typed words - ' + userTypeWordArray.length + ' grammer mistake - ' + errors;
-
-					// alert('Record inserted successfully.');
-					// Additional actions if needed
-				} else {
-					alert('Failed to insert record.');
-				}
-			}
-		});
-
-
-
-
-
-	}
-</script>
-
-<!-- start js include path -->
-
-
-<script>
-	// $(document).ready(function() {
-	// 	$('#submitBtn').click(function() { // Use click event on the button
-	//         // Get form data
-
-	// });
-</script>
-
-
-<!-- start js include path -->
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
-<!-- bootstrap -->
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<!-- Common js-->
-<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
-<!-- Material -->
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/font.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
-<!-- dropzone -->
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
-<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
+		<!-- start js include path -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
+		<!-- bootstrap -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<!-- Common js-->
+		<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
+		<!-- Material -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/font.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
+		<!-- dropzone -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
 
 
 
 
-<!-- for fonts -->
-<script type="text/javascript" src="assets/admin_assets/fonts/js/kd.js"></script>
-<script type="text/javascript" src="assets/admin_assets/fonts/js/ch.js"></script>
-<script type="text/javascript" src="assets/admin_assets/fonts/js/gndhi.js"></script>
-<script type="text/javascript" src="assets/admin_assets/fonts/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/admin_assets/fonts/js/bootstrap/bootstrap.min.js"></script>
+		<!-- for fonts -->
+		<script type="text/javascript" src="assets/admin_assets/fonts/js/kd.js"></script>
+		<script type="text/javascript" src="assets/admin_assets/fonts/js/ch.js"></script>
+		<script type="text/javascript" src="assets/admin_assets/fonts/js/gndhi.js"></script>
+		<script type="text/javascript" src="assets/admin_assets/fonts/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/admin_assets/fonts/js/bootstrap/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-
-
-		$('#k2u').click(function() {
-			convert_kruti_to_unicode();
-			return;
-		})
+		<script type="text/javascript">
+			$(document).ready(function() {
 
 
+				$('#k2u').click(function() {
+					convert_kruti_to_unicode();
+					return;
+				})
 
-		$('#k2uu').click(function() {
-			convert_kruti_to_unicode();
-			return;
-		})
 
-		$('#u2k').click(function() {
-			Convert_to_Kritidev_010();
-			return;
-		})
-	});
-</script>
+
+				$('#k2uu').click(function() {
+					convert_kruti_to_unicode();
+					return;
+				})
+
+				$('#u2k').click(function() {
+					Convert_to_Kritidev_010();
+					return;
+				})
+			});
+		</script>
+
+</html>
