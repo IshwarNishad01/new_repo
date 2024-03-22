@@ -35,7 +35,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('admin/list_result'); ?>" class="nav-link "> <span class="title">Result List</span>
+							<a href="<?= base_url('list_result'); ?>" class="nav-link "> <span class="title">Result List</span>
 							</a>
 						</li>
 					</ul>
