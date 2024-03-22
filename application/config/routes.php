@@ -44,7 +44,7 @@ $route['add_question'] = 'AdminController/add_question';
 $route['admin/paper_data'] = 'AdminController/paper_data';
 
 $route['admin/delete_paper'] = 'AdminController/delete_paper';
-$route['paper_update'] = 'AdminController/paper_update';
+$route['admin/paper_update'] = 'AdminController/paper_update';
 $route['finalupdate'] = 'AdminController/finalupdate';
 $route['all_paper'] = 'AdminController/all_paper';
 $route['Add_Notice'] = 'AdminController/add_notice';
@@ -127,7 +127,7 @@ $route['registration_user2'] = 'HomeController/registration_user2';
 $route['dashboard'] = 'HomeController/dash_login';
 $route['enquiry'] = 'HomeController/enquiry';
 $route['add_result'] = 'HomeController/add_result';
-$route['list_result'] = 'HomeController/result_list';
+$route['admin/list_result'] = 'HomeController/result_list';
 
 $route['paper_info'] = 'HomeController/paper_info';
 $route['paper_view'] = 'HomeController/paper_view';

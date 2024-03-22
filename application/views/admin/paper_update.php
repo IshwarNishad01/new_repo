@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>GD Professional College</title>
+	<title>Gayatri Typing</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -31,8 +31,27 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.css" rel="stylesheet" media="screen">
 	<!-- Date Time item CSS -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
-	<!-- favicon -->
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
+
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
+
+	<link href="<?= base_url() ?>assets/fronted_asset/img/logo.jpg" rel="icon">
+	<style type="text/css">
+		.message {
+			font-weight: 600;
+		}
+
+		.hindi_text {
+			font-family: "krutidev";
+			font-size: 17px;
+			font-weight: 600;
+		}
+
+		@media only screen and (max-width: 600px) {
+			#example4 {
+				width: 100%;
+			}
+		}
+	</style>
 </head>
 <!-- END HEAD -->
 
@@ -69,101 +88,103 @@
 									<header>Paper Details</header>
 								</div>
 
-                                <?php 
-		                        foreach ($show as $row) 
-                                  {?>
-								<div class="card-body" id="bar-parent">
-									<form action="finalupdate" class="form-horizontal" enctype="multipart/form-data" method="post">
-								
-										<div class="form-body">
-											<div class="form-group row">
-												<label class="control-label col-md-3">Student Id
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="number" name="id" data-required="1" placeholder="Enter Your Id" class="form-control input-height" required value="<?=$row->id;?>">
+								<?php
+								foreach ($show as $row) { ?>
+									<div class="card-body" id="bar-parent">
+										<form action="" class="form-horizontal" enctype="multipart/form-data" method="post">
+
+											<div class="form-body">
+												<!-- <div class="form-group row">
+													<label class="control-label col-md-3">Student Id
+														<span class="required"> * </span>
+													</label>
+													<div class="col-md-5">
+														<input type="number" name="id" data-required="1" placeholder="Enter Your Id" class="form-control input-height" required value="<?= $row->id; ?>">
+													</div>
+												</div> -->
+
+												<input type="hidden" value="<?= $row->id ?>" name="exam_id" id="">
+												<div class="form-group row">
+													<label class="control-label col-md-3">Paper Name
+														<span class="required"> * </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" name="p_name" data-required="1" placeholder="Paper name" class="form-control input-height" required value="<?= $row->p_name; ?>">
+													</div>
 												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Paper Name
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="text" name="p_name" data-required="1" placeholder="Paper name" class="form-control input-height" required value="<?=$row->p_name;?>">
+												<div class="form-group row">
+													<label class="control-label col-md-3"> Exam Duration <br>(In Minutes)
+														<span class="required"> * </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" multiple="" name="duration" required id="preview_take" placeholder="Exam Duration" class="form-control input-height" required value="<?= $row->duration; ?>">
+													</div>
 												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Exam Duration <br>(In Minutes) 
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="text" multiple="" name="duration" required id="preview_take" placeholder="Exam Duration" class="form-control input-height" required value="<?=$row->duration;?>">
+												<div class="form-group row">
+													<label class="control-label col-md-3"> Exam Date
+														<span class="required"> * </span>
+													</label>
+													<div class="col-md-5">
+														<input type="date" multiple="" name="e_date" required id="preview_take" placeholder="Enter Your Date" class="form-control input-height" required value="<?= $row->e_date; ?>">
+													</div>
 												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Exam Date
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="date" multiple="" name="e_date" required id="preview_take" placeholder="Enter Your Date" class="form-control input-height" required value="<?=$row->e_date;?>">
+												<div class="form-group row">
+													<label class="control-label col-md-3"> Status
+														<span class="required"> * </span>
+													</label>
+													<div class="col-md-5">
+														<select  name="status" id="" class="form-Control input-height" required style="width: 415px;" value="<?= $row->status; ?>">
+															<option selected disabled>Select Status</option>
+														
+															<option value="Active">Active</option>
+															<option value="Deactive">Deactive</option>
+														</select>
+													</div>
 												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Status
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-												<select name="status" id="" class="form-Control input-height" required style="width: 415px;" value="<?=$row->status;?>">
-													<option value="select status">Select Status</option>
-													<option value="Active">Active</option>
-													<option value="Deactive">Deactive</option>
-												</select>
+												<div class="form-group row">
+													<label class="control-label col-md-3"> Message
+														<span class="required"> * </span>
+													</label>
+													<textarea class="message <?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>" name="message" id="" cols="3" rows="3" placeholder="Enter Your Message" required style="width: 415px; margin-left: 13px;"> <?= $row->message; ?></textarea>
 												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Message 
-													<span class="required"> * </span>
-												</label>
-												<textarea name="message" id="" cols="3" rows="3" placeholder="Enter Your Message" required style="width: 415px; margin-left: 13px;"> <?=$row->message;?></textarea>
-											</div>
-											<div class="form-actions">
-												<div class="row">
-													<div class="offset-md-3 col-md-9">
-														<button type="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  btn-primary">Submit</button>
+												<div class="form-actions">
+													<div class="row">
+														<div class="offset-md-3 col-md-9">
+															<button name="update" type="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  btn-primary">Update </button>
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
 
-							        </form>
-							</div>  <?php } ?>
+										</form>
+									</div> <?php } ?>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- start js include path -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
-	<!-- bootstrap -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Common js-->
-	<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
-	<!-- Material -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
-	<!-- dropzone -->
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
-	<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+		<!-- start js include path -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/popper/popper.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/feather/feather.min.js"></script>
+		<!-- bootstrap -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<!-- Common js-->
+		<script src="<?= base_url(); ?>assets/admin_assets/js/app.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/layout.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/theme-color.js"></script>
+		<!-- Material -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/material/material.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
+		<!-- dropzone -->
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
+		<script src="<?= base_url(); ?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 <script type="text/javascript">
   
   $(document).ready(function(){
@@ -176,7 +197,7 @@ $('#preview').css("height", "100px");
     });
   });
 </script> -->
-	<!-- end js include path -->
+		<!-- end js include path -->
 </body>
 
 </html>

@@ -49,25 +49,27 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-floating">
-								<input type="text" class="form-control" name="first_name" placeholder="Enter Your First Name">
+								<input type="text" required class="form-control" name="first_name" placeholder="Enter Your First Name">
 								<label for="name">Enter Your First Name</label>
 							</div>
 						</div><br><br><br>
 						<div class="col-md-6">
 							<div class="form-floating">
-								<input type="text" class="form-control" name="last_name" placeholder="Enter Your Last Name">
+								<input type="text" required class="form-control" name="last_name" placeholder="Enter Your Last Name">
 								<label for="name">Enter Your Last Name</label>
 							</div>
 						</div><br><br><br>
 						<div class="col-md-6">
 							<div class="form-floating">
-								<input type="text" class="form-control" name="email" placeholder="Enter Your Email">
+
+								<input type="text" required class="form-control" name="email" placeholder="Enter Your Email">
 								<label for="email">Enter Your Email</label>
 							</div>
 						</div><br><br><br>
 						<div class="col-md-6">
 							<div class="form-floating">
-								<input type="Password" class="form-control" name="password" placeholder="Enter Your Password">
+
+								<input type="Password" required class="form-control" name="password" placeholder="Enter Your Password">
 								<label for="password">Enter Your Password</label>
 							</div>
 						</div><br><br><br>
@@ -100,20 +102,20 @@
 				<div class="row g-3">
 					<div class="col-md-6">
 						<div class="form-floating">
-							<input type="text" class="form-control" name="first_name" placeholder="Enter Your First Name">
+							<input type="text" required class="form-control" name="first_name" placeholder="Enter Your First Name">
 							<label for="first name">Your First Name</label>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-floating">
-							<input type="text" class="form-control" name="last_name" placeholder="Enter Your Last Name">
+							<input type="text" required class="form-control" name="last_name" placeholder="Enter Your Last Name">
 							<label for="last name">Your Last Name</label>
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-floating">
-							<input type="date" class="form-control" name="dob" placeholder="Enter Your Date Of Birth">
+							<input type="date" required class="form-control" name="dob" placeholder="Enter Your Date Of Birth">
 							<label for="dob">Date Of Birth</label>
 						</div>
 					</div>
@@ -128,27 +130,27 @@
 					<div class="col-md-6">
 						<div class="form-floating">
 							<input type="number" class="form-control" name="identity" placeholder="Enter Your Adhar Number">
-							<label for="identity">Adhar Number</label>
+							<label for="identity">Aadhar Number</label>
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-floating">
-							<input type="number" class="form-control" name="yournumber" placeholder="Enter Your Number/parent Number">
+							<input type="number" required class="form-control" name="yournumber" placeholder="Enter Your Number/parent Number">
 							<label for="number">Your Number/parent Number</label>
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-floating">
-							<input type="email" class="form-control" name="email" placeholder="Enter Your Email Id">
+							<input type="email" required class="form-control" name="email" placeholder="Enter Your Email Id">
 							<label for="email">Your Email Id</label>
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-floating">
-							<input type="password" class="form-control" name="password" placeholder="Your Password">
+							<input type="password" required class="form-control" name="password" placeholder="Your Password">
 							<label for="password">Your Password</label>
 						</div>
 					</div>

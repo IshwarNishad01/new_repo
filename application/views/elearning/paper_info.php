@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
 <!-- <p>dfkjbvjdf  kj</p> -->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,60 +63,62 @@
 						</div>
 					</div>
 					<div class="row">
-						
-								
-                                <?php 
-                                foreach($show as $row){
-                                ?>
-                                <div class="col-md-6">
-							        <div class="card-box">
-                                        <div class="card-body">
-                                        <center><h3 class="card-title"><?= $row->p_name ?></h3>
-                                        <a href="paper_view?id=<?= $row->id ?>" class="btn btn-primary">View Exam</a></center>
-                                     </div>
-                                     </div>
-                                </div>
-                                <?php } ?> 
-							</div> 
-						</div>
+
+
+						<?php
+						foreach ($show as $row) {
+						?>
+							<div class="col-md-6">
+								<div class="card-box">
+									<div class="card-body">
+										<center>
+											<h3 class="card-title"><?= $row->p_name ?></h3>
+											<a href="paper_view?id=<?= $row->id ?>" class="btn btn-primary">View Exam</a>
+										</center>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	</div>
+	</div>
 
 
 	<script>
-				function showTime() {
-					var date = new Date();
-					var h = date.getHours(); // 0 - 23
-					var m = date.getMinutes(); // 0 - 59
-					var s = date.getSeconds(); // 0 - 59
-					var session = "AM";
+		function showTime() {
+			var date = new Date();
+			var h = date.getHours(); // 0 - 23
+			var m = date.getMinutes(); // 0 - 59
+			var s = date.getSeconds(); // 0 - 59
+			var session = "AM";
 
-					if (h == 0) {
-						h = 12;
-					}
+			if (h == 0) {
+				h = 12;
+			}
 
-					if (h > 12) {
-						h = h - 12;
-						session = "PM";
-					}
+			if (h > 12) {
+				h = h - 12;
+				session = "PM";
+			}
 
-					h = (h < 10) ? "0" + h : h;
-					m = (m < 10) ? "0" + m : m;
-					s = (s < 10) ? "0" + s : s;
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			s = (s < 10) ? "0" + s : s;
 
-					var time = h + ":" + m + ":" + s + " " + session;
-					document.getElementById("MyClockDisplay").innerText = time;
-					document.getElementById("MyClockDisplay").textContent = time;
+			var time = h + ":" + m + ":" + s + " " + session;
+			document.getElementById("MyClockDisplay").innerText = time;
+			document.getElementById("MyClockDisplay").textContent = time;
 
-					setTimeout(showTime, 1000);
+			setTimeout(showTime, 1000);
 
-				}
+		}
 
-				showTime();
-			</script>
+		showTime();
+	</script>
 
 
 	<!-- start js include path -->

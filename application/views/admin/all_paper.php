@@ -29,8 +29,10 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
-	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
+
+
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
+	<link href="<?= base_url() ?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
 		.message {
 			font-weight: 600;
@@ -81,6 +83,28 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
+							<?php
+							if ($this->session->tempdata('delete_paper') != "") {
+							?>
+								<div class="alert alert-warning alert-dismissible fade show" role="alert">
+									<?= $this->session->tempdata('delete_paper') ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+
+							<?php }	?>
+
+							<?php
+							if ($this->session->tempdata('paper_update') != "") {
+							?>
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									<?= $this->session->tempdata('paper_update') ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+
+							<?php }	?>
+
+
+
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Exam List</header>
@@ -112,8 +136,8 @@
 													<td><?= $row->e_date ?></td>
 													<td><?= $row->status ?></td>
 													<td class="message <?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>"><?= $row->message ?></td>
-													<td><?= date('d/m/y',strtotime($row->date)) ?></td>
-													<td><a href="<?= base_url('admin/delete_paper?id=').$row->id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+													<td><?= date('d/m/y', strtotime($row->date)) ?></td>
+													<td><a href="<?= base_url('admin/delete_paper?id=') . $row->id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
 														<a href="paper_update?id=<?= $row->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
 													</td>
 												</tr>

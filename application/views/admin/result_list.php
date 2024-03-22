@@ -31,9 +31,7 @@
 	<!-- favicon -->
 	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
-		@media screen(max-width: 400px){
-			width:100%;
-		}
+	
 		@media only screen and (max-width: 600px) {
  #example4{
    width:100%;
