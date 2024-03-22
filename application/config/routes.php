@@ -30,6 +30,9 @@ $route['admin/student-list'] = 'AdminController/show_all_student';
 $route['admin/manage-student'] = 'AdminController/manage_student';
 $route['admin/delete_student'] = 'AdminController/delete_student';
 
+$route['admin/add_typing_result'] = 'AdminController/add_typing_result';
+$route['admin/typing_result_list'] = 'AdminController/typing_result_list';
+
 
 
 $route['up'] = 'AdminController/up_n';

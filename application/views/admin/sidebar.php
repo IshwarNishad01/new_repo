@@ -23,7 +23,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="#" class="nav-link "> <span class="title">Typing Test Result</span>
+							<a href="<?= base_url('admin/add_typing_result'); ?>" class="nav-link "> <span class="title">Typing Test Result</span>
 							</a>
 						</li>
 					</ul>

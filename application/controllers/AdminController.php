@@ -181,6 +181,22 @@ class AdminController extends CI_Controller
 		$this->load->view('admin/student_result_list', $data);
 	}
 
+	public function add_typing_result()
+	{
+		$data['result']=$this->db->query('select DISTINCT student_id , register.first_name from results JOIN register ON results.student_id = register.id')->result();
+		$this->load->view('admin/add_typing_result',$data);
+		// print_r($data);
+	}
+	public function typing_result_list()
+	{
+		$student_id = $this->input->get('id');
+		$data['list'] = $this->db->query("select * from results where student_id='$student_id'")->result();
+		$this->load->view('admin/typing_result_list',$data);
+	}
+	
+
+
+
 	public function add_paper()
 	{
 		$data['show'] = $this->ExamModel->insert_paper();

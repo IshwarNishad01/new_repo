@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>GD Professional College</title>
+	<title>Gayatri Typing</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -32,7 +32,7 @@
 	<!-- Date Time item CSS -->
 	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- favicon -->
-	<link rel="shortcut icon" href="<?=base_url();?>assets/admin_assets/img/gd_logo.png">
+	<link rel="shortcut icon" href="<?=base_url();?>assets/admin_assets/img/logo.jpg">
 </head>
 <!-- END HEAD -->
 
@@ -51,13 +51,9 @@
 			<div class="page-content-wrapper">
 				<div class="page-content">
 					<div class="page-bar">
-						<?php if(isset($_REQUEST['add_s'])){?>
-							<p style="color:green;font-size:20px ;">Added Successfully ......</p><?php } ?>
-						<?php if(isset($_REQUEST['add_ns'])){?>
-							<p style="color:red;font-size:20px ;">Please check your file type and file size.</p><?php } ?>
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<div class="page-title">Add Staff</div>
+								<div class="page-title">Typing Result Test</div>
 							</div>
 							
 						</div>
@@ -66,51 +62,55 @@
 						<div class="col-sm-12">
 							<div class="card-box">
 								<div class="card-head">
-									<header>Staff  Details</header>
+									<header>Result  Details</header>
 									
 									
 								</div>
-								<form action="" method="POST" enctype="multipart/form-data">
-								<div class="card-body row">
-									
-									<div class="col-lg-12 p-t-20">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="txttitle" name="name" required>
-											<label class="mdl-textfield__label" >Name*</label>
-										</div>
-									</div>
 								
-									<div class="col-lg-6 p-t-20">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="txttitle" name="desgination" required>
-											<label class="mdl-textfield__label">Designation</label>
-										</div>
-									</div>
-										<div class="col-lg-12 p-t-20">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+								<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="card-box card-responcive">
 
-										<p >Upload Image*</p>
-											<input id="preview_take" type="file"  name="file_notice" required=""><br><!-- <small>only  pdf files are allowed to upload</small> --><br>
-											
-										</div>
-									</div>
-									<!-- <div class="col-lg-6 p-t-20">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="date1">
-											<label class="mdl-textfield__label">Holiday End Date</label>
-										</div>
-									</div> -->
-									<!-- <div class="col-lg-12 p-t-20">
-										<div class="mdl-textfield mdl-js-textfield txt-full-width">
-											<textarea class="mdl-textfield__input" rows="" id="text7" name="dtls" required></textarea>
-											<label class="mdl-textfield__label" style="color: red;">Notice Details</label>
-										</div>
-									</div> -->
-									<div class="col-lg-12 p-t-20 text-center">
-										<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary">Send</button>
-										<button type="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-danger">Cancel</button>
-									</div>
-									</form>
+						<div class="card-body table-responsive">
+							<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responcive">
+								<thead>
+									<tr>
+										<th> S.No. </th>
+										<th> Exam Name </th>
+										<th> Total Words </th>
+										<th> Type Word </th>
+                                        <th> Errors </th>
+                                        <th> Date </th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+
+									$sn = 1;
+									foreach ($list as $key) {
+										// print_r($key);
+									?>
+										<tr class="odd gradeX">
+											<td><?php echo $sn++; ?></td>
+											<td></td>
+											<td><?= $key->total_words; ?></td>
+											<td><?= $key->type_word; ?></td>
+											<td><?= $key->errors; ?></td>
+											<td><?= $key->date; ?></td>
+                                        </tr>
+
+									<?php } ?>
+								</tbody>
+								
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 								</div>
 							</div>
 						</div>
