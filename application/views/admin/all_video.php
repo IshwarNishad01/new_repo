@@ -28,7 +28,8 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/plugins.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
-
+	<!-- Favicon -->
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 </head>
 <!-- END HEAD -->
 

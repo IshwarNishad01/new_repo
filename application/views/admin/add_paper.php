@@ -32,7 +32,7 @@
 	<!-- Date Time item CSS -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- favicon -->
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 <style>
 	.hindi_font{

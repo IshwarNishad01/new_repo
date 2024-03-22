@@ -33,7 +33,7 @@
 	<link href="<?=base_url();?>assets/admin_assets/plugins/dropzone/dropzone.css" rel="stylesheet" media="screen">
 	
 	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
-	<link rel="shortcut icon" href="<?=base_url();?>assets/admin_assets/img/favicon.ico">
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 
 	<style type="text/css">
 

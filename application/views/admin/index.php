@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gaytri Typing</title>
+	<title>Gayatri Typing</title>
 	<!-- google font -->
 	<link href="<?=base_url();?>assets/admin_assets/css/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -33,7 +33,7 @@
 	<!-- favicon -->
 	<!-- <link rel="shortcut icon" href="</?=base_url();?>assets/admin_assets/img/logo_gd_c.png"> -->
 	   <!-- Favicon -->
-	   <link href="assets/fronted_asset/img/logo.jpg" rel="icon">
+	   <link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 </head>
 <!-- END HEAD -->
 

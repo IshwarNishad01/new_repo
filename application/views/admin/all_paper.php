@@ -29,8 +29,12 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
+<<<<<<< HEAD
 
 
+=======
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
+>>>>>>> 6425c7bcacbea0e2ccec1f344ef14bcf3274d6f1
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 	<link href="<?= base_url() ?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
