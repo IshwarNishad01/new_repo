@@ -23,7 +23,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="#" class="nav-link "> <span class="title">Typing Test Result</span>
+							<a href="<?= base_url('admin/add_typing_result'); ?>" class="nav-link "> <span class="title">Typing Test Result</span>
 							</a>
 						</li>
 					</ul>
@@ -76,7 +76,7 @@
 				</li>
 
 				<li class="nav-item  open">
-					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-list"></i>
+					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-address-card"></i>
 						<span class="title">Contact List </span> <span class="selected"></span>
 						<span class="arrow open"></span>
 					</a>
@@ -137,7 +137,7 @@
 
 
 				<li class="nav-item  open">
-					<a href="<?= base_url('admin/logout') ?>" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
+					<a href="<?= base_url('admin/logout') ?>" class="nav-link nav-toggle"> <i class="icon-logout"></i>
 						<span class="title"> Logout </span> <span class="selected"></span>
 					</a>
 				</li>
