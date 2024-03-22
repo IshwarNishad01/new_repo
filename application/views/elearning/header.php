@@ -44,7 +44,7 @@
 	<!-- Navbar Start -->
 	<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
 		<a href="home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-			<img class="img-fluid h-100 w-100" src="assets/fronted_asset/img/logo.jpg" alt="">
+			<img class="img-fluid h-100 w-100" src="assets/fronted_asset/img/logo.jpg" alt="" style="height: 70px !important;">
 			<!-- <h2 class="m-0 text-primary">GAYTRI TYPING</h2> -->
 			<!-- <i class="fa-light fa-keyboard me-3"></i> -->
 		</a>
