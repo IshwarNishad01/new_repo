@@ -18,7 +18,7 @@ class AdminController extends CI_Controller
 	public function add_videos()
 	{
 
-		
+
 		if (empty($this->session->userdata('admin_id'))) {
 			$this->session->set_tempdata('admin_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('admin'));
@@ -260,25 +260,50 @@ class AdminController extends CI_Controller
 		$id = $this->input->get('id');
 		$con['show'] = $this->ExamModel->update_paper($id);
 		$this->load->view('admin/paper_update', $con);
-	}
 
-	public function finalupdate()
-	{
-		$id = $this->input->post('id');
-		$data = array(
-			"p_name" => $this->input->post("p_name"),
-			"duration" => $this->input->post("duration"),
-			"e_date" => $this->input->post("e_date"),
-			"status" => $this->input->post("status"),
-			"message" => $this->input->post("message")
-		);
-		$check = $this->ExamModel->finalupdate_paper($id, $data);
-		if ($check > 0) {
-			return redirect("paper_update?success&id=$check");
-		} else {
-			return redirect("paper_update?error");
+		if (isset($_POST['update'])) {
+
+
+			if ($this->input->post("status") == '') {
+				$status = 'Active';
+			} else {
+				$status = $this->input->post("status");
+			}
+			$data = array(
+				"p_name" => $this->input->post("p_name"),
+				"duration" => $this->input->post("duration"),
+				"e_date" => $this->input->post("e_date"),
+				"status" => $status,
+				"message" => $this->input->post("message")
+			);
+			$check = $this->ExamModel->finalupdate_paper($id, $data);
+			if ($check > 0) {
+				$this->session->set_tempdata('paper_update', 'Successfully Paper Updated', 3);
+				return redirect(base_url('admin/paper_list'));
+			} else {
+				$this->session->set_tempdata('paper_update', 'Error in Paper Updated', 3);
+				return redirect(base_url('admin/paper_list'));
+			}
 		}
 	}
+
+	// public function finalupdate()
+	// {
+	// 	$id = $this->input->post('id');
+	// 	$data = array(
+	// 		"p_name" => $this->input->post("p_name"),
+	// 		"duration" => $this->input->post("duration"),
+	// 		"e_date" => $this->input->post("e_date"),
+	// 		"status" => $this->input->post("status"),
+	// 		"message" => $this->input->post("message")
+	// 	);
+	// 	$check = $this->ExamModel->finalupdate_paper($id, $data);
+	// 	if ($check > 0) {
+	// 		return redirect("paper_update?success&id=$check");
+	// 	} else {
+	// 		return redirect("paper_update?error");
+	// 	}
+	// }
 
 	public function show_news()
 	{

@@ -41,7 +41,7 @@ $route['add_question'] = 'AdminController/add_question';
 $route['admin/paper_data'] = 'AdminController/paper_data';
 
 $route['admin/delete_paper'] = 'AdminController/delete_paper';
-$route['paper_update'] = 'AdminController/paper_update';
+$route['admin/paper_update'] = 'AdminController/paper_update';
 $route['finalupdate'] = 'AdminController/finalupdate';
 $route['all_paper'] = 'AdminController/all_paper';
 $route['Add_Notice'] = 'AdminController/add_notice';

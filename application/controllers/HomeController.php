@@ -71,7 +71,7 @@ class HomeController extends CI_Controller
 			$check = $this->ExamModel->contact_info($data);
 
 			if ($check ==  true) {
-				$this->session->set_tempdata('show_success', 'Successfully Form Submitted new', 3);
+				$this->session->set_tempdata('show_success', 'Successfully Form Submitted ', 3);
 				redirect(base_url('contact'), 'refrsh');
 			} else {
 				$this->session->set_tempdata('show_error', 'Error in Form Submitting', 3);
@@ -94,7 +94,7 @@ class HomeController extends CI_Controller
 		$response = $this->ExamModel->contact_info($data);
 
 		if ($response ==  true) {
-			$this->session->set_tempdata('show_success', 'Successfully Form Submitted new', 3);
+			$this->session->set_tempdata('show_success', 'Successfully Form Submitted', 3);
 			redirect(base_url('/'), 'refrsh');
 		} else {
 			$this->session->set_tempdata('show_error', 'Error in Form Submitting', 3);
@@ -106,7 +106,7 @@ class HomeController extends CI_Controller
 	public function result_list()
 	{
 		$id = $this->session->userdata('userid');
-		$data['shaw'] = $this->db->where('student_id',$id)->get('results')->result();
+		$data['shaw'] = $this->db->where('student_id', $id)->get('results')->result();
 		// print_r($data);
 		$this->load->view('elearning/result_list', $data);
 	}
@@ -289,7 +289,7 @@ class HomeController extends CI_Controller
 	public function paper_info()
 	{
 		if (empty($this->session->userdata('userid'))) {
-			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again',5);
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('login'));
 		}
 		$data['show'] = $this->db->query('select * from paper where status = "active"')->result();
@@ -298,7 +298,7 @@ class HomeController extends CI_Controller
 	public function paper_view()
 	{
 		if (empty($this->session->userdata('userid'))) {
-			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again',5);
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('login'));
 		}
 		$id = $this->input->get('id');

@@ -12,8 +12,8 @@
 							<!-- <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5> -->
 							<h1 class="display-3 text-white animated slideInDown">The Best Online Typing Platform</h1>
 							<!-- <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p> -->
-							<a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-							<a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+							<a href="<?= base_url('about') ?>" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+							<a href="<?= base_url('registration') ?>" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
 						</div>
 					</div>
 				</div>
@@ -28,8 +28,8 @@
 							<!-- <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5> -->
 							<h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
 							<!-- <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p> -->
-							<a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-							<a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+							<a href="<?= base_url('about') ?>" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+							<a href="<?= base_url('registration') ?>" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
 						</div>
 					</div>
 				</div>
@@ -40,50 +40,50 @@
 <!-- Carousel End -->
 
 
-<!-- Service Start -->
-<div class="container-xxl py-5">
-	<div class="container">
-		<div class="row g-4">
-			<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-				<div class="service-item text-center pt-3">
-					<div class="p-4">
-						<i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-						<h5 class="mb-3">Skilled Instructors</h5>
-						<p>"It's the teacher that makes the difference, not the classroom."</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-				<div class="service-item text-center pt-3">
-					<div class="p-4">
-						<i class="fa fa-3x fa-globe text-primary mb-4"></i>
-						<h5 class="mb-3">Online Typing</h5>
-						<p>"you will face many defeats in life, But never let yourself be defeated."</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-				<div class="service-item text-center pt-3">
-					<div class="p-4">
-						<i class="fa fa-3x fa-home text-primary mb-4"></i>
-						<h5 class="mb-3">Home Typing</h5>
-						<p>"success usually come to those who are to busy to be looking for it."</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-				<div class="service-item text-center pt-3">
-					<div class="p-4">
-						<i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-						<h5 class="mb-3">Live Statistics</h5>
-						<p>"Check your typing speed and accuracy as it is updated and displayed every second while you type."</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Service End -->
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3">Live Instructor-Led Classes</h5>
+                            <p style="text-align: justify; word-spacing:3px;">"Gayatri Typing offers live, instructor-led classes where students can interact with experienced tutors."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-3">Interactive Typing Practice Sessions</h5>
+                            <p style="text-align: justify; word-spacing:-2px;">"The coaching center provides interactive typing practice sessions where students can typing exercises."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3">Customized Learning Paths</h5>
+                            <p style="text-align: justify; word-spacing:-2px;">"Gayatri Typing offers customized learning based on individual student's skill levels, goals, and preferences."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <h5 class="mb-3">Instantaneous Typing Tests</h5>
+                            <p style="text-align: justify; word-spacing:-2px;">" Gayatri Typing conducts real-time typing tests to assess students' typing speed, accuracy, and proficiency."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
 
 
 <!-- About Start -->
@@ -100,29 +100,30 @@
 					<h5 class="section-title bg-white text-start text-primary pe-3">About Us</h5>
 				</center>
 				<h1 class="mb-4">Welcome to Gaytri Typing</h1>
-				<p class="mb-4">Communication is a skill that you can learn. It's like riding a bicycle or typing. If you're willing to work at it, you can rapidly improve the quality of every part of your life.</p>
+				<p class="mb-4" style="text-align: justify;">   Welcome to Gayatri Typing, your premier destination for professional typing training and services. Established with a passion for excellence and a commitment to empowering individuals with essential typing skills, we take pride in being a leading coaching center dedicated to enhancing typing proficiency.At Gayatri Typing, we understand the importance of proficient typing skills in today's digital age.
+                    </p>
 				<!-- <p class="mb-4">Get inspired as you test your typing speed with this inspirational quotes typing speed test. Practice typing favorite quotes and watch your typing speed increase! Over 60 quotes available. Typing speed tends to be a little higher on the inspirational quotes test because of the short length of the text to type. You can often reach higher bursts of speed on shorter typing tests. With practice you should be able to reach and maintain this typing speed more often and for an increasingly longer time.</p> -->
 				<div class="row gy-2 gx-4 mb-4">
-					<div class="col-sm-6">
-						<p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-					</div>
-					<div class="col-sm-6">-
-						<p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online typing</p>
-					</div>
-					<div class="col-sm-6">
-						<p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-					</div>
-					<div class="col-sm-6">
-						<p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-					</div>
-					<div class="col-sm-6">
-						<p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-					</div>
-					<div class="col-sm-6">
-						<p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-					</div>
-				</div>
-				<center><a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a></center>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Typing Courses</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Typing Practice Sessions</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Customized Training Programs</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Typing Services</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Experienced Instructorss</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Flexible Schedule</p>
+                        </div>
+                    </div>
+				<a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
 			</div>
 		</div>
 	</div>
@@ -436,7 +437,7 @@
 
 			<div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 				<h5>Get In Touch</h5>
-				<p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+			         <p class="mb-4" style="text-align: justify;">"At Gayatri Typing, we believe that every keystroke counts and every inquiry matters. Reach out to us today, and let's embark on a journey of learning, growth, and success together!"</p>
 				<div class="d-flex align-items-center mb-3">
 					<div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
 						<i class="fa fa-map-marker-alt text-white"></i>
