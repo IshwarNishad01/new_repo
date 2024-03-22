@@ -76,7 +76,7 @@
 				</li>
 
 				<li class="nav-item  open">
-					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-list"></i>
+					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-address-card"></i>
 						<span class="title">Contact List </span> <span class="selected"></span>
 						<span class="arrow open"></span>
 					</a>
@@ -87,20 +87,7 @@
 						</li>
 					</ul>
 				</li>
-<!-- 
-				<li class="nav-item  open">
-					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-registered"></i>
-						<span class="title">Registration </span> <span class="selected"></span>
-						<span class="arrow open"></span>
-					</a>
-					<ul class="sub-menu">
 
-						<li class="nav-item">
-							<a href="<?= base_url('admin/student_registration'); ?>" class="nav-link "> <span class="title">Registration List</span>
-							</a>
-						</li>
-					</ul>
-				</li> -->
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-house"></i>
 						<span class="title">Notification Update </span> <span class="selected"></span>
@@ -137,7 +124,7 @@
 
 
 				<li class="nav-item  open">
-					<a href="<?= base_url('admin/logout') ?>" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
+					<a href="<?= base_url('admin/logout') ?>" class="nav-link nav-toggle"> <i class="icon-logout"></i>
 						<span class="title"> Logout </span> <span class="selected"></span>
 					</a>
 				</li>

@@ -124,7 +124,7 @@ $route['registration_user2'] = 'HomeController/registration_user2';
 $route['dashboard'] = 'HomeController/dash_login';
 $route['enquiry'] = 'HomeController/enquiry';
 $route['add_result'] = 'HomeController/add_result';
-$route['admin/list_result'] = 'HomeController/result_list';
+$route['list_result'] = 'HomeController/result_list';
 
 $route['paper_info'] = 'HomeController/paper_info';
 $route['paper_view'] = 'HomeController/paper_view';
