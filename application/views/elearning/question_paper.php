@@ -44,6 +44,28 @@
 			font-size: 18px;
 			text-align: center;
 		}
+
+		.given_text {
+	font-size: 20px;
+	font-weight: 600;
+}
+.hindi_text {
+	font-family: "krutidev";
+}
+
+.type_text {
+	font-size: 20px !important;
+	font-weight: 600 !important;
+}
+.user_type_text_hindi {
+	font-family: "krutidev";
+}
+
+.hindi_text {
+	font-family: "krutidev";
+}
+
+
 	</style>
 </head>
 
