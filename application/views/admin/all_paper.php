@@ -30,8 +30,9 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
 
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/favicon.ico">
+
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
+	<link href="<?= base_url() ?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
 		.message {
 			font-weight: 600;
@@ -81,7 +82,19 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12 col-sm-12">
+					<div class="col-md-12 col-sm-12">
+					<?php
+						if ($this->session->tempdata('delete_paper') != "") {
+								?>
+									<div class="alert alert-warning alert-dismissible fade show" role="alert">
+										<?= $this->session->tempdata('delete_paper') ?>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+
+								<?php }	?>
+					
+
+					
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Exam List</header>

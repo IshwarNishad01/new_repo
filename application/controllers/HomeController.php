@@ -105,7 +105,9 @@ class HomeController extends CI_Controller
 
 	public function result_list()
 	{
-		$data['shaw'] = $this->db->get("results")->result();
+		$id = $this->session->userdata('userid');
+		$data['shaw'] = $this->db->where('student_id',$id)->get('results')->result();
+		// print_r($data);
 		$this->load->view('elearning/result_list', $data);
 	}
 
@@ -269,7 +271,7 @@ class HomeController extends CI_Controller
 	{
 
 		if (empty($this->session->userdata('userid'))) {
-			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again',5);
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('login'));
 		}
 
@@ -308,23 +310,20 @@ class HomeController extends CI_Controller
 
 	// submit student test result
 
-	public function insertRecord(){
+	public function insertRecord()
+	{
 
 		$data = array(
 
-            'student_id' => $this->session->userdata('userid'),
-            'total_words' => $this->input->post('inputTotalWord'),
-            'type_word' => $this->input->post('inputTotalTypeWord'),
-            'errors' => $this->input->post('inputTotalError'),
-            // 'field2' => $this->input->post('field2'),
-        );
+			'student_id' => $this->session->userdata('userid'),
+			'total_words' => $this->input->post('inputTotalWord'),
+			'type_word' => $this->input->post('inputTotalTypeWord'),
+			'errors' => $this->input->post('inputTotalError'),
+			// 'field2' => $this->input->post('field2'),
+		);
 
 		$response = $this->ExamModel->insert_result($data);
 
 		echo json_encode(array('success' => true));
-
-
 	}
-
-	
 }
