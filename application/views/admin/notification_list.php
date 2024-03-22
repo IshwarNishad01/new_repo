@@ -29,7 +29,7 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/favicon.ico">
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
 		@media only screen and (max-width: 600px) {
 			#example4 {

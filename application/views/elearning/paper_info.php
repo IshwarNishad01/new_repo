@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-
+<!-- <p>dfkjbvjdf  kj</p> -->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
 	<!-- Date Time item CSS -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- favicon -->
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/gd_logo.png">
+	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 </head>
 <!-- END HEAD -->
 

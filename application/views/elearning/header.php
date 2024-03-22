@@ -9,7 +9,7 @@
 	<meta content="" name="description">
 
 	<!-- Favicon -->
-	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 
 	<!-- Google Web Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
