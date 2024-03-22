@@ -286,11 +286,19 @@ class HomeController extends CI_Controller
 
 	public function paper_info()
 	{
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again',5);
+			redirect(base_url('login'));
+		}
 		$data['show'] = $this->db->query('select * from paper where status = "active"')->result();
 		$this->load->view('elearning/paper_info', $data);
 	}
 	public function paper_view()
 	{
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again',5);
+			redirect(base_url('login'));
+		}
 		$id = $this->input->get('id');
 		$data['show'] = $this->db->query("select * from paper where id = $id")->result();
 		$this->load->view('elearning/paper_view', $data);
