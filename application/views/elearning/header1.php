@@ -60,7 +60,7 @@
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
-				<p class="p-3" id="MyClockDisplay" class="clockDisplay" onload="showTime()"></p>
+				<!-- <p class="p-3" id="MyClockDisplay" class="clockDisplay" onload="showTime()"></p> -->
 				
 					<!-- <li><a href="#" class=""><img alt="image" src="<?= base_url(); ?>assets/admin_assets/img/logo_gd_c.png" style="height: 59px;width: 98px;margin-top: -9px;"></a></li> -->
 				</ul>
