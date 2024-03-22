@@ -79,7 +79,7 @@
 
 										<?php if ($row->language == 'english') {
 										?>
-											<p id="given_text"  class="text-center given_text"><?= $row->message ?></p>
+											<p id="given_text" class="text-center given_text"><?= $row->message ?></p>
 										<?php
 										} else {
 										?>
@@ -99,9 +99,20 @@
 								<input type="hidden" name="inputTotalError" value="" id="inputTotalError">
 							</form>
 
+							<?php
+							foreach ($paper as $row) { ?>
 
-							<textarea id="user_type_text" class="form-control" cols="90" name="TextToConvert" rows="8"></textarea>
+								<?php if ($row->language == 'english') {
+								?>
 
+									<textarea id="user_type_text" class="form-control type_text" cols="90" name="TextToConvert" rows="8"></textarea>
+
+								<?php } else {
+								?>
+									<textarea id="user_type_text" class="form-control type_text user_type_text_hindi" cols="90" name="TextToConvert" rows="8"></textarea>
+							<?php
+								}
+							} ?>
 
 							<div class="text-center">
 								<button class="btn btn-info ms-5" onclick="check()">Submit </button>

@@ -3,7 +3,7 @@
 	src: url("Kruti_dev_010.ttf");
 }
 
-.given_text{
+.given_text {
 	font-size: 20px;
 	font-weight: 600;
 }
@@ -11,13 +11,14 @@
 	font-family: "krutidev";
 }
 
-#user_type_text {
+.type_text {
+	font-size: 20px !important;
+	font-weight: 600 !important;
+}
+.user_type_text_hindi {
 	font-family: "krutidev";
-	font-size: 20px;
-	font-weight: 600;
 }
 
-
-.hindi_text{
+.hindi_text {
 	font-family: "krutidev";
 }
