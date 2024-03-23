@@ -32,22 +32,13 @@
 </head>
 
 <body>
-	<!-- Spinner Start -->
-	<!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div> -->
-	<!-- Spinner End -->
-
+	
 
 	<!-- Navbar Start -->
 	<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
 		<a href="home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
 			<img class="img-fluid h-100 w-100" src="assets/fronted_asset/img/logo.jpg" alt="" style="height: 70px !important;">
-			<!-- <h2 class="m-0 text-primary">GAYTRI TYPING</h2> -->
-			<!-- <i class="fa-light fa-keyboard me-3"></i> -->
-		</a>
+			</a>
 		<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -64,15 +55,6 @@
 				</div>
 				<a href="course" class="nav-item nav-link">Courses</a>
 				<a href="service" class="nav-item nav-link">Services</a>
-
-				<!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Join Now</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="registration" class="dropdown-item">Registration</a>
-                        <a href="login" class="dropdown-item">Login</a>
-                        <a href="enquiry" class="dropdown-item">Enquiry</a>
-                    </div>
-                </div> -->
 				<a href="login" class="nav-item nav-link">Login</a>
 				<a href="registration" class="nav-item nav-link">Signup</a>
 				<a href="payment" class="nav-item nav-link">Payment</a>
