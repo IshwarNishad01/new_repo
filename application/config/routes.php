@@ -33,7 +33,9 @@ $route['admin/delete_student'] = 'AdminController/delete_student';
 $route['admin/add_typing_result'] = 'AdminController/add_typing_result';
 $route['admin/typing_result_list'] = 'AdminController/typing_result_list';
 
+// give persmission
 
+$route['admin/exam_approval'] = 'AdminController/exam_approval';
 
 $route['up'] = 'AdminController/up_n';
 $route['Admin_Add'] = 'AdminController/sign_up';

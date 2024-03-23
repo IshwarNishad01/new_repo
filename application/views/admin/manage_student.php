@@ -29,7 +29,7 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
-	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
+	<link href="<?= base_url(); ?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 	<style type="text/css">
 		@media only screen and (max-width: 600px) {
@@ -58,10 +58,10 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<div class="page-title">Manage Exam for Students</div>
+								<div class="page-title">Manage Exam </div>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?= base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
 								<li class="active">Manage Exam</li>
 							</ol>
@@ -72,18 +72,37 @@
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Register Students List</header>
-
 								</div>
 								<div class="card-body table-responsive">
+
+									<div class="row my-4">
+										<div class="col-lg-6">
+											<form action="<?= base_url('admin/exam_approval') ?>" method="post">
+
+												<label for="form-label mb-3">Select Exam</label>
+												<select name="exam_name" class="form-control mt-2" id="">
+													<option selected disabled>Select Exam</option>
+													<?php
+													foreach ($paper as $value) {
+													?>
+														<option value="<?= $value->id ?>"><?= $value->p_name ?></option>
+													<?php
+													}
+													?>
+
+												</select>
+
+										</div>
+									</div>
+
+									<h5 class="fw-bold mt-5">Select students who can give test...</h5>
 									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responsive">
 										<thead>
 											<tr>
 												<th>S.No.</th>
+												<th>✔</th>
 												<th>Student Name</th>
-												<th>Email</th>
 												<th>Status</th>
-												<th>Details</th>
-												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -93,12 +112,19 @@
 											?>
 												<tr>
 													<td><?= $sn ?></td>
+													<td>
+														<input type="checkbox" value="<?= $row->id ?>" name="approvalStudent[]" id="">
+													</td>
 													<td><?= $row->first_name . ' ' . $row->last_name ?></td>
-													<td>active</td>
-													<td><?= $row->email ?></td>
-													<td>View Details</td>
-													<td>Delete</td>
-
+													<td>
+														<?php
+														if ($row->user_type == 0) {
+														?>
+															<span class="badge badge-success">Connected</span>
+														<?php } else { ?>
+															<span class="badge badge-warning">Not Connected</span>
+														<?php } ?>
+													</td>
 												</tr>
 											<?php $sn++;
 											}
@@ -106,6 +132,10 @@
 
 										</tbody>
 									</table>
+									<div class="mt-5">
+										<input type="submit" class="btn btn-info" name="submit" value="Save Changes" id="">
+									</div>
+									</form>
 								</div>
 							</div>
 						</div>
