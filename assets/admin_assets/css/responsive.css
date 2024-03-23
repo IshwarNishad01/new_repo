@@ -1428,7 +1428,8 @@
 }
 @media (max-width: 420px) {
 	.page-header.navbar .page-logo {
-		width: 70%;
+		/* width: 70% !important; */
+		width: 235px !important;
 	}
 	.chat-sidebar-container {
 		top: 168px;
