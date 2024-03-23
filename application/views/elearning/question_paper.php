@@ -195,7 +195,6 @@
 					}
 				}
 
-
 				// stores input data values in form
 
 				document.getElementById('inputTotalWord').value = givenWordArray.length;
