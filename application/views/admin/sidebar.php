@@ -111,7 +111,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('admin/student-list'); ?>" class="nav-link "> <span class="title">Register Student </span>
+							<a href="<?= base_url('admin/student-list'); ?>" class="nav-link "> <span class="title">Register Student List</span>
 							</a>
 						</li>
 						<li class="nav-item">

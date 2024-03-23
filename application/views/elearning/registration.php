@@ -66,6 +66,7 @@
 								<label for="email">Enter Your Email</label>
 							</div>
 						</div><br><br><br>
+						<input type="hidden" name="user_type" value="0" id="">
 						<div class="col-md-6">
 							<div class="form-floating">
 
@@ -162,12 +163,13 @@
 						</div>
 					</div>
 
-					<div class="col-md-6">
+					<input type="hidden" name="user_type" value="1" id="">
+					<!-- <div class="col-md-6">
 						<div class="form-floating">
 							<input type="text" class="form-control" name="course" placeholder="Course Name">
 							<label for="course">Course Name</label>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="col-12">
 						<div class="form-floating">

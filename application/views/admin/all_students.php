@@ -30,7 +30,7 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
 
-	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
+	<link href="<?= base_url(); ?>assets/fronted_asset/img/logo.jpg" rel="icon">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/font.css">
 	<style type="text/css">
 		.hindi_text {
@@ -67,7 +67,7 @@
 								<div class="page-title">All Students</div>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?= base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
 								<li class="active">Students List</li>
 							</ol>
@@ -75,11 +75,24 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
+
+							<?php
+							if ($this->session->tempdata('student_delete_success') != "") {
+							?>
+								<div class="alert alert-warning alert-dismissible fade show" role="alert">
+									<?= $this->session->tempdata('student_delete_success') ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+
+							<?php }	?>
+
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Register Students List</header>
 
 								</div>
+
+
 								<div class="card-body table-responsive">
 									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responsive">
 										<thead>
@@ -87,7 +100,7 @@
 												<th>S.No.</th>
 												<th>Student Name</th>
 												<th>Email</th>
-												<th>Status</th>
+												<th>Type</th>
 												<th>Details</th>
 												<th>Action</th>
 											</tr>
@@ -101,15 +114,86 @@
 													<td><?= $sn ?></td>
 													<td><?= $row->first_name . ' ' . $row->last_name ?></td>
 													<td><?= $row->email ?></td>
-													<td>active</td>
-													<td>View Details</td>
+													<td>
+														<?php
+														if($row->user_type == 0){
+														?>
+														<span class="badge badge-success">Connected</span>
+														<?php }else{ ?>
+															<span class="badge badge-warning">Not Connected</span>
+															<?php } ?>
+													</td>
+													<td>
+														<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row->id ?>">
+															View Details
+														</button>
+													</td>
+													<!-- <td>View Details</td> -->
 													<td><a href="
 													<?= base_url('admin/delete_student?q=' . $row->id) ?>
 													"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
 												</tr>
+
+
+												<!-- Modal -->
+												<div class="modal fade" id="exampleModal<?= $row->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog ">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h1 class="modal-title fs-5" id="exampleModalLabel">Student Information</h1>
+																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															</div>
+															<div class="modal-body">
+																<?php
+																if ($row->user_type == 0) {
+
+																?>
+																	<h5 class="mb-2">Student Name - <?= $row->first_name . ' ' . $row->last_name ?></h5>
+																	<h5 class="mb-2">Student Email - <?= $row->email ?></h5>
+																	<h5 class="mb-2">Created Account Date - <?= $row->date ?></h5>
+
+
+																<?php } else {
+																?>
+																	<h4>Register User is not connected with your institution...</h4>
+
+																	<h5 class="mb-2">Student Name - <?= $row->first_name . ' ' . $row->last_name ?></h5>
+																	<h5 class="mb-2">Student Email - <?= $row->email ?></h5>
+																	<h5 class="mb-2">Date Of Birth - <?= $row->dob ?></h5>
+
+																	<h5>Blood Group - <?= $row->group ?></h5>
+
+																	<h5>Aadhar Card Number - <?= $row->identity ?></h5>
+
+																	<h5>Mobile Number - <?= $row->yournumber ?></h5>
+
+																	<h5>Education Qualification - <?= $row->qualification ?></h5>
+
+																	<h5>Temporary Address - <?= $row->temp_address ?></h5>
+
+																	<h5>Parmanent Address - <?= $row->par_address ?></h5>
+
+																	<h5>Created Account Date - <?= $row->date ?></h5>
+
+
+																<?php
+																}
+																?>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+																<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+
 											<?php $sn++;
 											}
+
 											?>
 
 										</tbody>

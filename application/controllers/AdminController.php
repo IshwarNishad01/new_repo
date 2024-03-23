@@ -190,7 +190,7 @@ class AdminController extends CI_Controller
 	public function typing_result_list()
 	{
 		$student_id = $this->input->get('id');
-		$data['list'] = $this->db->query("select * from results where student_id='$student_id'")->result();
+		$data['list'] = $this->db->query("select * from results join paper on paper.id = results.exam_id where student_id='$student_id' ")->result();
 		$this->load->view('admin/typing_result_list',$data);
 	}
 	
