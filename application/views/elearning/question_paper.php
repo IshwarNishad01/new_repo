@@ -74,7 +74,57 @@
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo" onload="clock()">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<?php include 'header1.php'; ?>
+		<div class="page-wrapper">
+		<div class="page-header navbar navbar-fixed-top" id="for_print1">
+			<div class="page-header-inner ">
+				<!-- logo start -->
+				<div class="page-logo" style="margin-top: -8px;">
+					<a href="#">
+
+						<span class="">GAYATRI TYPING</span>
+
+				</div>
+				<!-- logo end -->
+				<ul class="nav navbar-nav navbar-left in">
+				<!-- <p class="p-3" id="MyClockDisplay" class="clockDisplay" onload="showTime()"></p> -->
+				
+					<!-- <li><a href="#" class=""><img alt="image" src="<?= base_url(); ?>assets/admin_assets/img/logo_gd_c.png" style="height: 59px;width: 98px;margin-top: -9px;"></a></li> -->
+				</ul>
+
+				<!-- start mobile menu -->
+				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" style="padding-top: 0px;">
+					<span></span>
+				</a>
+				<!-- end mobile menu -->
+				<!-- start header menu -->
+				<div class="top-menu">
+
+					<ul class="nav navbar-nav pull-right">
+						<li><a class="fullscreen-btn"></a></li>
+					
+
+						<!-- start manage user dropdown -->
+						<li class="dropdown dropdown-user">
+							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="padding-top: 0px;">
+								<i class="icon-user"></i>
+								<span class="username username-hide-on-mobile">
+								</span></a>
+
+							<ul class="dropdown-menu dropdown-menu-default">
+
+								<li>
+									<a href="<?= base_url('user-logout') ?>">
+										<i class="icon-logout"></i> Log Out </a>
+								</li>
+							</ul>
+						</li>
+						<!-- end manage user dropdown -->
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
 		<!-- end header -->
 
 		<!-- start page container -->

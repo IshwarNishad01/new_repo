@@ -52,7 +52,7 @@
 		<div class="page-header navbar navbar-fixed-top" id="for_print1">
 			<div class="page-header-inner ">
 				<!-- logo start -->
-				<div class="page-logo">
+				<div class="page-logo" >
 					<a href="#">
 
 						<span class="">GAYATRI TYPING</span>
