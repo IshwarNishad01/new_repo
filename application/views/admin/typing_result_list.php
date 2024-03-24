@@ -92,7 +92,7 @@
 									?>
 										<tr class="odd gradeX">
 											<td><?php echo $sn++; ?></td>
-											<td></td>
+											<td><?= $key->p_name ?></td>
 											<td><?= $key->total_words; ?></td>
 											<td><?= $key->type_word; ?></td>
 											<td><?= $key->errors; ?></td>

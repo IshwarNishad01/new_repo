@@ -124,7 +124,7 @@ class HomeController extends CI_Controller
 			"email" => $this->input->post("email"),
 			"password" => $this->input->post("password"),
 			"qualification" => $this->input->post("qualification"),
-			"course" => $this->input->post("course"),
+			"user_type" => $this->input->post("user_type"),
 			"temp_address" => $this->input->post("temp_address"),
 			"par_address" => $this->input->post("par_address")
 		);
@@ -199,7 +199,8 @@ class HomeController extends CI_Controller
 			"first_name" => $this->input->post("first_name"),
 			"last_name" => $this->input->post("last_name"),
 			"email" => $this->input->post("email"),
-			"password" => $this->input->post("password")
+			"password" => $this->input->post("password"),
+			"user_type" => $this->input->post("user_type")
 		);
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
@@ -224,6 +225,7 @@ class HomeController extends CI_Controller
 			"password" => $this->input->post("password"),
 			"qualification" => $this->input->post("qualification"),
 			"course" => $this->input->post("course"),
+			"user_type" => $this->input->post("user_type"),
 			"temp_address" => $this->input->post("temp_address"),
 			"par_address" => $this->input->post("par_address")
 		);

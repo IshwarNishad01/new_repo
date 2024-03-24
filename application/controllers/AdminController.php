@@ -183,17 +183,17 @@ class AdminController extends CI_Controller
 
 	public function add_typing_result()
 	{
-		$data['result']=$this->db->query('select DISTINCT student_id , register.first_name from results JOIN register ON results.student_id = register.id')->result();
-		$this->load->view('admin/add_typing_result',$data);
+		$data['result'] = $this->db->query('select DISTINCT student_id , register.first_name from results JOIN register ON results.student_id = register.id')->result();
+		$this->load->view('admin/add_typing_result', $data);
 		// print_r($data);
 	}
 	public function typing_result_list()
 	{
 		$student_id = $this->input->get('id');
-		$data['list'] = $this->db->query("select * from results where student_id='$student_id'")->result();
-		$this->load->view('admin/typing_result_list',$data);
+		$data['list'] = $this->db->query("select * from results join paper on paper.id = results.exam_id where student_id='$student_id' ")->result();
+		$this->load->view('admin/typing_result_list', $data);
 	}
-	
+
 
 
 
@@ -239,6 +239,7 @@ class AdminController extends CI_Controller
 
 	public function manage_student()
 	{
+		$data['paper'] = $this->db->get("paper")->result();
 		$data['show'] = $this->db->get("register")->result();
 		$this->load->view('admin/manage_student', $data);
 	}
@@ -951,5 +952,15 @@ class AdminController extends CI_Controller
 		}
 
 		$this->load->view('admin/declare_result');
+	}
+	public function exam_approval()
+	{
+		// echo 'working';
+		$selected_students = $this->input->post('approvalStudent');
+
+		foreach ($selected_students as $key => $value) {
+			$data['exam_name'] =  $this->input->post('exam_name');
+			$data['student_id'] = $value;
+		}
 	}
 }
