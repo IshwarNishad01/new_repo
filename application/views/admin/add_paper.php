@@ -121,7 +121,7 @@
 													<span class="required"> * </span>
 												</label>
 												<div class="col-md-5">
-													<select name="status" id="" class="form-Control input-height" required style="width: 415px;">
+													<select name="status" id="" class="form-control" required >
 														<option selected disabled>Select Status</option>
 														<option value="Active">Active</option>
 														<option value="Deactive">Deactive</option>
@@ -134,7 +134,7 @@
 													<span class="required"> * </span>
 												</label>
 												<div class="col-md-5">
-													<select name="language" id="" class="form-Control input-height" required style="width: 415px;" onchange="myfunction(this.value)">
+													<select name="language" id="" class="form-control" required  onchange="myfunction(this.value)">
 														<option disabled selected>Select language</option>
 														<option value="kruti">Hindi - Kurti Dev</option>
 														<!-- <option value="mangal">Hindi - Mangal</option> -->
@@ -152,7 +152,7 @@
 											<div class="form-actions">
 												<div class="row">
 													<div class="offset-md-3 col-md-9">
-														<button type="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  btn-primary">Submit</button>
+														<button type="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  ms-2 btn-primary">Submit</button>
 													</div>
 												</div>
 											</div>

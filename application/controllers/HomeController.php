@@ -106,7 +106,7 @@ class HomeController extends CI_Controller
 	public function result_list()
 	{
 		$id = $this->session->userdata('userid');
-		$data['shaw'] = $this->db->where('student_id', $id)->get('results')->result();
+		$data['shaw'] = $this->db->query("select * from results join paper on results.exam_id=paper.id where student_id = $id")->result();
 		// print_r($data);
 		$this->load->view('elearning/result_list', $data);
 	}
@@ -147,6 +147,12 @@ class HomeController extends CI_Controller
 	{
 		$this->load->view('elearning/registration');
 	}
+
+	public function signup()
+	{
+		$this->load->view('elearning/signup');
+	}
+
 
 
 	// user login
@@ -205,10 +211,10 @@ class HomeController extends CI_Controller
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
 			$this->session->set_tempdata('success', 'Successfully Registration... You can login now', 5);
-			redirect(base_url('registration'), 'refresh');
+			redirect(base_url('signup'), 'refresh');
 		} else {
 			$this->session->set_tempdata("error", "Successfully Registration", 5);
-			redirect(base_url('registration'), 'refresh');
+			redirect(base_url('signup'), 'refresh');
 		}
 	}
 
@@ -288,13 +294,34 @@ class HomeController extends CI_Controller
 	}
 
 
+	public function profile()
+	{
+
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('login'));
+		}
+
+		$id = $this->session->userdata('userid');
+
+		$data['profile'] = $this->db->query('select * from register where id = ' . $id)->result();
+
+		$this->load->view('elearning/profile', $data);
+	}
+
+
 	public function paper_info()
 	{
 		if (empty($this->session->userdata('userid'))) {
 			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('login'));
 		}
-		$data['show'] = $this->db->query('select * from paper where status = "active"')->result();
+
+		$id = $this->session->userdata('userid');
+
+		$data['show'] = $this->db->query('select * from permission join paper on permission.exam_id = paper.id where permission.student_id = '. $id. ' and paper.status = "active"')->result();
+
+		// print_r($data);
 		$this->load->view('elearning/paper_info', $data);
 	}
 	public function paper_view()

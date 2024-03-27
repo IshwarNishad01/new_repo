@@ -28,7 +28,7 @@
 						</li>
 					</ul>
 				</li>
-				 <li class="nav-item  open">
+				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-square-poll-vertical"></i>
 						<span class="title">Result</span> <span class="selected"></span>
 						<span class="arrow open"></span>
@@ -39,24 +39,19 @@
 							</a>
 						</li>
 					</ul>
-				</li> 
+				</li>
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-user"></i>
 						<span class="title">User Profile</span> <span class="selected"></span>
 						<span class="arrow open"></span>
 					</a>
-					<!-- <ul class="sub-menu">
+					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('add_video'); ?>" class="nav-link "> <span class="title">Add
-									videos</span>
+							<a href="<?= base_url('profile'); ?>" class="nav-link "> <span class="title">Profile</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="<?= base_url('all_video'); ?>" class="nav-link "> <span class="title">All
-									videos</span>
-							</a>
-						</li>
-					</ul> -->
+					
+					</ul>
 				</li>
 
 				<li class="nav-item start ">

@@ -62,7 +62,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class="nav-item  open">
+				<!-- <li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-list"></i>
 						<span class="title">Enquiry </span> <span class="selected"></span>
 						<span class="arrow open"></span>
@@ -73,7 +73,7 @@
 							</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-address-card"></i>

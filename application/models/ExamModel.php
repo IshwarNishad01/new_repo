@@ -183,4 +183,11 @@ class ExamModel extends CI_Model
 		$q = $this->db->where("id", $id)->update("paper", $data);
 		return $q;
 	}
+
+	public function add_permission($data)
+	{
+		$response =	$this->db->insert("permission", $data);
+
+		return $response;
+	}
 }

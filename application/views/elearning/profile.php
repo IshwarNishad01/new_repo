@@ -32,7 +32,6 @@
 
 	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 
-	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
 		@media only screen and (max-width: 600px) {
 			#example4 {
@@ -60,7 +59,7 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<div class="page-title">Result List</div>
+								<div class="page-title">My Profile</div>
 							</div>
 						</div>
 					</div>
@@ -71,47 +70,45 @@
 
 								</div>
 								<div class="card-body ">
-									<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4 table-responcive">
-										<thead>
-											<tr>
-												<th>S.No.</th>
-												<th>Exam Name </th>
-												<th> Total Words </th>
-												<th> Type Words </th>
-												<th> Errors </th>
-												<th> Exam Date </th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
 
-											$sn = 1;
-											foreach ($shaw as $key) { ?>
-												<tr class="odd gradeX">
-													<td>
-														<?= $sn; ?>
-													</td>
-													<td>
-														<?= $key->p_name ?>
-													</td>
-													<td>
-														<?= $key->total_words ?>
-													</td>
-													<td>
-														<?= $key->type_word ?>
-													</td>
-													<td>
-														<?= $key->errors ?>
-													</td>
-													<td>
-														<?= $key->date ?>
-													</td>
+									<?php
+									foreach ($profile as $row) {
+									?>
 
-												</tr>
-											<?php $sn++;
-											} ?>
-										</tbody>
-									</table>
+										<h4 class="mb-1">Full Name - <?= $row->first_name . ' ' . $row->last_name ?> </h4>
+
+										<h4 class="mb-1">Email - <?= $row->email ?> </h4>
+
+										<?php if ($row->dob != null) {  ?>
+											<h4 class="mb-1">DOB - <?= $row->dob ?> </h4>
+										<?php } ?>
+
+										<?php if ($row->group != null) {  ?>
+											<h4 class="mb-1">Blood Group - <?= $row->group ?> </h4>
+										<?php } ?>
+
+										<?php if ($row->identity != null) {  ?>
+											<h4 class="mb-1">Aadhar Number - <?= $row->identity ?> </h4>
+										<?php } ?>
+
+										<?php if ($row->yournumber != null) {  ?>
+											<h4 class="mb-1">Mobile Number - <?= $row->yournumber ?> </h4>
+										<?php } ?>
+
+										<?php if ($row->qualification != null) {  ?>
+											<h4 class="mb-1">Education Qualification - <?= $row->qualification ?> </h4>
+										<?php } ?>
+
+										<?php if ($row->temp_address != null) {  ?>
+											<h4 class="mb-1">Temporary Address - <?= $row->temp_address ?> </h4>
+										<?php } ?>
+
+										<?php if ($row->par_address != null) {  ?>
+											<h4 class="mb-1">Permanent Address - <?= $row->par_address ?> </h4>
+										<?php } ?>
+
+									<?php }  ?>
+
 								</div>
 							</div>
 						</div>
@@ -121,7 +118,7 @@
 
 		</div>
 	</div>
-	</div> 
+	</div>
 	<!-- end chat sidebar -->
 	</div>
 

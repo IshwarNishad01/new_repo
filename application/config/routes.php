@@ -112,6 +112,7 @@ $route['testimonial'] = 'HomeController/testimonial';
 $route['contact'] = 'HomeController/contactus';
 $route['contactdata'] = 'HomeController/contactdata';
 $route['registration'] = 'HomeController/regist';
+$route['signup'] = 'HomeController/signup';
 $route['regist_store'] = 'HomeController/regist_store';
 $route['login'] = 'HomeController/login';
 $route['login-check'] = 'HomeController/login_check';
@@ -130,7 +131,7 @@ $route['dashboard'] = 'HomeController/dash_login';
 $route['enquiry'] = 'HomeController/enquiry';
 $route['add_result'] = 'HomeController/add_result';
 $route['list_result'] = 'HomeController/result_list';
-
+$route['profile'] = 'HomeController/profile';
 $route['paper_info'] = 'HomeController/paper_info';
 $route['paper_view'] = 'HomeController/paper_view';
 $route['user-logout'] = 'HomeController/user_logout';

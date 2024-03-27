@@ -68,7 +68,18 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12 col-sm-12">
+					<div class="col-md-12 col-sm-12">
+					<?php
+						if ($this->session->tempdata('success') != "") {
+								?>
+									<div class="alert alert-success alert-dismissible fade show" role="alert">
+										<?= $this->session->tempdata('success') ?>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+
+								<?php }	?>
+
+						
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Register Students List</header>
