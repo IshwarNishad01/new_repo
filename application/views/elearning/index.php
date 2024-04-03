@@ -222,13 +222,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-1.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<h5 class="mb-0">Instructor Name</h5>
 						<small>Designation</small>
@@ -240,13 +240,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-2.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<h5 class="mb-0">Instructor Name</h5>
 						<small>Designation</small>
@@ -258,13 +258,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-3.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<h5 class="mb-0">Instructor Name</h5>
 						<small>Designation</small>
@@ -276,13 +276,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-4.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<h5 class="mb-0">Instructor Name</h5>
 						<small>Designation</small>
@@ -304,7 +304,8 @@
 		</div>
 		<div class="owl-carousel testimonial-carousel position-relative">
 			<div class="testimonial-item text-center">
-				<img class="border rounded-circle p-2 mx-auto mb-3" src="assets/fronted_asset/img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+				
+				<!-- <img class="border rounded-circle p-2 mx-auto mb-3" src="assets/fronted_asset/img/testimonial-1.jpg" style="width: 80px; height: 80px;"> -->
 				<!-- <h5 class="mb-0">Client Name</h5>
                     <p>Profession</p> -->
 				<div class="testimonial-text bg-light text-center p-4">
@@ -354,13 +355,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-1.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<!-- <h5 class="mb-0">Instructor Name</h5> -->
 						<small>Designation</small>
@@ -372,13 +373,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-2.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<!-- <h5 class="mb-0">Instructor Name</h5> -->
 						<small>Designation</small>
@@ -390,13 +391,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-3.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<!-- <h5 class="mb-0">Instructor Name</h5> -->
 						<small>Designation</small>
@@ -408,13 +409,13 @@
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-4.jpg" alt="">
 					</div>
-					<div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
 						<div class="bg-light d-flex justify-content-center pt-2 px-1">
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
 							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="text-center p-4">
 						<!-- <h5 class="mb-0">Instructor Name</h5> -->
 						<small>Designation</small>

@@ -110,10 +110,7 @@
 
 														<option value="<?php echo $i ?>"><?php echo $i; ?></option>
 
-													<?php											}
-
-
-													?>
+													<?php } ?>
 
 												</select>
 
