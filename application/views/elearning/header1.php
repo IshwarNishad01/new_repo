@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -52,18 +52,16 @@
 		<div class="page-header navbar navbar-fixed-top" id="for_print1">
 			<div class="page-header-inner ">
 				<!-- logo start -->
-				<div class="page-logo" >
-					<a href="#">
-
-						<span class="">GAYATRI TYPING</span>
-
+				<div class="page-logo">
+				<a href="#">
+						<span class=""><img class="img-fluid" src="<?=base_url();?>assets/fronted_asset/img/logo.jpg" alt="" style="width: 25% !important;"></span>
+						<span class="">Admin</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
-				<!-- <p class="p-3" id="MyClockDisplay" class="clockDisplay" onload="showTime()"></p> -->
-				
-					<!-- <li><a href="#" class=""><img alt="image" src="<?= base_url(); ?>assets/admin_assets/img/logo_gd_c.png" style="height: 59px;width: 98px;margin-top: -9px;"></a></li> -->
+					<h3 class="m-3 object">Gayatri Typing Or Steno Training Center</h3>
 				</ul>
+			
 
 				<!-- start mobile menu -->
 				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
@@ -73,23 +71,39 @@
 				<!-- start header menu -->
 				<div class="top-menu">
 
-					<ul class="nav navbar-nav pull-right">
+					<ul class="nav navbar-nav pull-left" style="margin-right:100px;">
 						<li><a class="fullscreen-btn"></a></li>
 					
+						
 
 						<!-- start manage user dropdown -->
 						<li class="dropdown dropdown-user">
+							<?php
+							    $qu = $this->db->query("SELECT * FROM registration where id = ".$this->session->userdata('userid'))->result();
+								foreach ($qu as $row) {
+							?>
 							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-								<i class="icon-user"></i>
+								<i class="icon-user">  Profile</i>
+								 <img src="<?= base_url()?>assets/admin_assets/uploads/<?= $row->image ?>" alt="">
 								<span class="username username-hide-on-mobile">
 								</span></a>
 
-							<ul class="dropdown-menu dropdown-menu-default">
+							<ul class="dropdown-menu dropdown-menu-default"> 
 
+								<li>
+									<a href="<?= base_url('view_profile/'.$row->id) ?>">
+										<i class="icon-logout"></i>View Profile</a>
+										
+								</li>
+								
+								
 								<li>
 									<a href="<?= base_url('user-logout') ?>">
 										<i class="icon-logout"></i> Log Out </a>
+										<?php } ?>
 								</li>
+
+								
 							</ul>
 						</li>
 						<!-- end manage user dropdown -->

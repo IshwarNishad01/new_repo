@@ -7,7 +7,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="../../../../../css-1?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
 

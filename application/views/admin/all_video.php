@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -78,6 +78,7 @@
 												<th>S.no. </th>
 												<th> Caption </th>
 												<th> Uploaded Videos </th>
+												<th> Normal Videos </th>
 												<th> Upload Date </th>
 												<th> Action </th>
 											</tr>
@@ -93,6 +94,7 @@
 													<td><?php echo $sn++; ?></td>
 													<td><?= $key->caption ?></td>
 													<td class="video"><?= $key->video ?></td>
+													<td class="userfile"><?= $key->userfile ?></td>
 													<td><?= $key->date ?></td>
 													<td><a href="<?= base_url('admin/delete_video?id=' . $key->id) ?> "><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 												</tr>

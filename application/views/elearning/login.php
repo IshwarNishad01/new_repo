@@ -11,9 +11,7 @@
 				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 				</div>
 
-
-
-				<form action="login-check" method="post">
+			<form action="login-check" method="post">
 
 					<div class="col-md-6">
 

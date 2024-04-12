@@ -59,8 +59,8 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                    <center> <h5 class="section-title bg-white text-start text-primary pe-3">About Us</h5></center>
                     <h1 class="mb-4">Welcome to Gaytri Typing</h1>
-                    <p class="mb-4">Communication is a skill that you can learn. It's like riding a bicycle or typing. If you're willing to work at it, you can rapidly improve the quality of every part of your life.</p>
-                    <!-- <p class="mb-4">Get inspired as you test your typing speed with this inspirational quotes typing speed test. Practice typing favorite quotes and watch your typing speed increase! Over 60 quotes available. Typing speed tends to be a little higher on the inspirational quotes test because of the short length of the text to type. You can often reach higher bursts of speed on shorter typing tests. With practice you should be able to reach and maintain this typing speed more often and for an increasingly longer time.</p> -->
+                    <p class="mb-4">Welcome to Gayatri Typing, your premier destination for professional typing training and services. Established with a passion for excellence and a commitment to empowering individuals with essential typing skills, we take pride in being a leading coaching center dedicated to enhancing typing proficiency.At Gayatri Typing, we understand the importance of proficient typing skills in today's digital age.</p>
+
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
@@ -81,7 +81,7 @@
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
                         </div>
                     </div>
-                    <center><a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a></center>
+                    <!-- <center><a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a></center> -->
                 </div>
             </div>
         </div>

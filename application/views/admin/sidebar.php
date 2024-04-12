@@ -45,6 +45,41 @@
 
 					</ul>
 				</li>
+
+				<li class="nav-item  open">
+					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-sliders"></i>
+						<span class="title">Slider Upload</span> <span class="selected"></span>
+						<span class="arrow open"></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="nav-item">
+							<a href="<?= base_url('admin/add_slider'); ?>" class="nav-link "> <span class="title">Add Slider</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/all_slider'); ?>" class="nav-link "> <span class="title">All Slider</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="nav-item  open">
+					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-photo-film"></i>
+						<span class="title">Upload Photo</span> <span class="selected"></span>
+						<span class="arrow open"></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="nav-item">
+							<a href="<?= base_url('admin/add_photo'); ?>" class="nav-link "> <span class="title">Add Photo</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/all_photo'); ?>" class="nav-link "> <span class="title">All Photo</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-video"></i>
 						<span class="title">Video Upload </span> <span class="selected"></span>
@@ -62,31 +97,49 @@
 						</li>
 					</ul>
 				</li>
+
 				<li class="nav-item  open">
-					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-list"></i>
-						<span class="title">Enquiry </span> <span class="selected"></span>
+					<a href="#" class="nav-link nav-toggle"><i class="fa-solid fa-photo-film"></i>
+						<span class="title">Achievers Image</span> <span class="selected"></span>
 						<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('admin/enquiry_list'); ?>" class="nav-link "> <span class="title">Enquiry List</span>
+							<a href="<?= base_url('admin/add_achiever'); ?>" class="nav-link "> <span class="title">Add Achievers Image</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/all_achiever'); ?>" class="nav-link "> <span class="title">All Achievers Image</span>
 							</a>
 						</li>
 					</ul>
 				</li>
 
 				<li class="nav-item  open">
+					<a href="#" class="nav-link nav-toggle"><i class="fa-regular fa-money-bill-1"></i>
+						<span class="title">Payment </span> <span class="selected"></span>
+						<span class="arrow open"></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="nav-item">
+							<a href="<?= base_url('admin/payment'); ?>" class="nav-link "> <span class="title">Payment</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- <li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-address-card"></i>
 						<span class="title">Contact List </span> <span class="selected"></span>
 						<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item">
-							<a href="<?= base_url('admin/contact_list'); ?>" class="nav-link "> <span class="title">Contact </span>
+							<a href="</?= base_url('admin/contact_list'); ?>" class="nav-link "> <span class="title">Contact </span>
 							</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 
 				<li class="nav-item  open">
 					<a href="#" class="nav-link nav-toggle"> <i class="fa-solid fa-house"></i>

@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -83,9 +83,9 @@
 											<tr>
 												<th>S.No.</th>
 												<th>First Name</th>
-												<th>Last Name</th>
+												<!-- <th>Last Name</th> -->
 												<th>Date Of Birth</th>
-												<th>Blood Group</th>
+												<!-- <th>Blood Group</th> -->
 												<th>Adhar Number</th>
 												<th>Your Number/Parent Number</th>
 												<th>Email</th>
@@ -106,9 +106,7 @@
 												<tr>
 													<td><?= $sn ?></td>
 													<td><?= $row->first_name ?></td>
-													<td><?= $row->last_name ?></td>
 													<td><?= $row->dob ?></td>
-													<td><?= $row->group ?></td>
 													<td><?= $row->identity ?></td>
 													<td><?= $row->yournumber ?></td>
 													<td><?= $row->email ?></td>

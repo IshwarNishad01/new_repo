@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -32,7 +32,7 @@
 	<!-- Date Time item CSS -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- favicon -->
-	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
+	<link rel="shortcut icon" href="<?= base_url(); ?>assets/admin_assets/img/logo.jpg">
 </head>
 <!-- END HEAD -->
 
@@ -149,4 +149,4 @@ $('#preview').css("height", "100px");
 </body>
 
 </html>
-+
+

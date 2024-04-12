@@ -3,42 +3,24 @@
 <!-- Carousel Start -->
 <div class="container-fluid p-0 mb-5">
 	<div class="owl-carousel header-carousel position-relative">
-		<div class="owl-carousel-item position-relative">
-			<img class="img-fluid" src="assets/fronted_asset/img/typing.jpg" alt="">
-			<div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-				<div class="container">
-					<div class="row justify-content-start">
-						<div class="col-sm-10 col-lg-8">
-							<!-- <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5> -->
-							<h1 class="display-3 text-white animated slideInDown">The Best Online Typing Platform</h1>
-							<!-- <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p> -->
-							<a href="<?= base_url('about') ?>" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-							<a href="<?= base_url('registration') ?>" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="owl-carousel-item position-relative">
-			<img class="img-fluid" src="assets/fronted_asset/img/typing2.jpg" alt="">
-			<div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-				<div class="container">
-					<div class="row justify-content-start">
-						<div class="col-sm-10 col-lg-8">
-							<!-- <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5> -->
-							<h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
-							<!-- <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p> -->
-							<a href="<?= base_url('about') ?>" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-							<a href="<?= base_url('registration') ?>" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			<?php
+                foreach($image as $key){
+                ?>
+                    <img class="image" src="<?=base_url();?>assets/admin_assets/uploads/<?php echo $key->image ?>" alt="" style="height: 500px;">
+                <?php   }  ?>   
 	</div>
 </div>
 <!-- Carousel End -->
-
+		<style>
+			
+			@media only screen and (max-width:600px)
+			{
+				.image{
+					height: 150px;
+					width: 100%;
+				}	
+			}
+		</style>
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
@@ -140,7 +122,7 @@
 	</div>
 	<div class="container ">
 		<div class="row">
-			<div class="col-lg-6 col-md-6 p-3">
+			<div class="col-lg-6 col-md-6 p-3" style="margin-right:50px;">
 				<div class="bg-white text-center">
 					<h2 class="m-0 p-1">English Typing</h2>
 				</div>
@@ -152,27 +134,49 @@
 				<img class="img-responsive w-100" src="assets/fronted_asset/img/hindi-typing.jpg" alt="">
 			</div>
 
-			<div class="col-lg-6 col-md-6 bg-info">
-				<center>
-					<h2 style="margin-top: 10px; margin-bottom: 10px; font-weight: bolder;color: white;height:50px;font-size:30px;" class="btn  btn-block">NOTIFICATION</h2>
-				</center>
-				<div class="col-md-12">
-					<div class="single_courses_desc">
-						<?php
-						foreach ($addnotification as $addnotification) { ?>
-							<div class="title my-3">
-								<a href="#" class="text-light text-center me-2"><img src="https://sparshpsceducation.com/assets/users/img/giphy.gif" width="50px" height="30px" style="border: 1px; background-color: white;padding: 2px;"> </a>
-								<?php echo $addnotification->title ?>
+			<!-- <div class="card" style="width:500px">
+				<div class="card-body">
+					<div class="col-lg-12 col-md-12">
+						<center>
+							<h2 style="margin-top: 10px; margin-bottom: 10px; font-weight: bolder;color: black; height:50px;font-size:30px;" class="btn  btn-block  bg-info">NOTIFICATION</h2>
+						</center><hr>
+						<div class="col-md-12">
+							<div class="single_courses_desc">
+							</?php
+								foreach ($addnotification as $addnotification) { ?>
+									<div class="title my-3">
+										<a href="#" class="text-light text-center me-2"><img src="https://sparshpsceducation.com/assets/users/img/giphy.gif" width="50px" height="30px" style="border: 1px; background-color: sky-blue;padding: 2px;"> </a>
+										</?php echo $addnotification->title ?>
+									</div>
+								</?php }
+								?>
 							</div>
-						<?php }
-						?>
-
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+		<div class="col-lg-12 col-md-12" style="width: 500px;">
+			<div class="card" >
+				<h2 class="card-header bg-info">NOTIFICATION</h2>
+					<div class="card-body" style="height: 350px;">
+						<div class="single_courses_desc ">
+							<?php
+								foreach ($addnotification as $addnotification) { ?>
+									<div class="title my-3">
+									<marquee direction="up" scrollamount="2"><a href="#" class="text-light text-center me-2"><img src="https://sparshpsceducation.com/assets/users/img/giphy.gif" width="50px" height="30px" style="border: 1px; background-color: sky-blue;padding: 2px;"> </a>
+										<?php echo $addnotification->title ?>
+									</marquee>
+									</div>
+								<?php }
+								?>
+						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
-</div>
 </div>
 <!-- Categories Start -->
 
@@ -220,75 +224,27 @@
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 				<div class="team-item bg-light">
 					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-1.jpg" alt="">
+						<img class="img-fluid" src="assets/fronted_asset/img/virendra.jpg" alt="">
 					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
 					<div class="text-center p-4">
-						<h5 class="mb-0">Instructor Name</h5>
-						<small>Designation</small>
+						<h5 class="mb-0">Virendra Patel</h5>
+						
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-				<div class="team-item bg-light">
-					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-2.jpg" alt="">
-					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
-					<div class="text-center p-4">
-						<h5 class="mb-0">Instructor Name</h5>
-						<small>Designation</small>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-				<div class="team-item bg-light">
-					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-3.jpg" alt="">
-					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
-					<div class="text-center p-4">
-						<h5 class="mb-0">Instructor Name</h5>
-						<small>Designation</small>
-					</div>
-				</div>
-			</div>
+			
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
 				<div class="team-item bg-light">
 					<div class="overflow-hidden">
 						<img class="img-fluid" src="assets/fronted_asset/img/team-4.jpg" alt="">
 					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
 					<div class="text-center p-4">
-						<h5 class="mb-0">Instructor Name</h5>
-						<small>Designation</small>
+						<h5 class="mb-0">Mamta Patel</h5>
+						<!-- <small>Designation</small> -->
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
@@ -305,35 +261,45 @@
 		<div class="owl-carousel testimonial-carousel position-relative">
 			<div class="testimonial-item text-center">
 				
-				<!-- <img class="border rounded-circle p-2 mx-auto mb-3" src="assets/fronted_asset/img/testimonial-1.jpg" style="width: 80px; height: 80px;"> -->
-				<!-- <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p> -->
+                    
 				<div class="testimonial-text bg-light text-center p-4">
-					<p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+					<h5 class="mb-0">Nandu Sahu</h5>
+					<p class="mb-0 mt-3">Bahoot achha  coaching hai hindi english typing and steno ka.. Yaha se kai sare students Apne lakhya prapti me safal hue hai.. Mere hisab se Typing ka best center hai.</p>
 				</div>
 			</div>
+
 			<div class="testimonial-item text-center">
-				<img class="border rounded-circle p-2 mx-auto mb-3" src="assets/fronted_asset/img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-				<!-- <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p> -->
-				<div class="testimonial-text bg-light text-center p-4">
-					<p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+				<div class="testimonial-text bg-light text-center p-4" style="height:180px;">
+					<h5 class="mb-0">Chetna Tiwade</h5>
+					<p class="mb-0">In my experience.....Best "Steno & Typing" teacher in all over World 🙏🙏🙏.</p>
 				</div>
 			</div>
+
 			<div class="testimonial-item text-center">
-				<img class="border rounded-circle p-2 mx-auto mb-3" src="assets/fronted_asset/img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-				<!-- <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p> -->
 				<div class="testimonial-text bg-light text-center p-4">
-					<p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+					<h5 class="mb-0">Ved Prakash Sen</h5>
+					<p class="mb-0 mt-3">Gangotri Typing Center is one of the best Typing & Shorthand Classes in Raipur. Here you have the best teacher available and along with the best guidance. Visit required.</p>
 				</div>
 			</div>
+
 			<div class="testimonial-item text-center">
-				<img class="border rounded-circle p-2 mx-auto mb-3" src="assets/fronted_asset/img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-				<!-- <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p> -->
-				<div class="testimonial-text bg-light text-center p-4">
-					<p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+				<div class="testimonial-text bg-light text-center p-4" style="height:180px;">
+					<h5 class="mb-0">Sudha Verma</h5>
+					<p class="mb-0 mt-3">I'm Experiencing Full Support & Very Good Coaching Here.</p>
+				</div>
+			</div>
+
+			<div class="testimonial-item text-center">
+				<div class="testimonial-text bg-light text-center p-4" style="height:180px;">
+					<h5 class="mb-0">Kamal Sahu</h5>
+					<p class="mb-0 mt-3">Supportive teachers and amazing teaching 👌👌👌👌🙏🙏</p>
+				</div>
+			</div>
+
+			<div class="testimonial-item text-center">
+				<div class="testimonial-text bg-light text-center p-4" style="height:180px;">
+					<h5 class="mb-0">Gopendra Sahu</h5>
+					<p class="mb-0 mt-3">Good educational facility and guideline.</p>
 				</div>
 			</div>
 		</div>
@@ -350,81 +316,34 @@
 			<h1 class="mb-5">Achievers</h1>
 		</div>
 		<div class="row g-4">
+				<?php
+                    foreach($achievers as $key)
+					{
+					
+                    ?>
+			
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-				<div class="team-item bg-light">
-					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-1.jpg" alt="">
-					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
+				<img class="img-fluid" src="<?=base_url();?>assets/admin_assets/uploads/<?php echo $key->image ?>" alt="">
+					
 					<div class="text-center p-4">
-						<!-- <h5 class="mb-0">Instructor Name</h5> -->
-						<small>Designation</small>
+						<h5>Name: <?= $key->name ?></h5>
+						<p>Batch: <?php echo $key->batch ?></p>
+						<p>Designation: <?php echo $key->designation ?></p>
 					</div>
-				</div>
+				
 			</div>
-			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-				<div class="team-item bg-light">
-					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-2.jpg" alt="">
-					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
-					<div class="text-center p-4">
-						<!-- <h5 class="mb-0">Instructor Name</h5> -->
-						<small>Designation</small>
-					</div>
-				</div>
+			
+			<?php   }  ?>
 			</div>
-			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-				<div class="team-item bg-light">
-					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-3.jpg" alt="">
-					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
-					<div class="text-center p-4">
-						<!-- <h5 class="mb-0">Instructor Name</h5> -->
-						<small>Designation</small>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-				<div class="team-item bg-light">
-					<div class="overflow-hidden">
-						<img class="img-fluid" src="assets/fronted_asset/img/team-4.jpg" alt="">
-					</div>
-					<!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-						<div class="bg-light d-flex justify-content-center pt-2 px-1">
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-							<a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-						</div>
-					</div> -->
-					<div class="text-center p-4">
-						<!-- <h5 class="mb-0">Instructor Name</h5> -->
-						<small>Designation</small>
-					</div>
-				</div>
-			</div>
+					
+			<center>
+			<a href="achiever" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">View More</a>
+		</center>
 		</div>
 	</div>
-</div>
+
+
+
 <!-- Achievers End -->
 
 <!-- Contact Start -->

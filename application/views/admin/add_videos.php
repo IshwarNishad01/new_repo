@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="Responsive Admin Template">
 	<meta name="author" content="SmartUniversity">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -55,8 +55,7 @@
 								<div class="page-title">Add Videos</div>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?=
-																									base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?=base_url('admin/dashboard') ?>">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
 								<!-- <li><a class="parent-item" href="">Videos</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li> -->
@@ -83,26 +82,29 @@
 								<div class="card-body" id="bar-parent">
 
 
-									<form action="" id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="post">
-
-
+									<form action=""  class="form-horizontal" enctype="multipart/form-data" method="post">
 										<div class="form-body">
 											<div class="form-group row">
-												<label class="control-label col-md-3">Caption
-													<span class="required"> * </span>
-												</label>
+												<label class="control-label col-md-3">Caption * </label>
 												<div class="col-md-5">
-													<input type="text" name="cap" data-required="1" placeholder="enter first name" class="form-control input-height">
+													<input type="text" name="caption"  placeholder="Enter Your Caption" class="form-control input-height" required="">
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="control-label col-md-3"> Video <span class="required"> * </span>
-												</label>
+												<label class="control-label col-md-3"> Videos * </label>
 												<div class="col-md-5">
-													<input type="text" multiple="" name="video" required id="preview_take" class="form-control input-height">
+													<input type="text" multiple="" name="video" id="preview_take" placeholder="Upload Video" class="form-control input-height" required="">
 												</div>
 												<img id="preview" height="" width="">
 											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3"> Normal Video * </label>
+												<div class="col-md-5">
+													<input type="text" multiple="" name="userfile" id="preview_take" placeholder="Upload Normal Video " class="form-control input-height" required="">
+												</div>
+												<img id="preview" height="" width="">
+											</div>
+											
 											<div class="form-actions">
 												<div class="row">
 													<div class="offset-md-3 col-md-9">

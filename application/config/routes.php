@@ -18,6 +18,20 @@ $route['admin/add_video'] = 'AdminController/add_videos';
 $route['GD'] = 'AdminController/gallery_delete';
 
 
+$route['admin/add_photo'] = 'AdminController/add_photo';
+$route['admin/all_photo'] = 'AdminController/all_photo';
+$route['admin/delete_photo'] = 'AdminController/delete_photo';
+
+$route['admin/add_slider'] = 'AdminController/add_slider';
+$route['admin/all_slider'] = 'AdminController/all_slider';
+$route['admin/delete_slider'] = 'AdminController/delete_slider';
+
+$route['admin/add_achiever'] = 'AdminController/add_achiever';
+$route['admin/all_achiever'] = 'AdminController/all_achiever';
+$route['admin/delete_achiever'] = 'AdminController/delete_achiever';
+
+
+
 
 // $route['admin'] = 'AdminController/admin_login';
 
@@ -94,6 +108,8 @@ $route['exam_edit'] = 'AdminController/exam_edit';
 $route['change_status'] = 'AdminController/change_status';
 $route['logout_admin'] = 'AdminController/logout';
 
+$route['admin/payment'] = 'AdminController/payment';
+$route['active_payment/(:num)'] = 'AdminController/active_payment/$1';
 
 
 // Typing Route Front End ...........
@@ -112,30 +128,33 @@ $route['testimonial'] = 'HomeController/testimonial';
 $route['contact'] = 'HomeController/contactus';
 $route['contactdata'] = 'HomeController/contactdata';
 $route['registration'] = 'HomeController/regist';
+$route['signup'] = 'HomeController/signup';
 $route['regist_store'] = 'HomeController/regist_store';
 $route['login'] = 'HomeController/login';
 $route['login-check'] = 'HomeController/login_check';
-
+$route['payment'] = 'HomeController/payment';
+$route['pending'] = 'HomeController/pending';
+$route['achiever'] = 'HomeController/achiever';
 
 // user registration for both users
 $route['registration_user'] = 'HomeController/registration_user';
 $route['registration_user2'] = 'HomeController/registration_user2';
 
-
-
 // for user dashboard
-
 
 $route['dashboard'] = 'HomeController/dash_login';
 $route['enquiry'] = 'HomeController/enquiry';
 $route['add_result'] = 'HomeController/add_result';
 $route['list_result'] = 'HomeController/result_list';
-
+$route['profile'] = 'HomeController/profile';
 $route['paper_info'] = 'HomeController/paper_info';
 $route['paper_view'] = 'HomeController/paper_view';
+
+$route['view_profile/(:any)'] = 'HomeController/view_profile/$1';
+$route['edit_profile/(:any)'] = 'HomeController/edit_profile/$1';
+$route['final_edit'] = 'HomeController/final_edit';
+
 $route['user-logout'] = 'HomeController/user_logout';
-
-
 
 
 // Typing Route Front End ...........

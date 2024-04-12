@@ -16,7 +16,7 @@
 						<a class="btn btn-link " href="about">About Us</a>
 						<a class="btn btn-link " href="contactus">Courses</a>
 						<a class="btn btn-link " href="contactus">Login</a>
-						<a class="btn btn-link " href="contactus">Contact Us</a>
+						<!-- <a class="btn btn-link " href="contactus">Contact Us</a> -->
 					</div>
                 </div>
                

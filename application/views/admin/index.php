@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="<?=base_url();?>assets/admin_assets/css/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -55,7 +55,7 @@
 
 						<div class="row ">
 						<div class="col-xl-3 col-lg-6">
-							<a href="<?=base_url('All_Student');?>">
+							
 							<div class="card comp-card">
 								<div class="card-body">
 									<div class="row align-items-center">
@@ -66,23 +66,20 @@
 												</h4>
 											</div>
 											<?php 
-												$totalStudents=$this->db->query("select * from register")->result();
+												$totalStudents=$this->db->query("select * from registration")->result();
 											?>
 											<h3 class="mt-1 mb-3 info-box-title col-green"><?=  count($totalStudents); ?></h3>
 											<div class="progress">
 												<div class="progress-bar l-bg-purple" style="width: 45%"></div>
 											</div>
 										</div>
-										<div class="col-auto">
-											<div id="sparkline7"><canvas style="display: inline-block; width: 267px; height: 70px; vertical-align: top;"></canvas>
-											</div>
-										</div>
+									
 									</div>
 								</div>
-							</div></a>
+							</div>
 						</div>
 						<div class="col-xl-3 col-lg-6">
-							<a href="<?=base_url('All_Career');?>">
+							
 							<div class="card comp-card">
 								<div class="card-body">
 									<div class="row align-items-center">
@@ -98,38 +95,59 @@
 												<div class="progress-bar l-bg-red" style="width: 45%"></div>
 											</div>
 										</div>
-										<div class="col-auto">
-											<div id="sparkline12"><canvas style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
-											</div>
-										</div>
+										
 									</div>
 								</div>
-							</div></a>
+							</div>
 						</div>
 						<div class="col-xl-3 col-lg-6">
-							<a href="">
+							
 							<div class="card comp-card">
 								<div class="card-body">
 									<div class="row align-items-center">
 										<div class="col">
 											<div class="col mt-0">
 
-												<h4 class="info-box-title">Total Enquiry Form</h4>
+												<h4 class="info-box-title">Total Contact Form</h4>
 											</div>
 											<?php
-												$enquirydata=$this->db->query("select * from enquiry_tb")->result();
+												$enquirydata=$this->db->query("select * from contact")->result();
 											?>
 											<h3 class="mt-1 mb-3 info-box-title col-green"><?= count($enquirydata) ?></h3>
+											<div class="progress">
 												<div class="progress-bar l-bg-green" style="width: 45%"></div>
 											</div>
-										</div>
-										<div class="col-auto">
-											<div id="sparkline9"><canvas style="display: inline-block; width: 167px; height: 70px; vertical-align: top;"></canvas>
 											</div>
 										</div>
+									
 									</div>
 								</div>
-							</div></a>
+							</div>
+
+							<div class="col-xl-3 col-lg-6">
+							
+							<div class="card comp-card">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col">
+											<div class="col mt-0">
+
+												<h4 class="info-box-title">Total Notification</h4>
+											</div>
+											<?php
+												$enquirydata=$this->db->query("select * from notification")->result();
+											?>
+											<h3 class="mt-1 mb-3 info-box-title col-green"><?= count($enquirydata) ?></h3>
+											<div class="progress">
+												<div class="progress-bar l-bg-blue" style="width: 45%"></div>
+											</div>
+											</div>
+										</div>
+									
+									</div>
+								</div>
+							</div>
+
 						</div>
 					
 					</div>

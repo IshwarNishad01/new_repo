@@ -6,9 +6,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<meta name="description" content="Responsive Admin Template">
-	<meta name="author" content="SmartUniversity">
-	<title>GD Professional College</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -18,7 +18,6 @@
 	<link href="<?=base_url();?>assets/admin_assets/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css">
 	<!--bootstrap -->
 	<link href="<?=base_url();?>assets/admin_assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/plugins/material/material.min.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/css/material_style.css">
@@ -26,16 +25,19 @@
 	<link href="<?=base_url();?>assets/admin_assets/css/theme/light/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css">
 	<link href="<?=base_url();?>assets/admin_assets/css/theme/light/style.css" rel="stylesheet" type="text/css">
 	<link href="<?=base_url();?>assets/admin_assets/css/plugins.min.css" rel="stylesheet" type="text/css">
-	<link href="<?=base_url();?>assets/admin_assets/css/pages/formlayout.css" rel="stylesheet" type="text/css">
 	<link href="<?=base_url();?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?=base_url();?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
+	<!-- dropzone -->
+	<link href="<?=base_url();?>assets/admin_assets/plugins/dropzone/dropzone.css" rel="stylesheet" media="screen">
+	<!-- Date Time item CSS -->
+	<link rel="stylesheet" href="<?=base_url();?>assets/admin_assets/plugins/flatpicker/css/flatpickr.min.css">
 	<!-- favicon -->
-	<link rel="shortcut icon" href="<?=base_url();?>assets/admin_assets/img/fevicon.png">
+	<link href="<?=base_url();?>assets/fronted_asset/img/logo.jpg" rel="icon">
 </head>
 <!-- END HEAD -->
 
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
-	<div class="page-wrapper">
+<div class="page-wrapper">
 		<!-- start header -->
 		<?php include 'header1.php';?>
 		<!-- end header -->
@@ -44,108 +46,62 @@
 		<div class="page-container">
 			<!-- start sidebar menu -->
 			<?php include 'sidebar.php';?>
-			<!-- end sidebar menu -->
-			<!-- start page content -->
 			<div class="page-content-wrapper">
 				<div class="page-content">
-					
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
-							<div class=" pull-left">
-								<div class="page-title">Add Slider Content</div>
-							</div>
-							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li><a class="parent-item" href="">Photos</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li class="active">Add Photo</li>
-							</ol>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="card card-box">
-								<div class="card-head">
-									<header>Basic Information</header>
-									
-									
-								</div>
-								<div class="card-body" id="bar-parent">
-									<form action="" id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="post">
-										<?php if(isset($_REQUEST['add_s'])){?>
-					<center style="color: green;font-size: ;">Successfully Image Uploaded</center>
-					<?php } ?>
-										<div class="form-body">
-											<div class="form-group row">
-												<label class="control-label col-md-3">Heading
-													<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="text" name="cap" data-required="1" placeholder="" class="form-control input-height">
-												</div>
-											</div>
+							<?php 
+                            foreach($re as $value)
+                            {
+                                ?>
+								<div class="media border p-3 bg-light">
+										<h2>View Profile</h2>
+										
+										<img src="<?= base_url()?>assets/admin_assets/uploads/<?= $value->image ?>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:170px;">
+										<div class="media-body">
+											<?php
+											$date = $value->dob;
 											
-											
-											<div class="form-group row">
-												<label class="control-label col-md-3"> Picture<span class="required"> * </span>
-												</label>
-												<div class="col-md-5">
-													<input type="file" class="default"  name="photo" required id="preview_take">
-												</div>
-												<img id="preview" height="" width="" >
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">discription(option)
-												</label>
-												<div class="col-md-5">
-													<textarea name="dsc" class="form-control-textarea" placeholder="Education" rows="5"></textarea>
-												</div>
-											</div>
-											<div class="form-actions">
-												<div class="row">
-													<div class="offset-md-3 col-md-9">
-														<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary">Upload</button>
-														<button type="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-danger">Reset</button>
-													</div>
-												</div>
-											</div>
+											?>
+										<h4>Name:- <?=$value->first_name?><br>
+										Bate of Birth:-<?php echo date('F d Y', strtotime($date)); ?> <br>
+										Mobile:- <?=$value->yournumber;?> <br>
+										Email:- <?=$value->email;?><br>
+										<a class="btn btn-info" href="<?= base_url('edit_profile/'.$value->id) ?>">Edit Profile</a>     
 										</div>
-									</form>
-								</div>
-							</div>
+									</div>
+            
+            				<?php } ?>
 						</div>
 					</div>
+					
 				</div>
 			</div>
-			
-		<!-- end page container -->
-		<!-- start footer -->
-		
+	
 		<!-- end footer -->
 	</div>
 	<!-- start js include path -->
 	<script src="<?=base_url();?>assets/admin_assets/plugins/jquery/jquery.min.js"></script>
 	<script src="<?=base_url();?>assets/admin_assets/plugins/popper/popper.js"></script>
 	<script src="<?=base_url();?>assets/admin_assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
-	<script src="<?=base_url();?>assets/admin_assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-	<script src="<?=base_url();?>assets/admin_assets/plugins/jquery-validation/js/additional-methods.min.js"></script>
 	<script src="<?=base_url();?>assets/admin_assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 	<script src="<?=base_url();?>assets/admin_assets/plugins/feather/feather.min.js"></script>
 	<!-- bootstrap -->
 	<script src="<?=base_url();?>assets/admin_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<?=base_url();?>assets/admin_assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<script src="<?=base_url();?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
-	<script src="<?=base_url();?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
 	<!-- Common js-->
 	<script src="<?=base_url();?>assets/admin_assets/js/app.js"></script>
-	<script src="<?=base_url();?>assets/admin_assets/js/pages/validation/form-validation.js"></script>
 	<script src="<?=base_url();?>assets/admin_assets/js/layout.js"></script>
 	<script src="<?=base_url();?>assets/admin_assets/js/theme-color.js"></script>
 	<!-- Material -->
 	<script src="<?=base_url();?>assets/admin_assets/plugins/material/material.min.js"></script>
+	<script src="<?=base_url();?>assets/admin_assets/js/pages/material-select/getmdl-select.js"></script>
+	<script src="<?=base_url();?>assets/admin_assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+	<script src="<?=base_url();?>assets/admin_assets/js/pages/date-time/date-time.init.js"></script>
+	<!-- dropzone -->
+	<script src="<?=base_url();?>assets/admin_assets/plugins/dropzone/dropzone.js"></script>
+	<script src="<?=base_url();?>assets/admin_assets/plugins/dropzone/dropzone-call.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-	<script type="text/javascript">
+<script type="text/javascript">
   
   $(document).ready(function(){
     $('#preview_take').change(function(event){

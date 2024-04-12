@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="<?= base_url(); ?>assets/admin_assets/css/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -55,103 +55,121 @@
 					<div class="row ">
 						<div class="col-lg-12">
 							<div class="card p-3">
-								<h4 class="info-box-title">Welcome <?= $this->session->userdata('first_name') . $this->session->userdata('last_name') ?> !</h4>
+								<h4 class="info-box-title">Welcome <?= $this->session->userdata('first_name') . ' ' . $this->session->userdata('last_name') ?> !</h4>
 							</div>
 						</div>
-						<div class="col-xl-3 col-lg-6">
-							<a href="<?= base_url('All_Career'); ?>">
-								<div class="card comp-card">
-									<div class="card-body">
-										<div class="row align-items-center">
-											<div class="col">
-												<div class="col-lg-6 mt-0">
-													<h4 class="info-box-title">Total Paper</h4>
-												</div>
-												<?php
-												$data1['r1'] = $this->db->query("select count(career_id) as det1 from career")->row_array();
 
-												?>
-												<h3 class="mt-1 mb-3 info-box-title col-green"><?php foreach ($data1 as $key1) {
-																									echo $key1['det1'];
-																								} ?></h3>
-												<div class="progress">
-													<div class="progress-bar l-bg-red" style="width: 45%"></div>
-												</div>
+
+						<div class="col-xl-6 col-lg-6">
+
+							<div class="card comp-card">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col">
+											<div class="col mt-0">
+												<h4 class="info-box-title">Total Active Test</h4>
 											</div>
-											<div class="col-lg-6">
-												<div id="sparkline12"><canvas style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
+											<?php
+											$id = $this->session->userdata('userid');
+											$totalpapers = $this->db->query('select * from permission join paper on permission.exam_id = paper.id where permission.student_id = ' . $id . ' and paper.status = "active"')->result();
+
+											?>
+											<h3 class="mt-1 mb-3 info-box-title col-green"><?= count($totalpapers); ?></h3>
+											<div class="progress">
+												<div class="progress-bar l-bg-red" style="width: 45%"></div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="col-xl-6 col-lg-6">
+
+							<div class="card comp-card">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col">
+											<div class="col mt-0">
+												<h4 class="info-box-title">Total Test Attempt</h4>
+											</div>
+											<?php
+											$id = $this->session->userdata('userid');
+											$totalpapers = $this->db->query("select * from results where student_id = " . $id)->result();
+											?>
+											<h3 class="mt-1 mb-3 info-box-title col-green"><?= count($totalpapers); ?></h3>
+											<div class="progress">
+												<div class="progress-bar l-bg-blue" style="width: 45%"></div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-xl-6 col-lg-6">
+							<div class="card comp-card">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col">
+											<center>
+												<h2 style="margin-top: 10px; margin-bottom: 10px; font-weight: bolder;color: black;height:50px;font-size:30px;">NOTIFICATION</h2></center>
+											<div class="col-md-12">
+												<div class="single_courses_desc"><hr>
+													<?php
+													foreach($addnotification as $addnotification) { ?>
+														<div class="title my-3">
+														<a href="#" class="text-light text-center me-2"><img src="https://sparshpsceducation.com/assets/users/img/giphy.gif" width="50px" height="30px" style="border: 1px; background-color: white;padding: 2px;"> </a>
+															<?php echo $addnotification->title?> 
+														</div>
+													<?php } ?>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</a>
+							</div>
 						</div>
-						<div class="col-xl-3 col-lg-6">
-							<a href="">
-								<div class="card comp-card">
-									<div class="card-body">
-										<div class="row align-items-center">
-											<div class="col">
-												<div class="col mt-0">
-
-													<h4 class="info-box-title">Total Attempts</h4>
-												</div>
-												<h3 class="mt-1 mb-3 info-box-title col-green">4</h3>
-												<div class="progress">
-													<div class="progress-bar l-bg-green" style="width: 45%"></div>
-												</div>
-											</div>
-											<div class="col-auto">
-												<div id="sparkline9"><canvas style="display: inline-block; width: 167px; height: 70px; vertical-align: top;"></canvas>
-												</div>
+						<div class="col-xl-6 col-lg-6">
+							<div class="card comp-card">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col">
+											<center>
+												<h2 style="margin-top: 10px; margin-bottom: 10px; font-weight: bolder;color: black;height:50px;font-size:30px;">Student Rgistration Details</h2></center>
+											<div class="col-md-12">
+											<?php
+													foreach($show1 as $row) { ?>
+														<div class="title my-3">
+															<h5>Student Name: <?= $row->first_name ?></h5>
+															<h5>Student DOB: <?= $row->dob ?></h5>
+															<h5>Student Identity: <?= $row->identity ?></h5>
+															<h5>Student Number: <?= $row->yournumber ?></h5>
+															<h5>Student Email: <?= $row->email ?></h5>
+															<h5>Student Qualification: <?= $row->qualification ?></h5>
+															<h5>Student Temprary Address:<?= $row->temp_address ?></h5>
+															<h5>Student Parmanent Address: <?= $row->par_address ?></h5>
+															<h5>Date: <?= $row->date ?></h5>
+														</div>
+													<?php } ?>
 											</div>
 										</div>
 									</div>
 								</div>
-							</a>
+							</div>
 						</div>
-
-
-						<div class="col-xl-3 col-lg-6">
-							<a href="<?= base_url('All_Career'); ?>">
-								<div class="card comp-card">
-									<div class="card-body">
-										<div class="row align-items-center">
-											<div class="col">
-												<div class="col mt-0">
-													<h4 class="info-box-title">Total Paper</h4>
-												</div>
-												<?php
-												$totalpapers = $this->db->query("select * from paper")->result();
-												?>
-												<h3 class="mt-1 mb-3 info-box-title col-green"><?= count($totalpapers); ?></h3>
-												<div class="progress">
-													<div class="progress-bar l-bg-red" style="width: 45%"></div>
-												</div>
-											</div>
-											<div class="col-auto">
-												<div id="sparkline12"><canvas style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-
-
-					</div>
-
-
-
-
 				</div>
 			</div>
+		</div>
 
 			<!-- start js include path -->
 
-			
+
 			<script>
 				function showTime() {
 					var date = new Date();

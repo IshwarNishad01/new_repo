@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -129,23 +129,22 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="control-label col-md-3"> Status
-														<span class="required"> * </span>
-													</label>
-													<div class="col-md-5">
-														<select  name="status" id="" class="form-Control input-height" required style="width: 415px;" value="<?= $row->status; ?>">
-															<option selected disabled>Select Status</option>
-														
-															<option value="Active">Active</option>
-															<option value="Deactive">Deactive</option>
-														</select>
-													</div>
+												<label class="control-label col-md-3"> Status
+													<span class="required"> * </span>
+												</label>
+												<div class="col-md-5">
+													<select name="status" id="" class="form-control" required >
+														<option selected disabled>Select Status</option>
+														<option value="Active">Active</option>
+														<option value="Deactive">Deactive</option>
+													</select>
 												</div>
+											</div>
 												<div class="form-group row">
-													<label class="control-label col-md-3"> Message
+													<label class="control-label col-md-3 "> Message
 														<span class="required"> * </span>
 													</label>
-													<textarea class="message <?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>" name="message" id="" cols="3" rows="3" placeholder="Enter Your Message" required style="width: 415px; margin-left: 13px;"> <?= $row->message; ?></textarea>
+													<textarea class=" form-control message <?php echo ($row->language == 'kruti') ? 'hindi_text' : ''; ?>" name="message" id="" cols="3" rows="3" placeholder="Enter Your Message" required > <?= $row->message; ?></textarea>
 												</div>
 												<div class="form-actions">
 													<div class="row">

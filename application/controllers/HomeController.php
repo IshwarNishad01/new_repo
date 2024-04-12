@@ -13,9 +13,98 @@ class HomeController extends CI_Controller
 	public function index()
 	{
 		$data['addnotification'] = $this->db->get("notification")->result();
+		// $data['addnotification'] = $this->db->get("notification")->result();
 		$data['video'] = $this->db->get("videos", 3)->result();
+		$data['image'] = $this->db->get("slider", 4)->result();
+		$data['achievers'] = $this->db->get("achiever_image", 4)->result();
 		$this->load->view('elearning/index', $data);
 	}
+	public function view_profile($id)
+	{
+		
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('login'));
+		}
+		
+		$data['re']=$this->db->query("select * from registration where id='$id'")->result();
+		$this->load->view('elearning/view_profile',$data);
+	}
+
+
+	public function edit_profile($id)
+	{
+		
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('login'));
+		}
+		$data['re']=$this->ExamModel->update_profile($id);
+		$this->load->view('elearning/edit_profile',$data);
+	}
+
+	public function final_edit()
+	{
+		
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('login'));
+		}
+		     $id = $this->input->get('id');
+
+			 if ($_SERVER['REQUEST_METHOD'] == 'POST')
+			 { 
+				$user_file_name = $_FILES['image']['name'];
+				$config['upload_path']          = 'assets/admin_assets/uploads/';
+				$config['allowed_types']        = 'gif|jpg|jpeg|png';
+				// $config['max_size']             = 100;
+				// $config['max_width']            = 1024;
+				// $config['max_height']           = 768;
+				$destination="assets/admin_assets/uploads/".$user_file_name;
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+		
+				if ( ! $this->upload->do_upload('image'))
+						{
+							$error = array('error' => $this->upload->display_errors());
+							echo $error['error'];
+						}
+						else
+						{
+
+			    $data=array(
+				"first_name"=>$this->input->post("first_name"),
+				"dob"=>$this->input->post("dob"),
+				"yournumber"=>$this->input->post("yournumber"),
+				"email"=>$this->input->post("email"),
+				"qualification"=>$this->input->post("qualification"),
+				"identity"=>$this->input->post("identity"),
+				"temp_address"=>$this->input->post("temp_address"),
+				"par_address"=>$this->input->post("par_address"),
+				"image"=>$user_file_name
+			);
+
+			//$this->db->insert('registration', $data);
+		// $check = $this->db->insert_id();
+		$check=$this->ExamModel->final_update($id,$data);
+		if ($check > 0) 
+		{
+			$this->session->set_tempdata('profile_update', 'Successfully Edit Profile', 5);
+			// redirect(base_url('dashboard'));
+			$this->load->view("elearning/view_profile");
+		}			
+		else {
+			$this->session->set_tempdata('profile_update', 'Failed In Edit Profile', 5);
+			//  redirect(base_url('edit_profile'));
+			$this->load->view("elearning/view_profile");
+			}
+		 }
+			
+		}
+	}	
+		
+
+
 
 	public function about()
 	{
@@ -34,7 +123,8 @@ class HomeController extends CI_Controller
 	}
 	public function t_gallery()
 	{
-		$this->load->view('elearning/gallery');
+		$data['photo'] = $this->db->get("gallery")->result();
+		$this->load->view('elearning/gallery', $data);
 	}
 
 	public function team()
@@ -53,7 +143,11 @@ class HomeController extends CI_Controller
 	{
 		$this->load->view('elearning/testimonial');
 	}
-
+	public function achiever()
+	{
+		$data['achievers'] = $this->db->get("achiever_image")->result();
+		$this->load->view('elearning/achiever',$data);
+	}
 
 	// submit contact page form data
 	public function contactus()
@@ -106,7 +200,7 @@ class HomeController extends CI_Controller
 	public function result_list()
 	{
 		$id = $this->session->userdata('userid');
-		$data['shaw'] = $this->db->where('student_id', $id)->get('results')->result();
+		$data['shaw'] = $this->db->query("select * from results join paper on results.exam_id=paper.id where student_id = $id")->result();
 		// print_r($data);
 		$this->load->view('elearning/result_list', $data);
 	}
@@ -148,6 +242,12 @@ class HomeController extends CI_Controller
 		$this->load->view('elearning/registration');
 	}
 
+	public function signup()
+	{
+		$this->load->view('elearning/signup');
+	}
+
+
 
 	// user login
 	public function login()
@@ -159,26 +259,42 @@ class HomeController extends CI_Controller
 
 	public function login_check()
 	{
-
+		
 		if (isset($_POST['submit'])) {
 
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 
 			// check user email is register or not
-			$isEmailRegistered = $this->db->query("select * from register where email = '$email'")->result();
+			$isEmailRegistered = $this->db->query("select * from registration where email = '$email'")->result();
 			if (count($isEmailRegistered) > 0) {
 
 				// check password is correct or not
-				$checkPassword = $this->db->query("select * from register where email = '$email' and password = '$password'")->result();
+				$checkPassword = $this->db->query("select * from registration where email = '$email' and password = '$password'")->result();
 
 				if (count($checkPassword) > 0) {
 					$this->session->set_userdata('first_name', $checkPassword[0]->first_name);
-					$this->session->set_userdata('last_name', $checkPassword[0]->last_name);
+					// $this->session->set_userdata('last_name', $checkPassword[0]->last_name);
 					$this->session->set_userdata('userid', $checkPassword[0]->id);
 					$this->session->set_userdata('password', $checkPassword[0]->password);
+                    $data = $this->db->query("select * from registration where id=".$checkPassword[0]->id)->result();	
+			     foreach($data as $key)
+				 {
+				// if($key->status=='1' && $key->payment=='1')
+				// {
+				// 	redirect(base_url('dashboard'), 'refresh');
+				// }	
+				// 	else if($key->status=='1')
+				// 	{
+				// 		redirect(base_url('payment'), 'refresh');	
+				// 	}
+				
+				// else{
 					redirect(base_url('dashboard'), 'refresh');
-				} else {
+				}
+			}
+		}
+				else {
 					// echo 'please enter correct password';
 					$this->session->set_tempdata('error', 'Please Enter Correct Password', 3);
 					redirect(base_url('login'), 'refresh');
@@ -189,7 +305,7 @@ class HomeController extends CI_Controller
 				redirect(base_url('login'), 'refresh');
 			}
 		}
-	}
+	
 
 
 	public function registration_user()
@@ -205,41 +321,76 @@ class HomeController extends CI_Controller
 		$check = $this->ExamModel->regist_type($data);
 		if ($check > 0) {
 			$this->session->set_tempdata('success', 'Successfully Registration... You can login now', 5);
-			redirect(base_url('registration'), 'refresh');
+			redirect(base_url('signup'), 'refresh');
 		} else {
 			$this->session->set_tempdata("error", "Successfully Registration", 5);
-			redirect(base_url('registration'), 'refresh');
+			redirect(base_url('signup'), 'refresh');
 		}
 	}
 
 	public function registration_user2()
 	{
-		$data = array(
-			"first_name" => $this->input->post("first_name"),
-			"last_name" => $this->input->post("last_name"),
-			"dob" => $this->input->post("dob"),
-			"group" => $this->input->post("group"),
-			"identity" => $this->input->post("identity"),
-			"yournumber" => $this->input->post("yournumber"),
-			"email" => $this->input->post("email"),
-			"password" => $this->input->post("password"),
-			"qualification" => $this->input->post("qualification"),
-			"course" => $this->input->post("course"),
-			"user_type" => $this->input->post("user_type"),
-			"temp_address" => $this->input->post("temp_address"),
-			"par_address" => $this->input->post("par_address")
-		);
-		$check = $this->ExamModel->regist_type($data);
-		if ($check > 0) {
+		error_reporting(0);
+        $this->load->view('elearning/signup');
+		if ($_SERVER['REQUEST_METHOD'] == 'POST')
+		 { 
+			$user_file_name = $_FILES['image']['name'];
+			$config['upload_path']          = 'assets/admin_assets/uploads/';
+			$config['allowed_types']        = 'gif|jpg|jpeg|png';
+			// $config['max_size']             = 100;
+			// $config['max_width']            = 1024;
+			// $config['max_height']           = 768;
+			$destination="assets/admin_assets/uploads/".$user_file_name;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+	
+			if ( ! $this->upload->do_upload('image'))
+					{
+						$error = array('error' => $this->upload->display_errors());
+						echo $error['error'];
+					}
+					else
+					{
+
+						$data = array(
+							'first_name' => $this->input->post('first_name'),
+							'dob' => $this->input->post('dob'),
+							'qualification' => $this->input->post('qualification'),
+							'identity' => $this->input->post('identity'),
+							'check' => $this->input->post('check'),
+							'option' => $this->input->post('option'),
+							'yournumber' => $this->input->post('yournumber'),
+							'email' => $this->input->post('email'),
+							'password' => $this->input->post('password'),
+							'temp_address' => $this->input->post('temp_address'),
+							'par_address' => $this->input->post('par_address'),
+							'image' => $user_file_name
+						);
+		
+		$this->db->insert('registration', $data);
+		$check = $this->db->insert_id();
+		if ($check > 0) 
+		{
+		    
 			$this->session->set_tempdata('success', 'Successfully Registration... Now You can login now', 5);
-			redirect(base_url('registration'), 'refresh');
-		} else {
+			redirect(base_url('login'), 'refresh');
+		}
+					
+		else {
 			$this->session->set_tempdata("error", "Successfully Registration", 5);
-			redirect(base_url('registration'), 'refresh');
+			redirect(base_url('signup'), 'refresh');
+			}
+		 }
+			
 		}
 	}
-
-
+	
+	    
+	
+	public function pending()
+	{
+		$this->load->view('elearning/pending');
+	}
 	public function enquiry()
 	{
 		$this->load->view('elearning/enquiry');
@@ -276,8 +427,13 @@ class HomeController extends CI_Controller
 			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('login'));
 		}
+		$id = $this->session->userdata('userid');
 
-		$this->load->view('elearning/dashboard');
+		$data['show1'] = $this->db->query('select * from registration where id = ' . $id)->result();
+
+		$data['addnotification'] = $this->db->get("notification")->result();
+		$data['show'] = $this->db->get("registration")->result();
+		$this->load->view('elearning/dashboard',$data);
 	}
 
 
@@ -288,13 +444,34 @@ class HomeController extends CI_Controller
 	}
 
 
+	public function profile()
+	{
+
+		if (empty($this->session->userdata('userid'))) {
+			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
+			redirect(base_url('login'));
+		}
+
+		$id = $this->session->userdata('userid');
+
+		$data['show'] = $this->db->query('select * from registration where id = ' . $id)->result();
+
+		$this->load->view('elearning/profile', $data);
+	}
+
+
 	public function paper_info()
 	{
 		if (empty($this->session->userdata('userid'))) {
 			$this->session->set_tempdata('show_login_error', 'Session Expired.. Login Again', 5);
 			redirect(base_url('login'));
 		}
-		$data['show'] = $this->db->query('select * from paper where status = "active"')->result();
+
+		$id = $this->session->userdata('userid');
+
+		$data['show'] = $this->db->query('select * from permission join paper on permission.exam_id = paper.id where permission.student_id = '. $id. ' and paper.status = "active"')->result();
+
+		// print_r($data);
 		$this->load->view('elearning/paper_info', $data);
 	}
 	public function paper_view()

@@ -35,14 +35,11 @@ class ExamModel extends CI_Model
 		return $this->db->get_where('exam', array('course_id' => $course_id))->result();
 	}
 
-
-
 	public function get_exam()
 	{
 		$q = $this->db->get("exam")->result();
 		return $q;
 	}
-
 
 	public function student_db()
 	{
@@ -64,13 +61,11 @@ class ExamModel extends CI_Model
 		return true;
 	}
 
-
 	public function insert_enqiry($data)
 	{
 		$this->db->insert("enquiry_tb", $data);
 		return true;
 	}
-
 
 	public function contact_db()
 	{
@@ -79,27 +74,28 @@ class ExamModel extends CI_Model
 	}
 	public function regist_type($data)
 	{
-		$this->db->insert("register", $data);
+		
+		$this->db->insert("registration", $data);
 		$id = $this->db->insert_id();
 		return $id;
 	}
 	public function regist_data()
 	{
-		$data = $this->db->query('select * from register')->result();
+		$data = $this->db->query('select * from registration')->result();
 		return $data;
 	}
+	
+	public function delete_student($id)
+	{
+		$response = $this->db->where("id", $id)->delete("registration");
+		return $response;
+	}
+	
 	public function delete_data($id)
 	{
 		$q = $this->db->where("id", $id)->delete("notification");
 		return $q;
 	}
-
-	public function delete_student($id)
-	{
-		$response = $this->db->where("id", $id)->delete("register");
-		return $response;
-	}
-
 	public function delete_contact($id)
 	{
 		$response = $this->db->where("id", $id)->delete("contact");
@@ -109,7 +105,7 @@ class ExamModel extends CI_Model
 
 	public function logincheck($email, $password)
 	{
-		$data = $this->db->query("select * from register where email ='$email' and password='$password'")->result();
+		$data = $this->db->query("select * from registration where email ='$email' and password='$password'")->result();
 		return $data;
 	}
 	public function enquiry_store($data)
@@ -151,9 +147,28 @@ class ExamModel extends CI_Model
 		$data = $this->db->query("select * from notification")->result();
 		return $data;
 	}
+
 	public function video_delete($id)
 	{
 		$q = $this->db->where("id", $id)->delete("videos");
+		return $q;
+	}
+
+	public function photo_delete($id)
+	{
+		$q = $this->db->where("id", $id)->delete("gallery");
+		return $q;
+	}
+
+	public function image_delete($id)
+	{
+		$q = $this->db->where("id", $id)->delete("achiever_image");
+		return $q;
+	}
+
+	public function slider_delete($id)
+	{
+		$q = $this->db->where("id", $id)->delete("slider");
 		return $q;
 	}
 
@@ -183,4 +198,24 @@ class ExamModel extends CI_Model
 		$q = $this->db->where("id", $id)->update("paper", $data);
 		return $q;
 	}
+
+	public function add_permission($data)
+	{
+		$response =	$this->db->insert("permission", $data);
+
+		return $response;
+	}
+
+	public function update_profile($id)
+	{ 
+		$q = $this->db->where("id", $id)->get("registration")->result();
+		return $q;
+	}
+	
+	public function final_update($id,$data)
+	{
+		$con=$this->db->where("id", $id)->update("registration",$data);
+		return $con;
+	}  
+
 }

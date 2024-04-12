@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -68,7 +68,18 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12 col-sm-12">
+					<div class="col-md-12 col-sm-12">
+					<?php
+						if ($this->session->tempdata('success') != "") {
+								?>
+									<div class="alert alert-success alert-dismissible fade show" role="alert">
+										<?= $this->session->tempdata('success') ?>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+
+								<?php }	?>
+
+						
 							<div class="card-box card-responcive">
 								<div class="card-head">
 									<header>Register Students List</header>
@@ -102,7 +113,7 @@
 												<th>S.No.</th>
 												<th>✔</th>
 												<th>Student Name</th>
-												<th>Status</th>
+												<!-- <th>Status</th> -->
 											</tr>
 										</thead>
 										<tbody>
@@ -115,16 +126,16 @@
 													<td>
 														<input type="checkbox" value="<?= $row->id ?>" name="approvalStudent[]" id="">
 													</td>
-													<td><?= $row->first_name . ' ' . $row->last_name ?></td>
-													<td>
-														<?php
+													<td><?= $row->first_name ?></td>
+													<!-- <td>
+														</?php
 														if ($row->user_type == 0) {
 														?>
 															<span class="badge badge-success">Connected</span>
-														<?php } else { ?>
+														</?php } else { ?>
 															<span class="badge badge-warning">Not Connected</span>
-														<?php } ?>
-													</td>
+														</?php } ?>
+													</td> -->
 												</tr>
 											<?php $sn++;
 											}

@@ -9,20 +9,14 @@
             </div>
               
                     <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row">
-                        <div class="col-12 col-lg-3 col-md-6">
-                            <img class="img-fluid bg-light p-1" src="assets/fronted_asset/img/gallery1.jpg" alt="" style="height: 250px; width: 300px;">
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-6">
-                            <img class="img-fluid bg-light p-1" src="assets/fronted_asset/img/gallery2.jpg" alt="" style="height: 250px; width: 300px;">
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-6">
-                            <img class="img-fluid bg-light p-1" src="assets/fronted_asset/img/gallery3.jpg" alt="" style="height: 250px; width: 300px;">
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-6">
-                            <img class="img-fluid bg-light p-1" src="assets/fronted_asset/img/course-3.jpg" alt="" style="height: 250px; width: 300px;">
-                        </div>
-                             
+                        <div class="row">
+                            <?php
+                            foreach($photo as $key){
+                            ?>
+                            <div class="col-12 col-sm-6 col-md-4 overflow-hidden ml-5">
+                                <img src="<?=base_url();?>assets/admin_assets/uploads/<?php echo $key->photo ?>" alt="" style="height:100px; width:100px;">
+                            </div>
+                            <?php   }  ?>    
                     </div>
                 </div>
             </div>

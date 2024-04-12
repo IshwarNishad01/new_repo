@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Education Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -50,14 +50,13 @@
 			<div class="page-header-inner ">
 				<!-- logo start -->
 				<div class="page-logo">
-					<a href="#">
-
-						<span class="">Gaytri Typing</span>
-						<span class="">| Admin</span> </a>
+				<a href="#">
+						<span class=""><img class="img-fluid" src="<?=base_url();?>assets/fronted_asset/img/logo.jpg" alt="" style="width: 25% !important;"></span>
+						<span class="">Admin</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
-					<!-- <li><a href="#" class=""><img alt="image" src="<?= base_url(); ?>assets/admin_assets/img/logo_gd_c.png" style="height: 59px;width: 98px;margin-top: -9px;"></a></li> -->
+					<h3 class="m-3 object">Gayatri Typing Or Steno Training Center</h3>
 				</ul>
 
 				<!-- start mobile menu -->

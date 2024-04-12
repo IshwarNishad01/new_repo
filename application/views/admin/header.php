@@ -1,11 +1,13 @@
 <div class="page-header navbar navbar-fixed-top">
 			<div class="page-header-inner ">
 				<!-- logo start -->
+				<center>
 				<div class="page-logo">
 					<a href="#">
-						<span class=" ">Gaytri Typing</span>
-						<span class="">| Admin</span> </a>
+						<span class=""><img class="img-fluid" src="<?=base_url();?>assets/fronted_asset/img/logo.jpg" alt="" style="width: 25% !important;"></span>
+					</a>
 				</div>
+				</center>
 				<!-- logo end -->
 				
 				

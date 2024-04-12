@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<!-- google font -->
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
@@ -43,6 +43,13 @@
 		font-size: 20px !important;
 		font-weight: 500 !important;
 	}
+	.ck-editor__editable[role="textbox"] {
+         min-height: 200px;
+    }
+	.error{
+		color: red;
+	}
+
 </style>
 
 </head>
@@ -73,7 +80,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-<?php
+						<?php
 						if ($this->session->tempdata('add_paper') != "") {
 								?>
 									<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -96,7 +103,7 @@
 												<label class="control-label col-md-3">Paper Name
 													<span class="required"> * </span>
 												</label>
-												<div class="col-md-5">
+												<div class="col-md-7">
 													<input type="text" name="p_name" data-required="1" placeholder="Paper name" class="form-control input-height" required>
 												</div>
 											</div>
@@ -104,7 +111,7 @@
 												<label class="control-label col-md-3"> Exam Duration <br>(In Minutes)
 													<span class="required"> * </span>
 												</label>
-												<div class="col-md-5">
+												<div class="col-md-7">
 													<input type="text" multiple="" name="duration" required id="preview_take" placeholder="Exam Duration" class="form-control input-height" required>
 												</div>
 											</div>
@@ -112,7 +119,7 @@
 												<label class="control-label col-md-3"> Exam Date
 													<span class="required"> * </span>
 												</label>
-												<div class="col-md-5">
+												<div class="col-md-7">
 													<input type="date" multiple="" name="e_date" required id="preview_take" placeholder="Enter Your Date" class="form-control input-height" required>
 												</div>
 											</div>
@@ -120,8 +127,8 @@
 												<label class="control-label col-md-3"> Status
 													<span class="required"> * </span>
 												</label>
-												<div class="col-md-5">
-													<select name="status" id="" class="form-Control input-height" required style="width: 415px;">
+												<div class="col-md-7">
+													<select name="status" id="" class="form-control" required >
 														<option selected disabled>Select Status</option>
 														<option value="Active">Active</option>
 														<option value="Deactive">Deactive</option>
@@ -133,8 +140,8 @@
 												<label class="control-label col-md-3"> Language
 													<span class="required"> * </span>
 												</label>
-												<div class="col-md-5">
-													<select name="language" id="" class="form-Control input-height" required style="width: 415px;" onchange="myfunction(this.value)">
+												<div class="col-md-7">
+													<select name="language" id="" class="form-control" required  onchange="myfunction(this.value)">
 														<option disabled selected>Select language</option>
 														<option value="kruti">Hindi - Kurti Dev</option>
 														<!-- <option value="mangal">Hindi - Mangal</option> -->
@@ -144,21 +151,28 @@
 											</div>
 
 											<div class="form-group row">
-												<label class="control-label col-md-3"> Message
+												<label class="control-label col-md-3" > Message
 													<span class="required"> * </span>
 												</label>
-												<textarea class="form-control message" name="message" id="paper_text" cols="10" rows="10" required style="width: 415px; margin-left: 13px;"></textarea>
-											</div>
+											<textarea id="content" class="form-control" name="message" cols="10" rows="10"></textarea>
+									
+									</div>
 											<div class="form-actions">
 												<div class="row">
 													<div class="offset-md-3 col-md-9">
-														<button type="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  btn-primary">Submit</button>
+														<button type="submit" name="submit" class="form-Control mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20  ms-2 btn-primary">Submit</button>
 													</div>
 												</div>
 											</div>
 										</div>
 
 									</form>
+									<div class="error">
+										<?php if(!empty($msg)){
+											echo $msg;
+										}
+										?>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -169,7 +183,7 @@
 
 
 		<script>
-			const paper_text = document.getElementById('paper_text');
+			const paper_text = document.getElementById('content');
 
 			function myfunction(value) {
 
@@ -222,3 +236,18 @@ $('#preview').css("height", "100px");
 </body>
 
 </html>
+
+
+<!-- CKEditor Codes......  -->
+
+<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#content' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+	CKEDITOR.replace( 'message' );
+</script>

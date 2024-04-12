@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -29,9 +29,9 @@
 	<link href="<?= base_url(); ?>assets/admin_assets/css/responsive.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>assets/admin_assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css">
 	<!-- favicon -->
-<<<<<<< HEAD
-	<link href="<?= base_url() ?>assets/fronted_asset/img/logo.jpg" rel="icon">
-=======
+
+	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
+
 	<link href="assets/fronted_asset/img/logo.jpg" rel="icon">
 	<style type="text/css">
 		@media only screen and (max-width: 600px) {
@@ -92,7 +92,7 @@
 														<?= $sn; ?>
 													</td>
 													<td>
-														<?= $key->exam_id ?>
+														<?= $key->p_name ?>
 													</td>
 													<td>
 														<?= $key->total_words ?>
@@ -121,7 +121,7 @@
 
 		</div>
 	</div>
-	</div> -->
+	</div> 
 	<!-- end chat sidebar -->
 	</div>
 

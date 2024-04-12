@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Gayatri Typing</title>
+	<title>Gayatri Typing Or Steno Training Center</title>
 	<link href="../../../../../css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
 	<link href="<?= base_url(); ?>assets/admin_assets/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -100,7 +100,7 @@
 												<th>S.No.</th>
 												<th>Student Name</th>
 												<th>Email</th>
-												<th>Type</th>
+												<!-- <th>Type</th> -->
 												<th>Details</th>
 												<th>Action</th>
 											</tr>
@@ -112,17 +112,17 @@
 											?>
 												<tr>
 													<td><?= $sn ?></td>
-													<td><?= $row->first_name . ' ' . $row->last_name ?></td>
+													<td><?= $row->first_name?></td>
 													<td><?= $row->email ?></td>
-													<td>
-														<?php
+													<!-- <td>
+														</?php
 														if($row->user_type == 0){
 														?>
 														<span class="badge badge-success">Connected</span>
-														<?php }else{ ?>
+														</?php }else{ ?>
 															<span class="badge badge-warning">Not Connected</span>
-															<?php } ?>
-													</td>
+															</?php } ?>
+													</td> -->
 													<td>
 														<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row->id ?>">
 															View Details
@@ -146,10 +146,10 @@
 															</div>
 															<div class="modal-body">
 																<?php
-																if ($row->user_type == 0) {
+																if ($row->id == 0) {
 
 																?>
-																	<h5 class="mb-2">Student Name - <?= $row->first_name . ' ' . $row->last_name ?></h5>
+																	<h5 class="mb-2">Student Name - <?= $row->first_name?></h5>
 																	<h5 class="mb-2">Student Email - <?= $row->email ?></h5>
 																	<h5 class="mb-2">Created Account Date - <?= $row->date ?></h5>
 
@@ -158,11 +158,9 @@
 																?>
 																	<h4>Register User is not connected with your institution...</h4>
 
-																	<h5 class="mb-2">Student Name - <?= $row->first_name . ' ' . $row->last_name ?></h5>
+																	<h5 class="mb-2">Student Name - <?= $row->first_name?></h5>
 																	<h5 class="mb-2">Student Email - <?= $row->email ?></h5>
 																	<h5 class="mb-2">Date Of Birth - <?= $row->dob ?></h5>
-
-																	<h5>Blood Group - <?= $row->group ?></h5>
 
 																	<h5>Aadhar Card Number - <?= $row->identity ?></h5>
 
